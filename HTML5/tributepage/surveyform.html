@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Survey Form</title>
+
+<link rel="stylesheet" type="text/css" href="./stylesheets/surveystyle.css">
+
+</head>
+
+<body>
+    <section class="grid-container">
+        <header>
+            <!--Just going to add an extra menu-->
+            <nav id="dropdown-container">
+                <ul>
+                    <li class="dropdown-rootlist">
+                        <a href="#">Link</a>
+                        <ul>
+                            <li>
+                                <a href="#">Sub Link</a>
+                            </li>
+                            <li>
+                                <a href="#">Sub Link</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-rootlist"><a href="#">Link</a></li>
+                    <li class="dropdown-rootlist">
+                        <a href="#">Link</a>
+                        <ul>
+                                <li>
+                                    <a href="#">Sub Link</a>
+                                </li>
+                                <li>
+                                    <a href="#">Sub Link</a>
+                                </li>
+                                <li>
+                                    <a href="#">Sub Link</a>
+                                </li>
+                            </ul>
+                    </li>
+                    <li class="dropdown-rootlist"><a href="#">Link</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+
+   
+        <main>
+            <h2>Survey Form</h2>
+            <section class="question-container">
+                <form onsubmit="return false">
+                    <section class="question-input-container">
+                        <label for="name">Enter your name</label>
+                        <input placeholder="Full Name" id="name" name="name" required>
+                    
+                        
+                    
+                        <label for="email">Email</label>
+                        <input placeholder="Enter your email" id="email" name="email" required>
+                    
+                    
+                        <label for="phonenumber">Phone Number</label>
+                        <input placeholder="Phone Number" id="phonenumber" name="phonenumber" required>
+                       
+                    </section>
+                    <section class="question-drop-container">
+                        <label for="drop-pos">How often do you drink tea?</label>
+                        <select name="drop-pos" id="drop-pos">
+                            <option value="day">Every day</option>
+                            <option value="week">Weekly</option>
+                            <option value="occasionally">Occasionally</option>
+                        
+                        </select>
+                    </section>
+                    <section class="checkbox-container">
+                        <div>What tea drinks have you tried? Check all that apply.</div>
+                        <label>
+                            <input type="checkbox" name="teaflavour" value="matcha">
+                            <span>Matcha</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="teaflavour" value="sencha">
+                            <span>Sencha</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="teaflavour" value="black">
+                            <span>Black</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" name="teaflavour" value="jasmine">
+                            <span>Jasmine</span>
+                        </label>
+
+                    </section>
+                    <section class="radio-container">
+                        <label>How would you rate your expierence with tea?</label>
+                        <div>
+                            <label>
+                                <input name="radio-buttons" type="radio" class="radio-buttons">
+                                <span>Enjoyable</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>  
+                                <input name="radio-buttons" type="radio" class="radio-buttons">
+                                <span>Love it</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input name="radio-buttons" type="radio" class="radio-buttons">
+                                <span>Not sure</span>  
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input name="radio-buttons" type="radio" class="radio-buttons">
+                                <span>Hate it</span>   
+                            </label>
+                        </div>
+
+                    </section>
+                    <section class="textarea-container">
+                            <div>
+                                <label>
+                                    <span>How can we improve our survey?</span>   
+                                    <textarea>Enter your comment here</textarea>
+                                </label>
+                            </div>
+                    </section>
+
+                    <button id="submit-button" type="submit">Submit</button>
+                    
+                </form>
+            </section>  
+    </main>
+
+</section>
+
+<section id="scripts">
+    <script src="scripts/surveyform.js"></script>
+</section>
+
+</body>
+
+</html>

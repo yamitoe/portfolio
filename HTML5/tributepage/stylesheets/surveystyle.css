@@ -1,0 +1,74 @@
+#dropdown-container ul {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  background-color: rgba(21, 20, 20, 0.534);
+}
+#dropdown-container ul li {
+  width: 100px;
+  list-style: none;
+}
+#dropdown-container ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 15px;
+}
+#dropdown-container ul li a:hover {
+  color: rgba(200, 25, 25, 0.534);
+}
+#dropdown-container ul li:hover ul {
+  display: block;
+  color: rgba(200, 25, 25, 0.534);
+  border-top: solid 1px;
+}
+#dropdown-container ul li ul {
+  display: none;
+  position: absolute;
+}
+
+.question-container .textarea-container label, .question-container .radio-container, .question-container .question-drop-container, .question-container .question-input-container {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.question-container .question-drop-container input, .question-container .question-input-container input, .question-container .question-drop-container select, .question-container .question-input-container select {
+  width: 200px;
+}
+
+body {
+  background-color: #6e9c3a;
+}
+
+input:invalid {
+  border-bottom: 2px solid red;
+}
+input:valid {
+  border: 1px solid black;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas: "header header header" "main main main";
+  grid-row-gap: 15px;
+  grid-column-gap: 15px;
+}
+
+header {
+  grid-area: header;
+}
+
+main {
+  grid-area: main;
+  margin: 10px;
+}
+
+.question-container .textarea-container label textarea {
+  width: 200px;
+  height: 80px;
+}
+
+/*# sourceMappingURL=surveystyle.css.map */

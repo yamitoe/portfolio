@@ -1,0 +1,106 @@
+@import "_dropdownstyle";
+
+$width-common: 200px;
+
+%flex-column
+{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+%input-width
+{
+    input,select
+    {
+        width: $width-common;
+    }
+}
+
+body
+{
+    background-color: hsla(88, 46%, 42%, 1);
+}
+
+input
+{
+    &:invalid
+    {
+       border-bottom: 2px solid red;
+       
+    }
+    &:valid
+    {
+        border: 1px solid black;
+    }
+}
+
+.grid-container
+{
+    
+    display: grid;
+    grid:
+    {
+        template:
+        {
+            columns: repeat(3,auto);
+            rows: repeat(2,auto);
+            areas: 
+            "header header header"
+            "main main main";
+        }
+        row-gap: 15px;
+        column-gap: 15px;
+      
+    }
+}
+
+header
+{
+    grid-area: header;
+}
+
+main
+{
+    grid-area: main;
+    margin: 10px;
+}
+
+.question-container
+{
+    .question-input-container
+    {
+        @extend %flex-column;
+        @extend %input-width;
+      
+    }
+
+    .question-drop-container
+    {
+        @extend %flex-column;
+        @extend %input-width;
+        
+    }
+
+    .checkbox-container
+    {
+        //display: flex;
+    }
+
+    .radio-container
+    {
+        @extend %flex-column;
+    }
+    
+    .textarea-container
+    {
+        label
+        {
+            @extend %flex-column;
+            textarea
+            {
+                width: $width-common;
+                height: 80px;
+            }
+        }
+    }
+}

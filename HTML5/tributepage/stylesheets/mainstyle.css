@@ -1,0 +1,93 @@
+#dropdown-container ul {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  background-color: rgba(21, 20, 20, 0.534);
+}
+#dropdown-container ul li {
+  width: 100px;
+  list-style: none;
+}
+#dropdown-container ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 15px;
+}
+#dropdown-container ul li a:hover {
+  color: rgba(200, 25, 25, 0.534);
+}
+#dropdown-container ul li:hover ul {
+  display: block;
+  color: rgba(200, 25, 25, 0.534);
+  border-top: solid 1px;
+}
+#dropdown-container ul li ul {
+  display: none;
+  position: absolute;
+}
+
+.portrait-container, .bio-container, main {
+  justify-content: center;
+  align-items: center;
+}
+
+.portrait-container, .bio-container, main {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas: "header header header" ". main .";
+  grid-column-gap: 15px;
+  grid-row-gap: 10px;
+}
+
+header {
+  grid-area: header;
+}
+
+body {
+  background-repeat: repeat;
+  background-image: url(/tributepage/images/bluedots.jpg);
+}
+
+main {
+  grid-area: main;
+  background-color: rgba(87, 199, 236, 0.9);
+  margin: 10px;
+}
+
+@media (max-width: 800px) {
+  main {
+    background-color: rgba(42, 184, 231, 0.9);
+  }
+}
+@media (max-width: 600px) {
+  main {
+    background-color: rgba(22, 155, 200, 0.9);
+  }
+}
+.bio-container li {
+  margin: 10px;
+}
+
+.portrait-container {
+  min-width: 0;
+  min-height: 0;
+}
+.portrait-container img {
+  max-width: 500px;
+  min-width: 400px;
+  width: 100%;
+}
+
+.bio-container {
+  max-width: 600px;
+}
+
+/*# sourceMappingURL=documents/github/freecodecamp/tributepage/stylesheets/mainstyle.css.map */

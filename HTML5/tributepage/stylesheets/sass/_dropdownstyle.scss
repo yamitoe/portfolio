@@ -1,0 +1,60 @@
+//for dropdown menu
+#dropdown-container ul
+{
+    
+    display: flex;
+    //Reset list spacing
+    padding: 0px;
+    margin: 0px;
+    background-color: hsla(0, 3%, 8%, 0.534);
+    
+    li
+    {
+       
+        width: 100px;
+        list-style: none;
+      
+        a
+        {
+            //take up entire space so that is clickable
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 15px;
+            //change anchor colour when within display range    
+            &:hover
+            {
+                color: hsla(0, 78%, 44%, 0.534);
+                //border: solid 1px;
+            }
+        }
+
+     
+        //display sub menus
+        &:hover ul
+        {
+            display: block;
+            color: hsla(0, 78%, 44%, 0.534);
+            border-top: solid 1px;
+            
+            
+        }
+
+        //hide sub menus
+        ul
+        {
+           // padding-top: 10px;
+            display: none;
+            position: absolute; //take out of flow
+        }
+        
+      
+
+   
+
+
+    }
+    
+}
+
