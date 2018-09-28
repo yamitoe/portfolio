@@ -25,13 +25,16 @@ class Calculator extends Component{
             return <Buttons func={this.onClickFunc} name={x.value} key={x.value} className={x.class}/> 
         })
     }
-    //events
+    //events //Sythetic Event
     onClickFunc(e){
-        console.log(e.target.value);
-        this.setState((state)=>{
-            console.log(1);
-            return {currentValue: state.currentValue};
-        });
+        console.log(e.target.className);
+        if(e.target.className === "number"){
+            this.setState({currentValue: e.target.value});
+        }
+        else{
+
+        }
+
     }
 
     render(){
@@ -42,7 +45,7 @@ class Calculator extends Component{
         return(
             <div>
                 <section className="display">
-                    <div></div>
+                    <div>{this.state.currentValue}</div>
                 </section>
                 <section className="buttons">
                     {this.createButtons(operation)}
