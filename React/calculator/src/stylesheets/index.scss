@@ -1,3 +1,4 @@
+//The display
 .display{
     margin: 10px;
     div{
@@ -5,9 +6,13 @@
         background-color: beige;
     }
 }
-
+//General
 button{
     font-size: 15px;
+}
+//The intergers //Specific
+.number{
+    font-weight: bold;
 }
 
 .buttons{

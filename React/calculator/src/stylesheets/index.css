@@ -7,6 +7,9 @@
 button {
   font-size: 15px; }
 
+.number {
+  font-weight: bold; }
+
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr); }
