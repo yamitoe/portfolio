@@ -8,19 +8,35 @@ import { Buttons } from './components/buttons';
 class Calculator extends Component{
     constructor(props){
         super(props);
-        this.state = {};
+        this.state = {currentValue: 0};
+
+        this.onClickFunc = this.onClickFunc.bind(this);
 
     }
     //for now only keys that are on keyboard //don't want to crop images
     createButtons(arr){
         return arr.map((x)=>{
-            return <Buttons func="onClickFunc" name={x} key={x}/> 
+            return <Buttons func={this.onClickFunc} name={x} key={x}/> 
         })
+    }
+    //events
+    onClickFunc(e){
+        console.log(e.target.value);
+        this.setState((state)=>{
+            console.log(1);
+            return {currentValue: state.currentValue};
+        });
     }
 
     render(){
-       // let arr = [0,1,2,3,4,5,6,7,8,9,'.','+','-','*','/','=','CE'];
+       //If I made array of objects I would be able to apply specific CSS 
+       //IE - value:1,className:number -Can pass to map and all class by this name can be bolded
        let arr = [9,8,7,'X',6,5,4,'-',3,2,1,'+','+-',0,'.','='];
+       let t = arr.map((value)=>{
+        //Spread syantax //Assumeing babel converts newest ES2018 to old version //Merges(Object Literal)
+           return {value, ...(typeof value ==="number") ? {class:value} : {} }
+       });
+       console.log(t);
        let operation = ['CE','C','x^2','/'];
         return(
             <div>
