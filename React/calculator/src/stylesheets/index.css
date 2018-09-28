@@ -1,0 +1,16 @@
+.display {
+  margin: 10px; }
+  .display div {
+    padding: 25px;
+    background-color: beige; }
+
+button {
+  font-size: 15px; }
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); }
+  .buttons .numbers {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); }

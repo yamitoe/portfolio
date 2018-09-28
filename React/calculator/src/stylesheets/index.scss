@@ -1,0 +1,25 @@
+.display{
+    margin: 10px;
+    div{
+        padding: 25px;
+        background-color: beige;
+    }
+}
+
+button{
+    font-size: 15px;
+}
+
+.buttons{
+    display: grid;
+    grid-template-columns: repeat(4,1fr); //like 100% but better as it fits for free space
+    
+
+    .numbers{
+        grid-column: 1/-1;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+      
+    }
+
+}
