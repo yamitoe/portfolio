@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './stylesheets/index.css'
 import { Component } from 'react';
-import { Buttons } from './components/buttons';
+import {CreateButtons} from './components/createbuttons';
+
 
 //Make a basic calculator
 class Calculator extends Component{
@@ -17,18 +18,7 @@ class Calculator extends Component{
         this.onClickFunc = this.onClickFunc.bind(this);
 
     }
-    //for now only keys that are on keyboard //don't want to crop images
-    createButtons(arr){
-        //convert to array of objects
-        let arrObj = arr.map((value)=>{
-            //Spread syantax //Assumeing babel converts newest ES2018 to old version //Merges(Object Literal)
-               return {value, ...(typeof value ==="number") ? {class:"number"} : {} }
-           });
 
-        return arrObj.map((x)=>{
-            return <Buttons func={this.onClickFunc} name={x.value} key={x.value} className={x.class}/> 
-        })
-    }
     //events //Sythetic Event
     onClickFunc(e){
         //console.log(e.target.className);
@@ -112,9 +102,9 @@ class Calculator extends Component{
                     <div>{this.state.firstValue}</div>
                 </section>
                 <section className="buttons">
-                    {this.createButtons(operation)}
+                    <CreateButtons arr={operation} onClickFunc={this.onClickFunc}/>
                     <section className="numbers">
-                        {this.createButtons(arr)}
+                        <CreateButtons arr={arr} onClickFunc={this.onClickFunc}/>
                     </section>
                 </section>
             </div>
