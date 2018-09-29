@@ -44,7 +44,7 @@ class Calculator extends Component{
         }
         else{
             //Can only think of a switch statement //e.target.innerHTML could have worked as well
-            
+            let call = this.state;
             switch(e.target.value){ 
                 case '+':
                     this.setState({
@@ -56,7 +56,7 @@ class Calculator extends Component{
                         operator: function(x,y){return parseFloat(x)-parseFloat(y)}
                     });
                     break;
-                case '*':
+                case 'X':
                     this.setState({
                         operator: function(x,y){return parseFloat(x)*parseFloat(y)}
                     });
@@ -66,8 +66,28 @@ class Calculator extends Component{
                         operator: function(x,y){return parseFloat(x)/parseFloat(y)}
                     });
                     break;
+                case 'x^2':
+                    this.setState((value)=>{
+                        return {firstValue: Math.pow(parseFloat(value.firstValue),2)}
+                    });
+                    break;
+                case 'C':
+                    this.setState({firstValue:0,lastValue:0,operator:null});
+                    break;
+                case '+-':
+                //Make first number neg
+                    if(this.state.operator === null){
+                        this.setState((value)=>{
+                            return {firstValue: (-parseFloat(value.firstValue)) }
+                        });
+                    }
+                    else{//Make last number neg
+                        this.setState((value)=>{
+                            return {lastValue: (-parseFloat(value.lastValue)) }
+                        });
+                    }
+                    break;
                 case '=':
-                    let call = this.state;
                     if(call.operator !== null){
                         let total = call.operator(call.firstValue,call.lastValue);
                         this.setState({firstValue: total});
@@ -85,7 +105,7 @@ class Calculator extends Component{
        //If I made array of objects I would be able to apply specific CSS 
        //IE - value:1,className:number -Can pass to map and all class by this name can be bolded
        let arr = [9,8,7,'X',6,5,4,'-',3,2,1,'+','+-',0,'.','='];
-       let operation = ['CE','C','x^2','/'];
+       let operation = ['C','','x^2','/'];
         return(
             <div>
                 <section className="display">
