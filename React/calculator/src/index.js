@@ -8,7 +8,11 @@ import { Buttons } from './components/buttons';
 class Calculator extends Component{
     constructor(props){
         super(props);
-        this.state = {currentValue: 0};
+        this.state = {
+            firstValue: 0,
+            lastValue:0,
+            operator: null
+        };
 
         this.onClickFunc = this.onClickFunc.bind(this);
 
@@ -27,12 +31,52 @@ class Calculator extends Component{
     }
     //events //Sythetic Event
     onClickFunc(e){
-        console.log(e.target.className);
+        //console.log(e.target.className);
         if(e.target.className === "number"){
-            this.setState({currentValue: e.target.value});
+            //Keep choosing firstValue if operator not set
+            if(this.state.operator === null){
+                this.setState({firstValue: e.target.value});
+            }
+            else{//If operator is set, add the second number
+                this.setState({lastValue: e.target.value});
+            }
+           
         }
         else{
-
+            //Can only think of a switch statement //e.target.innerHTML could have worked as well
+            
+            switch(e.target.value){ 
+                case '+':
+                    this.setState({
+                        operator: function(x,y){return parseFloat(x)+parseFloat(y)}
+                    });
+                    break;
+                case '-':
+                    this.setState({
+                        operator: function(x,y){return parseFloat(x)-parseFloat(y)}
+                    });
+                    break;
+                case '*':
+                    this.setState({
+                        operator: function(x,y){return parseFloat(x)*parseFloat(y)}
+                    });
+                    break;
+                case '/':
+                    this.setState({
+                        operator: function(x,y){return parseFloat(x)/parseFloat(y)}
+                    });
+                    break;
+                case '=':
+                    let call = this.state;
+                    if(call.operator !== null){
+                        let total = call.operator(call.firstValue,call.lastValue);
+                        this.setState({firstValue: total});
+                    }
+                    break;
+                default:
+                    this.setState({operator: null});
+                    console.log("failure");
+            }
         }
 
     }
@@ -45,7 +89,7 @@ class Calculator extends Component{
         return(
             <div>
                 <section className="display">
-                    <div>{this.state.currentValue}</div>
+                    <div>{this.state.firstValue}</div>
                 </section>
                 <section className="buttons">
                     {this.createButtons(operation)}
