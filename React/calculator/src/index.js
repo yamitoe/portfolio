@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './stylesheets/index.css'
 import { Component } from 'react';
 import {CreateButtons} from './components/createbuttons';
+import {operationMap} from './data/operationmap';
 
 
 //Make a basic calculator
@@ -18,6 +19,10 @@ class Calculator extends Component{
         this.onClickFunc = this.onClickFunc.bind(this);
 
     }
+    //Get operators from my object operators map
+    handleOperators = op1 => {
+        this.setState({operator: operationMap[op1]});
+      }
 
     //events //Sythetic Event
     onClickFunc(e){
@@ -33,59 +38,54 @@ class Calculator extends Component{
            
         }
         else{
-            //Can only think of a switch statement //e.target.innerHTML could have worked as well
             let call = this.state;
-            switch(e.target.value){ 
-                case '+':
-                    this.setState({
-                        operator: function(x,y){return parseFloat(x)+parseFloat(y)}
-                    });
-                    break;
-                case '-':
-                    this.setState({
-                        operator: function(x,y){return parseFloat(x)-parseFloat(y)}
-                    });
-                    break;
-                case 'X':
-                    this.setState({
-                        operator: function(x,y){return parseFloat(x)*parseFloat(y)}
-                    });
-                    break;
-                case '/':
-                    this.setState({
-                        operator: function(x,y){return parseFloat(x)/parseFloat(y)}
-                    });
-                    break;
-                case 'x^2':
-                    this.setState((value)=>{
-                        return {firstValue: Math.pow(parseFloat(value.firstValue),2)}
-                    });
-                    break;
-                case 'C':
-                    this.setState({firstValue:0,lastValue:0,operator:null});
-                    break;
-                case '+-':
-                //Make first number neg
-                    if(this.state.operator === null){
+
+            if(e.target.value === '='){
+                if(call.operator !== null){
+                    let total = call.operator(call.firstValue,call.lastValue);
+                    this.setState({firstValue: total});
+                }
+            }
+            else{
+                //if operation exsist in our map
+                if(operationMap.hasOwnProperty(e.target.value)){
+                    this.handleOperators(e.target.value);
+                }
+                else{
+                    switch(e.target.value){
+                        case 'x^2':
                         this.setState((value)=>{
-                            return {firstValue: (-parseFloat(value.firstValue)) }
+                            return {firstValue: Math.pow(parseFloat(value.firstValue),2)}
                         });
+                        break;
+                    case 'C':
+                        this.setState({firstValue:0,lastValue:0,operator:null});
+                        break;
+                    case '+-':
+                    //Make first number neg
+                        if(this.state.operator === null){
+                            this.setState((value)=>{
+                                return {firstValue: (-parseFloat(value.firstValue)) }
+                            });
+                        }
+                        else{//Make last number neg
+                            this.setState((value)=>{
+                                return {lastValue: (-parseFloat(value.lastValue)) }
+                            });
+                        }
+                        break;
+                    case '=':
+                        if(call.operator !== null){
+                            let total = call.operator(call.firstValue,call.lastValue);
+                            this.setState({firstValue: total});
+                        }
+                        break;
+                    default:
+                        this.setState({operator: null});
+                        console.log("failure");
                     }
-                    else{//Make last number neg
-                        this.setState((value)=>{
-                            return {lastValue: (-parseFloat(value.lastValue)) }
-                        });
-                    }
-                    break;
-                case '=':
-                    if(call.operator !== null){
-                        let total = call.operator(call.firstValue,call.lastValue);
-                        this.setState({firstValue: total});
-                    }
-                    break;
-                default:
-                    this.setState({operator: null});
-                    console.log("failure");
+                }
+
             }
         }
 
