@@ -51,38 +51,31 @@ class Calculator extends Component{
                 if(operationMap.hasOwnProperty(e.target.value)){
                     this.handleOperators(e.target.value);
                 }
-                else{
+                else{//Ones I can't group all together
                     switch(e.target.value){
                         case 'x^2':
                         this.setState((value)=>{
                             return {firstValue: Math.pow(parseFloat(value.firstValue),2)}
                         });
                         break;
-                    case 'C':
-                        this.setState({firstValue:0,lastValue:0,operator:null});
-                        break;
-                    case '+-':
-                    //Make first number neg
-                        if(this.state.operator === null){
-                            this.setState((value)=>{
-                                return {firstValue: (-parseFloat(value.firstValue)) }
-                            });
-                        }
-                        else{//Make last number neg
-                            this.setState((value)=>{
-                                return {lastValue: (-parseFloat(value.lastValue)) }
-                            });
-                        }
-                        break;
-                    case '=':
-                        if(call.operator !== null){
-                            let total = call.operator(call.firstValue,call.lastValue);
-                            this.setState({firstValue: total});
-                        }
-                        break;
-                    default:
-                        this.setState({operator: null});
-                        console.log("failure");
+                        case 'C':
+                            this.setState({firstValue:0,lastValue:0,operator:null});
+                            break;
+                        case '+-':
+                        //Make first number neg
+                            if(this.state.operator === null){
+                                this.setState((value)=>{
+                                    return {firstValue: (-parseFloat(value.firstValue)) }
+                                });
+                            }
+                            else{//Make last number neg
+                                this.setState((value)=>{
+                                    return {lastValue: (-parseFloat(value.lastValue)) }
+                                });
+                            }
+                            break;
+                        default:
+                            this.setState({operator: null});
                     }
                 }
 
