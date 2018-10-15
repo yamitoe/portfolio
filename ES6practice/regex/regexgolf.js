@@ -25,7 +25,7 @@ verify(/pop|prop/,
     ["pop culture", "mad props"],
     ["plop", "prrrop"]);
 
-verify(/ferret|ferry|ferrari/,
+verify(/ferr(et|y|ari)/,
     ["ferret", "ferry", "ferrari"],
     ["ferrum", "transfer A"]);
 
@@ -33,15 +33,15 @@ verify(/ious\b/,
     ["how delicious", "spacious room"],
     ["ruinous", "consciousness"]);
 
-verify(/\s[\\.,:;]/,
+verify(/\s[.,:;]/,
     ["bad punctuation ;"],
     ["escape the period"]);
 
-verify(/.../,
+verify(/\w{7,}/,
     ["hottentottententen"],
     ["no", "hotten totten tenten"]);
 
-verify(/.../,
+verify(/\b[^\se]+\b/i,
     ["red platypus", "wobbling nest"],
     ["earth bed", "learning ape", "BEET"]);
 
