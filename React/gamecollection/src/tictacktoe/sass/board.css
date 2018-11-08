@@ -1,0 +1,6 @@
+.board .row {
+  display: flex; }
+  .board .row .square {
+    padding: 20px;
+    border: solid 1px black;
+    background-color: antiquewhite; }

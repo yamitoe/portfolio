@@ -5,7 +5,7 @@ import Board from './tictacktoe/components/Board';
 class Test extends Component{
     render(){
         return(
-            <div>test</div>
+            <Board x={3} y={3}/>
         );
     }
     

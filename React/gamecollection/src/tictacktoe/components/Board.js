@@ -1,15 +1,17 @@
 import React from 'react';
-function Board(x,y){
+import '../sass/board.css';
+function Board({x,y}){
     let arr = [];
-    let inner = "";
     for(let row = 0; row < y; row++){
+        let inner = [];
         for(let column = 0; column< x; column++){
-            inner=<div className='square'></div>;
+            inner.push(<div className='square'></div>);
         }
-        arr.push(<div className='row'>
+        arr.push(<div className='row' key={row}>
             {inner}
         </div>);
     }
+    //console.log(y);
 
     return(
         <section className='board'>
