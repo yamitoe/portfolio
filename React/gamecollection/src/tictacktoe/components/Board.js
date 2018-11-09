@@ -1,17 +1,17 @@
 import React from 'react';
 import '../sass/board.css';
-function Board({x,y}){
+function Board({x,y,turn}){
     let arr = [];
     for(let row = 0; row < y; row++){
         let inner = [];
         for(let column = 0; column< x; column++){
-            inner.push(<div className='square'></div>);
+            inner.push(<div className='square' onClick={e=>turn(e,row+"-"+column)} key={column}></div>);
         }
         arr.push(<div className='row' key={row}>
             {inner}
         </div>);
     }
-    //console.log(y);
+
 
     return(
         <section className='board'>
