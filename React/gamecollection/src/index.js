@@ -1,6 +1,18 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
 import Board from './tictacktoe/components/Board';
+import test from './tictacktoe/images/x.png';
+
+const imgs = {};
+//.keys() - array of file paths
+function importAll(r){
+    r.keys().map(key=>imgs[key] = r(key));
+}
+//Folder,boolean reursion, regex
+importAll(require.context('./tictacktoe/images',false,/\.(png|jpe?g|svg)$/));
+//Note since this is called when loading hoisting is not a thing
+
+
 
 //move this module after done
 class OnClick extends Component{
@@ -11,12 +23,16 @@ class OnClick extends Component{
         this.handleTurn = this.handleTurn.bind(this);
     }
 
-    handleTurn(e,square){
+    handleTurn(e,id){
         console.log("dabbing for justice");
-        console.log(square);
         this.setState(state=>({
             turn: !state.turn
         }))
+        /*document.getElementById(id).style.cssText =
+        `background-image: url("${test}");
+        object-fit: scale-down;`;*/
+        document.getElementById(id).innerHTML = 
+        `<img alt='${this.state.turn}' src='${this.state.turn ? imgs['./x.png'] : imgs['./o.png']}'/>`;
     }
 
 
