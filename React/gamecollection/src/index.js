@@ -27,14 +27,12 @@ class OnClick extends Component{
             this.setState(state=>({
                 turn: !state.turn,
                 boardData: Object.assign(state.boardData, ({[id]: state.turn}))
-            }))
+            }),()=>this.checkWinCondition())
 
             document.getElementById(id).innerHTML = 
-        `<img alt='${this.state.turn}' src='${this.state.turn ? imgs['./x.png'] : imgs['./o.png']}'/>`;
-
+            `<img alt='${this.state.turn}' src='${this.state.turn ? imgs['./x.png'] : imgs['./o.png']}'/>`;
         }
-        this.checkWinCondition();
-
+    
         /*this.setState(state=>({
             turn: !state.turn,
             boardData: !state.boardData.hasOwnProperty(id) ?
@@ -53,13 +51,16 @@ class OnClick extends Component{
         let test = ['0-0','0-1','0-2']; //for top row
         let arrX = [];
         let arrO = [];
-
+        //Get keys
         let myKeys = Object.keys(this.state.boardData);
+        console.log(this.state.boardData);
+        console.log(myKeys);
+        //Seperate x's and o's
         let matchingKey = myKeys.forEach(key=>{
             return (this.state.boardData[key] ? arrX.push(key) :
             arrO.push(key));
         })
-        console.log(arrX);
+        //(avb) equiv !(!a&!b)
         if(!test.some(value=>!arrX.includes(value)) && arrX.length !== 0){
             console.log("winner");
         }
