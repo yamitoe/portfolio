@@ -50,6 +50,7 @@ class OnClick extends Component{
     checkWinCondition(){
         //This really constrains the board to a 3x3 now
         let winPatters = ['0-0','0-1','0-2','1-0','1-1','1-2','2-0','2-1','2-2'];
+        let test = ['0-0','0-1','0-2']; //for top row
         let arrX = [];
         let arrO = [];
 
@@ -59,6 +60,10 @@ class OnClick extends Component{
             arrO.push(key));
         })
         console.log(arrX);
+        if(!test.some(value=>!arrX.includes(value)) && arrX.length !== 0){
+            console.log("winner");
+        }
+        
     }
     
 
