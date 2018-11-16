@@ -1,0 +1,12 @@
+Things to consider
+------
+Instead of one central board data, I could have split 
+it in the state for x and o
+vs
+Splitting it later like what I did
+
+Pros: Would not have to create two new arrays each time,
+would save time, state cost less to write to
+
+Would reduce amount of code in checkWinConditon()
+-Wouldn't need to grab keys, grab data with forEach then split
