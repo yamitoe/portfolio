@@ -57,18 +57,17 @@ class OnClick extends Component{
 
         //Get keys
         let myKeys = Object.keys(this.state.boardData);
-        console.log(this.state.boardData);
-        console.log(myKeys);
         //Seperate x's and o's
         let matchingKey = myKeys.forEach(key=>{
             return (this.state.boardData[key] ? arrX.push(key) :
             arrO.push(key));
         })
-        //(avb) equiv !(!a&!b)
+
       winCondition.forEach(key=>{
-          console.log(key);
-          if(!key.some(value=>!arrX.includes(value)) && arrX.length !== 0){
-            console.log("winner");
+        //(avb) equiv !(!a&!b)
+          if(!key.some(value=>!arrX.includes(value)) && arrX.length !== 0 ||
+          !key.some(value=>!arrO.includes(value)) && arrO.length !== 0){
+            //if won, change to red
             key.forEach(key=>document.getElementById(key).style.cssText =
             `background-color: red;`)
           }
