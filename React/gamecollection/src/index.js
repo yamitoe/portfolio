@@ -47,10 +47,14 @@ class OnClick extends Component{
 
     checkWinCondition(){
         //This really constrains the board to a 3x3 now
-        let winPatters = ['0-0','0-1','0-2','1-0','1-1','1-2','2-0','2-1','2-2'];
-        let test = ['0-0','0-1','0-2']; //for top row
         let arrX = [];
         let arrO = [];
+        
+        let test = ['0-0','0-1','0-2']; //for top row
+        let winCondition = [['0-0','0-1','0-2'],['1-0','1-1','1-2'],['2-0','2-1','2-2'],
+        ['0-0','1-0','2-0'],['0-1','1-1','2-1'],['0-2','1-2','2-2'],
+        ['0-0','1-1','2-2'],['0-2','1-1','2-0']];
+
         //Get keys
         let myKeys = Object.keys(this.state.boardData);
         console.log(this.state.boardData);
@@ -61,14 +65,14 @@ class OnClick extends Component{
             arrO.push(key));
         })
         //(avb) equiv !(!a&!b)
-        if(!test.some(value=>!arrX.includes(value)) && arrX.length !== 0){
+      winCondition.forEach(key=>{
+          console.log(key);
+          if(!key.some(value=>!arrX.includes(value)) && arrX.length !== 0){
             console.log("winner");
-            test.forEach(key=>document.getElementById(key).style.cssText =
+            key.forEach(key=>document.getElementById(key).style.cssText =
             `background-color: red;`)
-            
-            
-        }
-        
+          }
+        })   
     }
     
 
