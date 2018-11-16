@@ -63,6 +63,10 @@ class OnClick extends Component{
         //(avb) equiv !(!a&!b)
         if(!test.some(value=>!arrX.includes(value)) && arrX.length !== 0){
             console.log("winner");
+            test.forEach(key=>document.getElementById(key).style.cssText =
+            `background-color: red;`)
+            
+            
         }
         
     }
