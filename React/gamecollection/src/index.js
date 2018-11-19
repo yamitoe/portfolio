@@ -60,7 +60,7 @@ class OnClick extends Component{
           }
         })   
     }
-
+    
     includeKeyLength(arr,key){
         return !key.some(value=>!arr.includes(value)) && arr.length !== 0;
     }

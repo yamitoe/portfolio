@@ -1,12 +1,22 @@
 Things to consider
 ------
-Instead of one central board data, I could have split 
-it in the state for x and o
-vs
-Splitting it later like what I did
+ (Splitting not very efficent see #2)
+1.  Instead of one central board data, I could have split 
+    it in the state for x and o
+    vs
+    Splitting it later like what I did
 
-Pros: Would not have to create two new arrays each time,
-would save time, state cost less to write to
+    Pros: Would not have to create two new arrays each time,
+    would save time, state cost less to write to
 
-Would reduce amount of code in checkWinConditon()
--Wouldn't need to grab keys, grab data with forEach then split
+    Would reduce amount of code in checkWinConditon()
+    -Wouldn't need to grab keys, grab data with forEach then split
+
+(Best solution)
+2.  I could have avoided dom manipulation if I just used 
+{this.state.turn} in the div itself (and where turn would be x or o) vs after the fact DOM manipulation
+
+3. I should really convert to using only class components considering the benefits and the fact
+the code is about the same amount if you omit constructor + class syntax
+
+Final Verdict: One JSX line could have solved everything
