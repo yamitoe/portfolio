@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import Board from './tictacktoe/components/Board';
+import Board from './boardgames/components/Board';
 const imgs = {};
 
 //.keys() - array of file paths
@@ -8,7 +8,7 @@ function importAll(r){
     r.keys().map(key=>imgs[key] = r(key));
 }
 //Folder,boolean reursion, regex //Webpacks 
-importAll(require.context('./tictacktoe/images',false,/\.(png|jpe?g|svg)$/));
+importAll(require.context('./boardgames/images',false,/\.(png|jpe?g|svg)$/));
 //Note since this is called when loading hoisting is not a thing
 
 //move this module after done
