@@ -1,5 +1,5 @@
 import React from 'react';
-import '../sass/board.css';
+import '../../sass/board.css';
 function Board({x,y,turn}){
     let arr = [];
     for(let row = 0; row < y; row++){

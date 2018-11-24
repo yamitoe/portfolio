@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TickTackToe from './boardgames/components/Ticktactoe';
+import Bingo from './boardgames/components/Bingo';
 
 ReactDOM.render(
-    <TickTackToe/>,
+    <div>
+        <TickTackToe/>
+        <Bingo/>
+    </div>,
     document.getElementById('root')
 );

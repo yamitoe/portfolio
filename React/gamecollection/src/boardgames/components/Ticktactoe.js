@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import Board from './Board';
+import Board from './shared/Board';
 const imgs = {};
 
 //.keys() - array of file paths
@@ -45,8 +45,8 @@ class TickTackToe extends Component{
         //Get keys
         let myKeys = Object.keys(this.state.boardData);
         //Seperate x's and o's
-        let matchingKey = myKeys.forEach(key=>{
-            return (this.state.boardData[key] ? arrX.push(key) :
+        myKeys.forEach(key=>{
+            (this.state.boardData[key] ? arrX.push(key) :
             arrO.push(key));
         })
 
