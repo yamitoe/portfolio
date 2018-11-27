@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import Board from './shared/Board';
+import Board from './BoardTic';
 const imgs = {};
 
 //.keys() - array of file paths
