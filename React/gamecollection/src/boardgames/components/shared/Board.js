@@ -7,8 +7,8 @@ function Board(props){
         let inner = [];
         for(let column = 0; column< x; column++){
             let squareid = row+"-"+column;
-            inner.push(<div className='square' onClick={turn(e)} key={column}>
-                {data !== null ? data : null}
+            inner.push(<div className='square' onClick={turn} key={column}>
+                {data ? data : null}
             </div>);
         }
         arr.push(<div className='row' key={row}>
