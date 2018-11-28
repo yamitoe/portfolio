@@ -3,7 +3,7 @@ import Board from './shared/Board';
 
 class Bingo extends Component{
     //use class field syntax
-    //events
+    //Events
     componentDidMount(){
         document.getElementsByClassName('board')[1].addEventListener("click", this.onclick);
     }
@@ -18,9 +18,17 @@ class Bingo extends Component{
         stuff: 5
     };
 
-    //Randomizer
+    //Methods
     random = () =>{
-
+        let arr = [];
+        let num;
+        while(arr.length < 25){
+            num = Math.floor(Math.random() * 51);
+            if(!arr.includes(num)){
+                arr.push(num);
+            }
+        }
+       return arr;
     };
 
     onclick = (e) =>{
@@ -31,11 +39,10 @@ class Bingo extends Component{
     };
 
     render(){
+        let nums = this.random();
         return(
             <div>
-                   <Board x={5} y={5}/>
-            <span>{this.state.test} aa</span>
-          
+                   <Board x={5} y={5} data={nums}/>
             </div>
           
         )

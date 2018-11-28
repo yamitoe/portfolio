@@ -7,7 +7,7 @@ function Board(props){
         let inner = [];
         for(let column = 0; column< x; column++){
             inner.push(<div className='square' onClick={turn} key={column}>
-                {data ? data : null}
+                {data ? data[(row*y)+column] : null}
             </div>);
         }
         arr.push(<div className='row' key={row}>
