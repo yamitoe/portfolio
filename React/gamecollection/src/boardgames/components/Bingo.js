@@ -24,7 +24,10 @@ class Bingo extends Component{
     };
 
     onclick = (e) =>{
-       e.target.style.cssText = `background-color: blue`;
+        console.log(e.target.className);
+        if(e.target.className === "square"){
+            e.target.style.cssText = `background-color: blue`;
+        }  
     };
 
     render(){
