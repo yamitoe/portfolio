@@ -9,7 +9,7 @@ class Bingo extends Component{
     }
 
     componentWillUnmount(){
-        window.addEventListener("onclick", e=>this.onclick(e));
+        window.addEventListener("onclick", this.onclick);
     }
 
     //state
@@ -25,6 +25,8 @@ class Bingo extends Component{
 
     onclick = (e) =>{
        console.log(e.target);
+       e.target.style.cssText = `background-color: blue`;
+       
     };
 
     render(){

@@ -55,7 +55,7 @@ class TickTackToe extends Component{
           if(this.includeKeyLength(arrX,key) || this.includeKeyLength(arrO,key)){
             //if won, change to red
             key.forEach(key=>document.getElementById(key).style.cssText =
-            `background-color: red;`)
+            `background-color: red`)
           }
         })   
     }
