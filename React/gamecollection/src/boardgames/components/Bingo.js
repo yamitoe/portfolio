@@ -19,10 +19,10 @@ class Bingo extends Component{
     };
 
     //Methods
-    random = () =>{
-        let arr = [];
+    random = (max,arr2) =>{
+        let arr = arr2 ? arr.concat(arr2) : [];
         let num;
-        while(arr.length < 25){
+        while(arr.length < max){
             num = Math.floor(Math.random() * 51);
             if(!arr.includes(num)){
                 arr.push(num);
@@ -38,11 +38,18 @@ class Bingo extends Component{
         }  
     };
 
+    gameStart = () =>{
+        //Winning numbers
+        let roll = this.random(50);
+        //Add keyframs or transitions //one at a time
+    }
+
     render(){
-        let nums = this.random();
+        let nums = this.random(25);
         return(
             <div>
                    <Board x={5} y={5} data={nums}/>
+                   <button type="button" onclick={this.gameStart}>Start Game</button>
             </div>
           
         )
