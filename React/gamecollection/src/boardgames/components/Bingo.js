@@ -5,7 +5,7 @@ class Bingo extends Component{
     //use class field syntax
     //events
     componentDidMount(){
-        window.addEventListener("click", this.onclick);
+        document.getElementsByClassName('board')[1].addEventListener("click", this.onclick);
     }
 
     componentWillUnmount(){
@@ -24,9 +24,7 @@ class Bingo extends Component{
     };
 
     onclick = (e) =>{
-       console.log(e.target);
        e.target.style.cssText = `background-color: blue`;
-       
     };
 
     render(){
