@@ -5,6 +5,7 @@ class Bingo extends Component{
     //use class field syntax
     //Events
     componentDidMount(){
+        this.setState({boardNum: this.random(25)});
         document.getElementsByClassName('board')[1].addEventListener("click", this.onclick);
     }
 
@@ -14,8 +15,8 @@ class Bingo extends Component{
 
     //state
     state = {
-        test: 0,
-        stuff: 5
+        test: [],
+        boardNum: []
     };
 
     //Methods
@@ -42,16 +43,17 @@ class Bingo extends Component{
         //Winning numbers
         let arr2 = [];
         let rollsArr = this.random(1,arr2);
-        console.log(rollsArr);
-        console.log(arr2);
+        this.setState(state=>({
+            test:state.test.concat(rollsArr)
+        }));
+    
         //Add keyframs or transitions //one at a time
     }
 
     render(){
-        let nums = this.random(25);
         return(
             <div>
-                   <Board x={5} y={5} data={nums}/>
+                   <Board x={5} y={5} data={this.state.boardNum}/>
                    <button type="button" onClick={this.gameStart}>Start Game</button>
             </div>
           
