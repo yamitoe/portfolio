@@ -1,4 +1,6 @@
 body {
-  background-color: #1a1a1a; }
+  background-color: #c47878; }
   body .board {
     margin: 10px; }
+  body #test {
+    font-size: 25px; }

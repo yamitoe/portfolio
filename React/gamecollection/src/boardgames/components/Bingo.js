@@ -15,7 +15,7 @@ class Bingo extends Component{
 
     //state
     state = {
-        test: [],
+        winRolls: [],
         boardNum: []
     };
 
@@ -23,8 +23,9 @@ class Bingo extends Component{
     random = (max,arr2) =>{
         let arr = arr2 ? arr2.slice() : [];
         let num;
-        while(arr.length < max){
-            num = Math.floor(Math.random() * 51);
+        let numLimit = 51;
+        while(arr.length < max && numLimit > max){
+            num = Math.floor(Math.random() * numLimit);
             if(!arr.includes(num)){
                 arr.push(num);
             }
@@ -33,19 +34,15 @@ class Bingo extends Component{
     };
 
     onclick = (e) =>{
-        console.log(e.target.className);
-        if(e.target.className === "square"){
+        if(e.target.className === "square" && this.state.winRolls.includes(parseInt(e.target.innerHTML,10))){
             e.target.style.cssText = `background-color: blue`;
         }  
     };
 
     gameStart = () =>{
         //Winning numbers
-        let arr2 = [];
-        let rollsArr = this.random(1,arr2);
-        this.setState(state=>({
-            test:state.test.concat(rollsArr)
-        }));
+        let rollsArr = this.random(this.state.winRolls.length +1, this.state.winRolls);
+        this.setState({winRolls: rollsArr});
     
         //Add keyframs or transitions //one at a time
     }
@@ -55,6 +52,7 @@ class Bingo extends Component{
             <div>
                    <Board x={5} y={5} data={this.state.boardNum}/>
                    <button type="button" onClick={this.gameStart}>Start Game</button>
+                   <div>{this.state.winRolls.map(x=>x+" ")}</div>
             </div>
           
         )
