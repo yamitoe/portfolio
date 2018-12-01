@@ -91,7 +91,7 @@ class Bingo extends Component{
             <div>
                    <Board x={5} y={5} data={this.state.boardNum}/>
                    <button type="button" onClick={this.gameStart}>Start Game</button>
-                   <div>{this.state.winRolls.sort((a, b) => a - b).map(x=>x+" ")}</div>
+                   <div>{this.state.winRolls.map(x=>x+" ")}</div>
             </div>
           
         )
