@@ -53,14 +53,16 @@ class Bingo extends Component{
         let winHor = [[0,1,2,3,4],[5,6,7,8,9],
         [10,11,12,13,14],[15,16,17,18,19],[20,21,22,23,24]];
         let winVert = this.createWinVert(winHor,5);
-        let winVert1 = this.createWinDiagonal(winHor,1);
-        let winVert2 = this.createWinDiagonal2(winHor,1);
-       // let winDiag = this.createWinArr(winHor,2,x=>x[counter+1]);
-       //console.log(winVert);
-       //console.log(winVert1);
-       console.log(winVert2);
+        let winDiag = this.createWinDiagonal(winHor);
+        let winDiag2 = this.createWinDiagonal2(winHor);
+        let winCondtion = [...winHor,...winVert,...winDiag,...winDiag2];
+       console.log(winCondtion);
+       // boardHistory > Per winCondtion
+       if(winCondtion.some(index=>this.state.boardHistory.includes(...index))){
+            console.log("Winner");
+       }
     }
-
+    //Figure out how to refractor these later
     createWinVert= (data,counter)=>{
         let arr = [];
         for(let z = 0; z < counter; z++){
@@ -69,20 +71,16 @@ class Bingo extends Component{
         return arr;
     }
 
-    createWinDiagonal = (data,counter)=>{
+    createWinDiagonal = (data)=>{
         let arr = [];
-        for(let z = 0; z < counter; z++){
-            arr.push(data.map((x,index)=>x[index]));
-        }
+        arr.push(data.map((x,index)=>x[index]));   
         return arr;
     }
 
-    createWinDiagonal2 = (data,counter)=>{
+    createWinDiagonal2 = (data)=>{
         let arr = [];
         let temp = data.length - 1;
-        for(let z = 0; z < counter; z++){
-            arr.push(data.map(x=>x[temp--]));
-        }
+        arr.push(data.map(x=>x[temp--]));
         return arr;
     }
 
