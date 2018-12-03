@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import Board from './shared/Board';
+import update from 'immutability-helper';
 
 class Bingo extends Component{
     //use class field syntax
     //Events
     componentDidMount(){
-        this.calWinner();
         this.setState({boardNum: this.random(25)});
         document.getElementsByClassName('board')[1].addEventListener("click", this.onclick);
     }
@@ -36,16 +36,28 @@ class Bingo extends Component{
     };
 
     onclick = (e) =>{
-        if(e.target.className === "square" && this.state.winRolls.includes(parseInt(e.target.innerHTML,10))){
+        console.log(this.state.boardHistory);
+        //this.setState(state=>{state.boardHistory[2] = true;});
+        //console.log(this.state.boardHistory); 
+        let clickNumber = parseInt(e.target.innerHTML,10);
+        if(e.target.className === "square" && this.state.winRolls.includes(clickNumber)){
             e.target.style.cssText = `background-color: blue`;
+            //Add data
+            this.setState({
+                boardHistory: update(this.state.boardHistory,{
+                    $splice: [[this.state.boardNum.findIndex(x=>x===clickNumber), 1, true]]
+                })
+            });
+            console.log(this.state.boardHistory);
         }  
+
+        this.calWinner();
     };
 
     gameStart = () =>{
         //Winning numbers
         let rollsArr = this.random(this.state.winRolls.length +1, this.state.winRolls);
         this.setState({winRolls: rollsArr});
-    
         //Add keyframs or transitions //one at a time
     }
 
@@ -56,9 +68,11 @@ class Bingo extends Component{
         let winDiag = this.createWinDiagonal(winHor);
         let winDiag2 = this.createWinDiagonal2(winHor);
         let winCondtion = [...winHor,...winVert,...winDiag,...winDiag2];
-       console.log(winCondtion);
+
        // boardHistory > Per winCondtion
-       if(winCondtion.some(index=>this.state.boardHistory.includes(...index))){
+       console.log(winCondtion
+        .some(arr=> arr.every(index=>this.state.boardHistory[index] === true)));
+       if(winCondtion.some(index=>this.state.boardHistory.every(val=>val===true))){
             console.log("Winner");
        }
     }
