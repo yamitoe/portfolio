@@ -11,14 +11,15 @@ class Bingo extends Component{
     }
 
     componentWillUnmount(){
-        window.addEventListener("onclick", this.onclick);
+        document.removeEventListener("click", this.onclick);
     }
 
     //state
     state = {
         winRolls: [],
         boardNum: [],
-        boardHistory: Array(25).fill(null)
+        boardHistory: Array(25).fill(null),
+        winner: null
     };
 
     //Methods
@@ -45,7 +46,8 @@ class Bingo extends Component{
             //Add data
             this.setState({
                 boardHistory: update(this.state.boardHistory,{
-                    $splice: [[this.state.boardNum.findIndex(x=>x===clickNumber), 1, true]]
+                    $splice: [[this.state.boardNum
+                        .findIndex(x=>x===clickNumber), 1, true]]
                 })
             });
             console.log(this.state.boardHistory);
@@ -70,10 +72,10 @@ class Bingo extends Component{
         let winCondtion = [...winHor,...winVert,...winDiag,...winDiag2];
 
        // boardHistory > Per winCondtion
-       console.log(winCondtion
-        .some(arr=> arr.every(index=>this.state.boardHistory[index] === true)));
-       if(winCondtion.some(index=>this.state.boardHistory.every(val=>val===true))){
-            console.log("Winner");
+       if(winCondtion
+        .some(arr=> arr
+            .every(index=>this.state.boardHistory[index] === true))){
+            this.setState({winner: "Winner"});
        }
     }
     //Figure out how to refractor these later
@@ -106,6 +108,7 @@ class Bingo extends Component{
                    <Board x={5} y={5} data={this.state.boardNum}/>
                    <button type="button" onClick={this.gameStart}>Start Game</button>
                    <div>{this.state.winRolls.map(x=>x+" ")}</div>
+                   <h2>{this.state.winner}</h2>
             </div>
           
         )
