@@ -1,0 +1,17 @@
+.rollNumber {
+  display: flex;
+  flex-wrap: wrap; }
+  .rollNumber span {
+    animation-name: slidein;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+    flex: 0 0 10%;
+    background-color: powderblue; }
+    .rollNumber span img {
+      width: 100%; }
+
+@keyframes slidein {
+  from {
+    margin-left: 90%; }
+  to {
+    margin: 4px; } }

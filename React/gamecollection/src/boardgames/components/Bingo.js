@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import Board from './shared/Board';
 import update from 'immutability-helper';
+//images
+import circ from '../images/o.png'
+//css
+import '../sass/bingo.css'
 
 class Bingo extends Component{
     //use class field syntax
@@ -13,7 +17,6 @@ class Bingo extends Component{
     componentWillUnmount(){
         document.removeEventListener("click", this.onclick);
     }
-
     //state
     state = {
         winRolls: [],
@@ -64,12 +67,15 @@ class Bingo extends Component{
     }
 
     calWinner = () =>{
-        let winHor = [[0,1,2,3,4],[5,6,7,8,9],
-        [10,11,12,13,14],[15,16,17,18,19],[20,21,22,23,24]];
-        let winVert = this.createWinVert(winHor,5);
-        let winDiag = this.createWinDiagonal(winHor);
-        let winDiag2 = this.createWinDiagonal2(winHor);
-        let winCondtion = [...winHor,...winVert,...winDiag,...winDiag2];
+        let winHor = [
+            [0,1,2,3,4],
+            [5,6,7,8,9],
+            [10,11,12,13,14],
+            [15,16,17,18,19],
+            [20,21,22,23,24]
+        ];
+        let winSomething = this.createWinSomething(winHor, 5);
+        let winCondtion = [...winHor, ...winSomething];
 
        // boardHistory > Per winCondtion
        if(winCondtion
@@ -78,27 +84,20 @@ class Bingo extends Component{
             this.setState({winner: "Winner"});
        }
     }
-    //Figure out how to refractor these later
-    createWinVert= (data,counter)=>{
+
+    createWinSomething = (data, counter) => {
         let arr = [];
-        for(let z = 0; z < counter; z++){
-            arr.push(data.map(x=>x[z]));
+        // Vert
+        for (let z = 0; z < counter; z++) {
+          arr.push(data.map(x => x[z]));
         }
-        return arr;
-    }
-
-    createWinDiagonal = (data)=>{
-        let arr = [];
-        arr.push(data.map((x,index)=>x[index]));   
-        return arr;
-    }
-
-    createWinDiagonal2 = (data)=>{
-        let arr = [];
+        // Diag 1
+        arr.push(data.map((x, index) => x[index]));
+        // Diag 2
         let temp = data.length - 1;
-        arr.push(data.map(x=>x[temp--]));
+        arr.push(data.map(x => x[temp--]));
         return arr;
-    }
+      }
 
 
 
@@ -107,8 +106,14 @@ class Bingo extends Component{
             <div>
                    <Board x={5} y={5} data={this.state.boardNum}/>
                    <button type="button" onClick={this.gameStart}>Start Game</button>
-                   <div>{this.state.winRolls.map(x=>x+" ")}</div>
                    <h2>{this.state.winner}</h2>
+                   <div className="rollNumber">
+                        {this.state.winRolls
+                        .map(x=>(
+                            <span>
+                                {x}
+                            </span>))}
+                    </div>
             </div>
           
         )
