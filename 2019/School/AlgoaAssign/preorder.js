@@ -6,18 +6,23 @@ let root = {
 
 function createTree(arr){
     for(let value of arr){
-        addNode(value);
+        compareNode(value);
     }
     return root;
 }
-
-function compareNode(key,currKey){
-    if(key < currKey.key){
-        if(currKey.leftChild === null){
-            addNode()
+//currKey is the path in string
+function compareNode(key,currKey='key',path=""){
+    //initialize root
+    if(root.key == null){
+        addNode(key);
+    }
+    else if(key < root[currKey]){
+        if(root[currKey].leftChild == null){
+            console.log("test");
+            addNode(key,'leftChild',path);
         }
         else{
-            compareNode(key,leftChild)
+            
         }
     }
     else if(key > root.key){
@@ -25,14 +30,19 @@ function compareNode(key,currKey){
     }
 }
 
-function addNode(key=null,leftChild=null,rightChild=null){
-    if(root.key === null){
+function addNode(key=null,value,path){
+    //initialize root
+    if(root.key == null){
         root.key = key
     }
     else{
-        compareNode(key,root.key);
+        console.log("called?");
+        console.log(path[value]);
+        //not sure if bracket notation for accessor name
+        root[path+value] = key;
     }
+
 }
-let myArr = [20];
+let myArr = [20,5];
 let x = createTree(myArr);
 console.log(x);
