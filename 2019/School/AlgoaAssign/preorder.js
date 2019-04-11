@@ -8,6 +8,7 @@ function createTree(arr){
     for(let value of arr){
         addNode(value);
     }
+    return root;
 }
 
 function compareNode(key,currKey){
@@ -22,9 +23,9 @@ function compareNode(key,currKey){
     else if(key > root.key){
 
     }
+}
 
-
-function addNode(key=null,leftChild=null.rightChild=null){
+function addNode(key=null,leftChild=null,rightChild=null){
     if(root.key === null){
         root.key = key
     }
@@ -32,6 +33,6 @@ function addNode(key=null,leftChild=null.rightChild=null){
         compareNode(key,root.key);
     }
 }
-let myArr = [20,5,10,8,9,30,15,35];
+let myArr = [20];
 let x = createTree(myArr);
 console.log(x);
