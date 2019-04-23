@@ -12,8 +12,6 @@ function createTree(arr){
 }
 //currKey is the path in string
 function compareNode(key,root){
-    console.log("Hi");
-    console.log(root);
     //initialize root
     if(root.key === null){
         addNode(key,root);
@@ -23,7 +21,6 @@ function compareNode(key,root){
             addNode(key,root,'leftChild');
         }
         else{//If leftChild has an assigned value //Move down a node
-            console.log("Lwr");
             compareNode(key,root.leftChild);
         }
     }
@@ -54,4 +51,15 @@ function addNode(key,root,parameter){
 let myArr = [20,21,5,2,1,0];
 let x = createTree(myArr);
 console.log(JSON.stringify(x));
-//console.log(x.leftChild.leftChild);
+
+function preorder(root){
+    console.log(root.key);
+    if(root.leftChild != null){
+        preorder(root.leftChild);
+    }
+    if(root.rightChild != null){
+        preorder(root.rightChild);
+    }
+}
+
+preorder(x);
