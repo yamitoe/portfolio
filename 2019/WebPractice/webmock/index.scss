@@ -5,8 +5,8 @@ body{
 header{
     nav{
         display: flex;
+        justify-content: space-around;
         div{
-            width: 100%;
             a{
                 text-decoration: none;
             }
@@ -20,13 +20,21 @@ header{
     >div{
         border: 1px solid black;
         margin: 5px;
-        flex: 0 0 12em;
+        flex: 0 0 250px;
+        max-height: 200px;
+        
 
         img{
             width: 100%;
             height: 100%;
         }
         
+    }
+
+    .desc{
+        h3{
+            margin: 2px;
+        }
     }
 }
 
