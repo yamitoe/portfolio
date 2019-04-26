@@ -1,0 +1,33 @@
+body {
+  background-color: #cfd0c8;
+}
+
+header nav {
+  display: flex;
+}
+header nav div {
+  width: 100%;
+}
+header nav div a {
+  text-decoration: none;
+}
+
+.menupromo {
+  display: flex;
+  justify-content: center;
+}
+.menupromo > div {
+  border: 1px solid black;
+  margin: 5px;
+  flex: 0 0 12em;
+}
+.menupromo > div img {
+  width: 100%;
+  height: 100%;
+}
+
+.main {
+  background-color: #b7b9ac;
+}
+
+/*# sourceMappingURL=index.css.map */
