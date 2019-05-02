@@ -3,12 +3,11 @@ body {
   color: #9da6af;
 }
 
+header {
+  margin-bottom: 10px;
+}
 header nav {
   display: flex;
-  background-color: rgba(69, 77, 84, 0.5);
-}
-header nav > div {
-  margin: 10px;
 }
 header nav > div:hover .dropdown {
   display: block;
@@ -17,9 +16,9 @@ header nav > div:hover .dropdown {
 header nav > div a {
   display: block;
   background-color: rgba(0, 99, 199, 0.5);
-  padding: 15px;
-  text-decoration: none;
   color: #b3d9ff;
+  padding: 20px 35px 20px 35px;
+  text-decoration: none;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
 }
 header nav > div div {
