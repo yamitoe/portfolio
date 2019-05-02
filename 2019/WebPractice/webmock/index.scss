@@ -4,7 +4,7 @@ body{
 }
 
 header{
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     nav{
         display: flex; 
         >div{        
@@ -15,11 +15,20 @@ header{
                 }
             }
 
-            a{
-                display: block; //cascading, block spacing 
+            .favicon{
+                background-image: url("/images/leaffavi.png");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center;
+                color: hsla(0, 0%, 0%, 0)
+                      
+            }
+
+            a{//Takes entire area
+                display: block; //cascading, fill space
                 background-color: hsla(210, 100%, 39%, 0.5);
                 color: hsla(210, 100%, 85%, 1);
-                padding: 20px 35px 20px 35px;
+                padding: 20px 35px 20px 35px; //Only padding, so its centered
                 text-decoration: none;
                 box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2)
             }
