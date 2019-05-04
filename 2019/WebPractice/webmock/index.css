@@ -1,6 +1,5 @@
 body {
-  background-color: #22262a;
-  color: #9da6af;
+  background-image: url("/images/blue-dotted-background-1.jpg");
 }
 
 header {
@@ -9,9 +8,15 @@ header {
 header nav {
   display: flex;
 }
+header nav > div:hover {
+  background-color: #b3d9ff;
+}
 header nav > div:hover .dropdown {
   display: block;
   position: absolute;
+}
+header nav > div:hover .dropdown a:hover {
+  background-color: #66b3ff;
 }
 header nav > div .favicon {
   background-image: url("/images/leaffavi.png");
@@ -34,6 +39,7 @@ header nav > div div {
 }
 
 .menupromo {
+  background-color: white;
   display: flex;
   justify-content: center;
   height: 300px;
@@ -53,7 +59,8 @@ header nav > div div {
 }
 
 .main {
-  height: 200px;
+  background-color: #66b3ff;
+  height: 300px;
 }
 
 /*# sourceMappingURL=index.css.map */

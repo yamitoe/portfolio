@@ -1,18 +1,27 @@
 body{
-    background-color: hsla(210, 10%, 15%, 1);
-    color: hsla(210, 10%, 65%, 1)
+   // background-color: hsla(210, 10%, 15%, 1);
+   // color: hsla(210, 10%, 65%, 1)
+   background-image: url("/images/blue-dotted-background-1.jpg");
 }
 
 header{
     margin-bottom: 15px;
     nav{
-        display: flex; 
+        display: flex;
         >div{        
             &:hover{
+                background-color: hsla(210, 100%, 85%, 1);
                 .dropdown{
                     display: block;
                     position: absolute; //out of content flow
+
+                    a:hover{
+                        background-color: hsla(210, 100%, 70%, 1);
+                    }
+   
                 }
+
+           
             }
 
             .favicon{
@@ -48,6 +57,7 @@ header{
 }
 
 .menupromo{
+    background-color: white;
     display: flex;
     justify-content: center;
     height: 300px;
@@ -72,6 +82,6 @@ header{
 }
 
 .main{
-    height: 200px;
-    //background-color: rgb(255, 255, 255);
+  background-color: hsla(210, 100%, 70%, 1);
+  height: 300px;
 }
