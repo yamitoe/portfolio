@@ -1,6 +1,6 @@
 class Tree{
     constructor(){
-        data = {};
+        this.data = {};
     }
     
     addNode(num){
