@@ -1,6 +1,6 @@
 class Tree{
     constructor(){
-        this.data = {};
+        this.data = {root:null};
     }
     
     addNode(num){
@@ -9,8 +9,17 @@ class Tree{
     }
 
     sortNode(num){
-        console.log("test");
+        if(this.data.root === null){
+            console.log('test');
+            //this.data.root = num;
+            console.log('test');
+        }
+        console.log(this.data);
+     
     }
+}
+function test(a,b){
+return a*c;
 }
 
 let x = new Tree();
