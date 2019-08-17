@@ -18,14 +18,10 @@ class Tree{
         if(node[prop] === undefined){
             node[prop] = {root: num};
         }
-        if(node[prop] !== undefined){
-            node = node[prop];
-            //this.sortNode(node,num,prop)
+        else if(node[prop] !== undefined){
+            this.sortNode(node[prop],num)
         }
-        else{
-            return;
-        }
-        
+      
     }
 }
 function test(a,b){
