@@ -18,22 +18,24 @@ class Tree{
             currentNode.right = {root: num};
         }
 
-        while(currentNode.root > num){
-            if(currentNode.left === undefined){
-                currentNode.left = {root: num};
-                console.log('checking temp Node'+currentNode.left);
-                console.log('a'+ JSON.stringify(this.data));
+        this.compareNodes(this.data,num)
+
+        console.log(this.data);
+     
+    }
+
+    compareNodes(node,num){
+        while(node.root > num){
+            if(node.left === undefined){
+                node.left = {root: num};
             }
-            if(currentNode.left !== undefined){
-                currentNode = currentNode.left;
+            if(node.left !== undefined){
+                node = node.left;
             }
             else{
                 return;
             }
         }
-
-        console.log(this.data);
-     
     }
 }
 function test(a,b){
