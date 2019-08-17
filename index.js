@@ -4,38 +4,26 @@ class Tree{
     }
     
     addNode(num){
-        this.sortNode(num);
+        if(this.data.root === null){
+            this.data.root = num;
+        }
+
+        let prop = (this.data.root >= num) ? 'left' : 'right';
+        this.sortNode(this.data,num,prop);
         
     }
 
-    sortNode(num){
-        let currentNode = this.data;
-        let prop;
-        if(currentNode.root === null){
-            currentNode.root = num;
+    sortNode(node,num,prop){
+        if(node[prop] === undefined){
+            node[prop] = {root: num};
         }
-        else if(this.data.root < num){
-            currentNode.right = {root: num};
+        if(node[prop] !== undefined){
+            node = node[prop];
         }
-
-        this.compareNodes(this.data,num)
-
-        console.log(this.data);
-     
-    }
-
-    compareNodes(node,num){
-        while(node.root > num){
-            if(node.left === undefined){
-                node.left = {root: num};
-            }
-            if(node.left !== undefined){
-                node = node.left;
-            }
-            else{
-                return;
-            }
+        else{
+            return;
         }
+        
     }
 }
 function test(a,b){
