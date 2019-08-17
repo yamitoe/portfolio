@@ -7,18 +7,20 @@ class Tree{
         if(this.data.root === null){
             this.data.root = num;
         }
-
-        let prop = (this.data.root >= num) ? 'left' : 'right';
-        this.sortNode(this.data,num,prop);
-        
+        else{
+            this.sortNode(this.data,num);
+        }
     }
 
-    sortNode(node,num,prop){
+    sortNode(node,num){
+        let prop = (node.root >= num) ? 'left' : 'right';
+
         if(node[prop] === undefined){
             node[prop] = {root: num};
         }
         if(node[prop] !== undefined){
             node = node[prop];
+            //this.sortNode(node,num,prop)
         }
         else{
             return;
@@ -35,3 +37,4 @@ x.addNode(5);
 x.addNode(1);
 x.addNode(7);
 x.addNode(4);
+console.log(x);
