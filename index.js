@@ -4,18 +4,22 @@ class Tree{
     }
     
     addNode(num){
-        if(this.data.root === null){
-            this.data.root = num;
-        }
-        else{
             this.sortNode(this.data,num);
+    }
+
+    addBatch(arr){
+        for (const val of arr) {
+            this.sortNode(this.data,val);
         }
     }
 
     sortNode(node,num){
         let prop = (node.root >= num) ? 'left' : 'right';
 
-        if(node[prop] === undefined){
+        if(node.root === null){
+            node.root = num;
+        }
+        else if(node[prop] === undefined){
             node[prop] = {root: num};
         }
         else if(node[prop] !== undefined){
@@ -24,13 +28,13 @@ class Tree{
       
     }
 }
-function test(a,b){
-return a*c;
-}
 
 let x = new Tree();
-x.addNode(5);
+/*x.addNode(5);
 x.addNode(1);
 x.addNode(7);
 x.addNode(4);
-console.log(x);
+x.addNode(3);*/
+
+x.addBatch([5,1,7,4,3])
+console.log(JSON.stringify(x));
