@@ -13,6 +13,39 @@ class Tree{
         }
     }
 
+    inorder(node=this.data){
+        if(node.left !== undefined){
+            this.inorder(node.left);
+        }
+        console.log(node.root);
+        if(node.right!==undefined){
+            this.inorder(node.right);
+        }
+    }
+    
+    preorder(node=this.data){
+        console.log(node.root);
+        if(node.left !== undefined){
+            this.preorder(node.left);
+        }
+        
+        if(node.right!==undefined){
+            this.preorder(node.right);
+        }
+        
+    }
+
+    postorder(node=this.data){
+        if(node.left !== undefined){
+            this.postorder(node.left);
+        }
+
+        if(node.right!==undefined){
+            this.postorder(node.right);
+        }
+        console.log(node.root);
+    }
+
     sortNode(node,num){
         let prop = (node.root >= num) ? 'left' : 'right';
 
@@ -25,7 +58,7 @@ class Tree{
         else if(node[prop] !== undefined){
             this.sortNode(node[prop],num)
         }
-      
+
     }
 }
 
@@ -36,5 +69,9 @@ x.addNode(7);
 x.addNode(4);
 x.addNode(3);*/
 
-x.addBatch([5,1,7,4,3])
+x.addBatch([5,1,7,4,3,2,8,6])
 console.log(JSON.stringify(x));
+//x.inorder();
+//x.preorder();
+x.postorder();
+
