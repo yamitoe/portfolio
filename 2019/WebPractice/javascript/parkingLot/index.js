@@ -14,7 +14,7 @@ class ParkingLot{
     //assume more than one entrance //At level 1 and level 5
     findClosetParking(level,carType){
         if(carType === 'motor'){
-            return this.parkinglot.filter(val=>val.spaces[carType]);
+            return this.parkinglot.filter(val=>val.spaces[carType]>0);
         }
         else if(carType === 'car'){
 
@@ -27,9 +27,9 @@ class ParkingLot{
 }
 
 let x = new ParkingLot();
-x.addLevel(1,[1,2,3]);
-x.addLevel(2,[5,8,9]);
-x.addLevel(3,[10,2,31]);
+x.addLevel(1,[0,2,3]);
+x.addLevel(2,[5,0,9]);
+x.addLevel(3,[10,2,0]);
 x.addLevel(4,[51,8,9]);
 x.addLevel(5,[1,2,31]);
 
@@ -37,4 +37,5 @@ console.log(x.parkinglot);
 console.log("The filter");
 
 console.log(x.findClosetParking(1,'motor'));
+//console.log(x.findClosetParking(1,'car'));
 
