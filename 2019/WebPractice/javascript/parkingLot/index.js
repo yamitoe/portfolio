@@ -15,17 +15,15 @@ class ParkingLot{
     findClosetParking(level,carType){
         //filter only if .some returns true 
         if(carType === 'motor'){
-            let z =this.parkinglot.forEach(val=>{
+            let z =this.parkinglot.filter(val=>{
                let propArr =  Object.entries(val.spaces);
                //looping through arr of arrs made from props
                let t = propArr.some(w=>{
                     //structure is (key, value)
                     let [key,value] = w;
-                    console.log(value);
                     return (value > 0);
-                })
-                console.log('hi',t);
-            
+                })   
+                return (t===true);        
             })
             console.log(z);
         }
