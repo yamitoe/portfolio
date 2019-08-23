@@ -18,11 +18,13 @@ class ParkingLot{
             let z =this.parkinglot.forEach(val=>{
                let propArr =  Object.entries(val.spaces);
                //looping through arr of arrs made from props
-                propArr.some(w=>{
+               let t = propArr.some(w=>{
                     //structure is (key, value)
                     let [key,value] = w;
                     console.log(value);
+                    return (value > 0);
                 })
+                console.log('hi',t);
             
             })
             console.log(z);
@@ -45,7 +47,7 @@ x.addLevel(1,[0,2,3]);
 x.addLevel(2,[5,0,9]);
 x.addLevel(3,[10,2,0]);
 x.addLevel(4,[51,8,9]);
-x.addLevel(5,[1,2,31]);
+x.addLevel(5,[0,0,0]);
 
 console.log(x.parkinglot);
 console.log("The filter");
