@@ -13,10 +13,19 @@ class ParkingLot{
     }
     //assume more than one entrance //At level 1 and level 5
     findClosetParking(level,carType){
+        //filter only if .some returns true 
         if(carType === 'motor'){
-            let test = this.parkinglot.some(val=>{
-                console.log(Object.entries(val.spaces));
-            });
+            let z =this.parkinglot.forEach(val=>{
+               let propArr =  Object.entries(val.spaces);
+               //looping through arr of arrs made from props
+                propArr.some(w=>{
+                    //structure is (key, value)
+                    let [key,value] = w;
+                    console.log(value);
+                })
+            
+            })
+            console.log(z);
         }
         else if(carType === 'car'){
             this.getFilterCar(val=>val.spaces[carType]>0);
