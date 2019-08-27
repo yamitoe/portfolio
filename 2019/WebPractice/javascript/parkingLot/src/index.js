@@ -15,26 +15,9 @@ class ParkingLot{
     findClosetParking(level,carType){
         //filter only if .some returns true 
         if(carType === 'motor'){
-           /* let z =this.parkinglot.filter(val=>{
-               let propArr =  Object.entries(val.spaces);
-               let pass = propArr.some(w=>{
-                    let [key,value] = w;
-                    return (value > 0);
-                })   
-                return (pass===true);        
-            })*/
-            
-           let t = this.parkinglot
-            .map(val=>Object.entries(val.spaces))
-           let test = t.flat();
-            console.log('aa',t);
-
-           /* .some(w=>{
-                //let test = w.flat();
-                console.log(w);
-                //return (value > 0);
-            })*/
-
+           let z =this.parkinglot
+           .filter(val=>Object.values(val.spaces).some(w=>w));
+           console.log(z);
         }
         else if(carType === 'car'){
             this.getFilterCar(val=>val.spaces[carType]>0);
