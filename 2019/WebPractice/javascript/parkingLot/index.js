@@ -15,16 +15,30 @@ class ParkingLot{
     findClosetParking(level,carType){
         //filter only if .some returns true 
         if(carType === 'motor'){
-           let z =this.parkinglot
-           .filter(val=>Object.values(val.spaces).some(w=>w));
-           console.log(z);
+            return this.parkinglot.filter(val=>Object.values(val.spaces).some(w=>w));
         }
         else if(carType === 'car'){
-            this.getFilterCar(val=>val.spaces[carType]>0);
+            return this.parkinglot.filter(val=>Object.entries(val.spaces)
+                .some(w=>{
+                    let [key,value] = w;
+                    if(key != 'motor' ){
+                        return (value > 0);
+                    }
+                })
+            );
         }
         else if(carType === 'bus'){
-     
+            return this.parkinglot.filter(val=>Object.entries(val.spaces)
+                .some(w=>{
+                    let [key,value] = w;
+                    if(key === 'large'){
+                        return (value >= 5);
+                    }
+                })
+
+            );
         }
+
     }
     getFilterCar(carType,func){
         return this.parkinglot.filter(func);
@@ -35,13 +49,15 @@ class ParkingLot{
 let x = new ParkingLot();
 x.addLevel(1,[0,2,3]);
 x.addLevel(2,[5,0,9]);
-x.addLevel(3,[10,2,0]);
+x.addLevel(3,[10,0,0]);
 x.addLevel(4,[51,8,9]);
 x.addLevel(5,[0,0,0]);
 
 console.log(x.parkinglot);
 console.log("The filter");
 
-console.log(x.findClosetParking(1,'motor'));
+console.log('motor',x.findClosetParking(1,'motor'));
+console.log('car',x.findClosetParking(1,'car'));
+console.log('bus',x.findClosetParking(1,'bus'));
 //console.log(x.findClosetParking(1,'car'));
 
