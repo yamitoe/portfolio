@@ -15,7 +15,8 @@ class ParkingLot{
     findClosetParking(level,carType){
         //filter only if .some returns true 
         if(carType === 'motor'){
-            return this.parkinglot.filter(val=>Object.values(val.spaces).some(w=>w));
+            return this.parkinglot.filter(val=>Object.values(val.spaces).some(w=>w))
+            .map(w=>w.level);
         }
         else if(carType === 'car'){
             return this.parkinglot.filter(val=>Object.entries(val.spaces)
@@ -25,7 +26,8 @@ class ParkingLot{
                         return (value > 0);
                     }
                 })
-            );
+            )
+            .map(w=>w.level);
         }
         else if(carType === 'bus'){
             return this.parkinglot.filter(val=>Object.entries(val.spaces)
@@ -35,15 +37,11 @@ class ParkingLot{
                         return (value >= 5);
                     }
                 })
-
-            );
+            )
+            .map(w=>w.level);
         }
 
     }
-    getFilterCar(carType,func){
-        return this.parkinglot.filter(func);
-    }
-
 }
 
 let x = new ParkingLot();
