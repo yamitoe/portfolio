@@ -5,4 +5,4 @@ Parking Lot Question
 3) The parking lot has motorcycle spots, compact spots, and large spots.
 4) A motorcycle can park in any spot.
 5) A car can park in either a single compact spot or a single large spot.
-6) A bus can park in five large spots that are consecutive and within the same row. It cannot park in small spots. 
+6) A bus can park in five large spots. It cannot park in small spots. 

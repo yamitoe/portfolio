@@ -11,19 +11,16 @@ class ParkingLot{
         let spaces = specSpot(spots);
         this.parkinglot.push({level,spaces});       
     }
-    //assume more than one entrance //At level 1 and level 5
+    //assume more than one entrance //At First, middle, and last level
     findClosetParking(level,carType){
         //filter only if .some returns true 
         if(carType === 'motor'){
-            let x = this.parkinglot.filter(val=>Object.values(val.spaces).some(w=>w))
-            .map(w=>w.level);
-
-            x.sort((w,a)=>{
-                console.log(w%level ,a%level);
-                return (w%level) - (a%level);
-        
+            return this.parkinglot.filter(val=>Object.values(val.spaces).some(w=>w))
+            .map(w=>w.level)
+            .sort((w,a)=>{
+                return Math.abs((w-level)) - Math.abs((a-level)) 
             });
-            console.log(x);
+
             
         }
         else if(carType === 'car'){
@@ -35,7 +32,10 @@ class ParkingLot{
                     }
                 })
             )
-            .map(w=>w.level);
+            .map(w=>w.level)
+            .sort((w,a)=>{
+                return Math.abs((w-level)) - Math.abs((a-level)) 
+            });
         }
         else if(carType === 'bus'){
             return this.parkinglot.filter(val=>Object.entries(val.spaces)
@@ -46,7 +46,10 @@ class ParkingLot{
                     }
                 })
             )
-            .map(w=>w.level);
+            .map(w=>w.level)
+            .sort((w,a)=>{
+                return Math.abs((w-level)) - Math.abs((a-level)) 
+            });
         }
 
     }
@@ -62,9 +65,15 @@ x.addLevel(6,[0,1,1]);
 
 console.log(x.parkinglot);
 console.log("The filter");
-let fl= 3;
-console.log('motor','Start at floor '+fl,x.findClosetParking(3,'motor'));
-console.log('car',x.findClosetParking(1,'car'));
-console.log('bus',x.findClosetParking(1,'bus'));
-//console.log(x.findClosetParking(1,'car'));
+let fl= 3; //Will filter by car type, 
+//then give back closet avaiable parking from where they came from
+console.log('motor: ','Start at floor '+fl,x.findClosetParking(fl,'motor'));
+console.log('car: ','Start at floor '+fl,x.findClosetParking(fl,'car'));
+console.log('bus: ','Start at floor '+fl,x.findClosetParking(fl,'bus'));
+
+//Note this only searches based on an arbitrary set of total available spaces, if I need more specific
+//data like spotID, row, license plate I will need to make a parkingSpot class
+//so instead of "spaces" being a total sum it would map to parkingSpot
+//or use a database instead
+
 
