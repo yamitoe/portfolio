@@ -55,6 +55,11 @@ class ParkingLot{
     }
 }
 
+export function sum(a, b) {
+    return a + b;
+  }
+
+
 let x = new ParkingLot();
 x.addLevel(1,[0,2,3]);
 x.addLevel(2,[5,0,9]);

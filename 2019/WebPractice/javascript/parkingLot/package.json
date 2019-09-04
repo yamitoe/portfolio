@@ -4,17 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5"
+    "@babel/preset-env": "^7.5.5",
+    "jest": "^24.9.0"
   },
   "dependencies": {
     "@babel/polyfill": "^7.4.4",
+    "babel-jest": "^24.9.0",
     "core-js": "^3.2.1"
   }
 }
