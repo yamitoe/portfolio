@@ -18,8 +18,12 @@ export function App() {
 }
 
 export class AddItem extends React.Component{
-  state = {myState : [{title:'1'}]};
-  addItem = ()=>this.setState(this.state.concat([{title:'2'}]))
+  state = {items : [{title:'1'}]};
+  addItem = ()=>this.setState(prevState=>{
+      console.log(prevState,prevState.items
+        ,prevState.items.concat([{title:'5'}]));
+    }
+  )
   render(){
     return(
       <section className="container-addItem">
