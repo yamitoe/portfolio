@@ -1,14 +1,24 @@
+$contwidth : 180px;
 .container-item{
-  $contwidth : 180px;
   margin: 5px;
   img{
     display: block;
     width: $contwidth;
     height: $contwidth;
+    background-color: black;
   }
   div.desc, h2{
     overflow-wrap: break-word;
     width: $contwidth;
     margin: 0px;
+  }
+}
+
+.container-addItem{
+  border: 1px solid;
+  width: $contwidth;
+  img{
+    margin: 5px;
+    width: 40px;
   }
 }
