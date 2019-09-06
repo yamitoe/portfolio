@@ -22,6 +22,7 @@ export class AddItem extends React.Component{
   addItem = ()=>this.setState(prevState=>{
       console.log(prevState,prevState.items
         ,prevState.items.concat([{title:'5'}]));
+        return {items:prevState.items.concat([{title:'5'}])};
     }
   )
   render(){
