@@ -1,6 +1,7 @@
 import React from 'react';
 import './stylesheets/App.scss';
 import sign from './images/plus-sign.svg';
+import seed1 from './images/fioretto.png'
 
 
 export function App() {
@@ -15,7 +16,7 @@ export function App() {
 export function Item(props){
   return (
     <section className="container-item">
-        <img src='' alt="image"/>
+        <img src={seed1} alt="image"/>
         <h2>{props.title}</h2>
         <div className="desc">Blah blah blah </div>
     </section>
@@ -24,7 +25,7 @@ export function Item(props){
 }
 
 export class AddItem extends React.Component{
-  state = {items : [{title:'1'}]};
+  state = {items : [{title:'Fioretto',img:{seed1},desc:"Sweet and great"}]};
   addItem = ()=>this.setState(prevState=>{
         return {items:prevState.items.concat([{title:'5'}])};
     }
@@ -32,7 +33,10 @@ export class AddItem extends React.Component{
   render(){
     return(
       <div id="root">
-        <Item title={this.state.items.map(x=>x.title)}/>
+        
+        {this.state.items.map(x=>{
+          return <Item title={x.title}/>
+        })}
         <section className="container-addItem">
           <button onClick={this.addItem}>      
             <img src={sign} alt="add"/>
