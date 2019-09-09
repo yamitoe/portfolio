@@ -2,13 +2,13 @@ import React from 'react';
 import './stylesheets/App.scss';
 import sign from './images/plus-sign.svg';
 import seed1 from './images/fioretto.png'
+import shortid from 'shortid';
 
 
 export function App() {
   return (
     <div id="root">
       <AddItem/>
-
     </div>
   );
 }
@@ -35,7 +35,7 @@ export class AddItem extends React.Component{
       <div id="root">
         
         {this.state.items.map(x=>{
-          return <Item title={x.title}/>
+          return <Item title={x.title} key={shortid.generate()} />
         })}
         <section className="container-addItem">
           <button onClick={this.addItem}>      
