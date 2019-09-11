@@ -4,7 +4,6 @@ import sign from './images/plus-sign.svg';
 import seed1 from './images/fioretto.png'
 import shortid from 'shortid';
 
-
 export function App() {
   return (
     <div id="root">
@@ -34,7 +33,7 @@ export class AddItem extends React.Component{
     return(
       <div id="root">
         {this.state.items.map(x=>{
-          return <Item {...x} img={x.img} key={shortid.generate()} />
+          return <Item {...x} key={shortid.generate()} />
         })}
         <section className="container-addItem">
           <button onClick={this.addItem}>      
@@ -42,7 +41,30 @@ export class AddItem extends React.Component{
             <span>Add Item</span>
           </button>
         </section>
+        <AddItemInput/>
       </div>
+    )
+  }
+}
+
+export class AddItemInput extends React.Component{
+  handleSubmit =(e)=>{
+    e.preventDefault();
+  }
+  handleChange=(e)=>{
+
+  }
+  render(){
+    return(
+      <section className="handleSubmit">
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="title">Title:</label>
+          <input type="text" onChange={this.handleChange} id="title" />
+
+          <label htmlFor="desc">Description:</label>
+          <input type="text" onChange={this.handleChange} id="desc" />
+        </form>
+      </section>
     )
   }
 }

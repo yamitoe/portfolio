@@ -22,3 +22,17 @@ $contwidth : 180px;
     width: 40px;
   }
 }
+.handleSubmit{
+  background-color: gray;
+  max-width: 200px;
+  padding: 10px;
+  display: none;
+  form{
+    display: flex;
+    flex-direction: column;
+    input,label{
+      display: block;
+      margin: 5px;
+    }
+  }
+}
