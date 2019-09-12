@@ -22,7 +22,7 @@ $contwidth : 180px;
     width: 40px;
   }
 }
-.handleSubmit{
+#handleSubmit{
   background-color: gray;
   position: fixed;
   left: 0;
@@ -30,7 +30,6 @@ $contwidth : 180px;
   width: 100%;
   height: 100%; 
   background-color: hsla(4, 20%, 10%, 0.4);
-  display: flex;
   justify-content: center;
   align-items: center;
   display: none;

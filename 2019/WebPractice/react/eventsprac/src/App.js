@@ -6,9 +6,7 @@ import shortid from 'shortid';
 
 export function App() {
   return (
-    <div id="root">
-      <AddItem/>
-    </div>
+    <AddItem/>
   );
 }
 
@@ -25,13 +23,17 @@ export function Item(props){
 
 export class AddItem extends React.Component{
   state = {items : [{title:'Fioretto',img:seed1,desc:"Sweet and great"}]};
-  addItem = ()=>this.setState(prevState=>{
+  addItem = ()=>{
+    document.getElementById("handleSubmit").style.cssText =
+    `display: flex`;
+    this.setState(prevState=>{
         return {items:prevState.items.concat([{title:'5'}])};
     }
-  )
+  )}
+
   render(){
     return(
-      <div id="root">
+      <div id="addItem">
         {this.state.items.map(x=>{
           return <Item {...x} key={shortid.generate()} />
         })}
@@ -56,7 +58,7 @@ export class AddItemInput extends React.Component{
   }
   render(){
     return(
-      <section className="handleSubmit">
+      <section id="handleSubmit">
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="title">Title:</label>
           <input type="text" onChange={this.handleChange} id="title" />
