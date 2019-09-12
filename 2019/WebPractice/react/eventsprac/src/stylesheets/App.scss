@@ -24,15 +24,28 @@ $contwidth : 180px;
 }
 .handleSubmit{
   background-color: gray;
-  max-width: 200px;
-  padding: 10px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  background-color: hsla(4, 20%, 10%, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   display: none;
+
   form{
     display: flex;
     flex-direction: column;
+    width: 50%;
+    padding: 20px;
+    background-color: hsla(6, 45%, 88%,1);
+    border: 1px solid black;
     input,label{
       display: block;
       margin: 5px;
+      width: 100%;
     }
   }
 }
