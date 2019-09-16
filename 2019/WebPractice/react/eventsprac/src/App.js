@@ -35,7 +35,6 @@ export class AddItem extends React.Component{
   changeDisplayOff = ()=>this.setState({displayOn:false});
 
   render(){
-    let display = this.state.displayOn ? {display:'flex'} : {display:'none'};
     return(
       <div id="addItem">
         {this.state.items.map(x=>{
@@ -47,7 +46,7 @@ export class AddItem extends React.Component{
             <span>Add Item</span>
           </button>
         </section>
-        <AddItemInput showDisplay={display}/>
+        <AddItemInput displayOn={this.state.displayOn}/>
       </div>
     )
   }
@@ -62,8 +61,9 @@ export class AddItemInput extends React.Component{
 
   }
   render(){
+    let display = this.props.displayOn ? {display:'flex'} : {display:'none'};
     return(
-      <section id="handleSubmit" style={this.props.showDisplay}>
+      <section id="handleSubmit" style={display}>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="title">Title:</label>
           <input type="text" onChange={this.handleChange} id="title" />
@@ -71,7 +71,7 @@ export class AddItemInput extends React.Component{
           <label htmlFor="desc">Description:</label>
           <input type="text" onChange={this.handleChange} id="desc" />
         </form>
-        <span>{ console.log(this.display,this.props.showDisplay)}</span>
+        <span>{ console.log(display,this.props.displayOn)}</span>
       </section>
     )
   }
