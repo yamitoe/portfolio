@@ -22,16 +22,20 @@ export function Item(props){
 }
 
 export class AddItem extends React.Component{
-  state = {items : [{title:'Fioretto',img:seed1,desc:"Sweet and great"}]};
+  state = {items : [{title:'Fioretto',img:seed1,desc:"Sweet and great"}]
+    ,displayOn:false};
+
   addItem = ()=>{
-    document.getElementById("handleSubmit").style.cssText =
-    `display: flex`;
     this.setState(prevState=>{
-        return {items:prevState.items.concat([{title:'5'}])};
+        return {items:prevState.items.concat([{title:'5'}])
+      ,displayOn:true};
     }
   )}
 
+  changeDisplayOff = ()=>this.setState({displayOn:false});
+
   render(){
+    let display = this.state.displayOn ? {display:'flex'} : {display:'none'};
     return(
       <div id="addItem">
         {this.state.items.map(x=>{
@@ -43,13 +47,14 @@ export class AddItem extends React.Component{
             <span>Add Item</span>
           </button>
         </section>
-        <AddItemInput/>
+        <AddItemInput showDisplay={display}/>
       </div>
     )
   }
 }
 
 export class AddItemInput extends React.Component{
+  
   handleSubmit =(e)=>{
     e.preventDefault();
   }
@@ -58,7 +63,7 @@ export class AddItemInput extends React.Component{
   }
   render(){
     return(
-      <section id="handleSubmit">
+      <section id="handleSubmit" style={this.props.showDisplay}>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="title">Title:</label>
           <input type="text" onChange={this.handleChange} id="title" />
@@ -66,6 +71,7 @@ export class AddItemInput extends React.Component{
           <label htmlFor="desc">Description:</label>
           <input type="text" onChange={this.handleChange} id="desc" />
         </form>
+        <span>{ console.log(this.display,this.props.showDisplay)}</span>
       </section>
     )
   }
