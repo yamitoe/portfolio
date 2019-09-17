@@ -17,6 +17,9 @@ $contwidth : 180px;
 .container-addItem{
   border: 1px solid;
   width: $contwidth;
+  button{
+    width:100%;
+  }
   img{
     margin: 5px;
     width: 40px;
@@ -32,8 +35,6 @@ $contwidth : 180px;
   background-color: hsla(4, 20%, 10%, 0.4);
   justify-content: center;
   align-items: center;
-  
-
   form{
     display: flex;
     flex-direction: column;

@@ -30,8 +30,9 @@ export class AddItem extends React.Component{
               <span>Add Item</span>
             </button>
           </section>
-          <AddItemInput displayOn={this.state.displayOn}/>
+          <AddItemInput displayOn={this.state.displayOn} 
+          changeDisplayOff={this.changeDisplayOff}/>
         </div>
       )
     }
-  }
+}
