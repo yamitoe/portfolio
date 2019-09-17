@@ -12,8 +12,9 @@ export class AddItem extends React.Component{
     addItem = (itemObj)=>{
       this.setState(prevState=>{
           return {items:prevState.items.concat([itemObj])};
-      }
-    )}
+      })
+      this.changeDisplay();
+    }
   
     changeDisplay = ()=>this.setState(prev=>({displayOn:!prev.displayOn}));
   

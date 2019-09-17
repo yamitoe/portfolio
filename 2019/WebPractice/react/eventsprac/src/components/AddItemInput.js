@@ -36,10 +36,10 @@ export class AddItemInput extends React.Component{
       <section id="handleSubmit" style={display}>
         <form onSubmit={this.handleSubmit} id="submitForm">
           <label htmlFor="title">Title:</label>
-          <input type="text" name="title" />
+          <input type="text" name="title" id="title" />
 
           <label htmlFor="desc">Description:</label>
-          <input type="text" name="desc" />
+          <input type="text" name="desc" className="textarea" id="desc" />
           <button className="btnCancel">Cancel</button>
           <button>Save</button>
         </form>

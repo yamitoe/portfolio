@@ -39,13 +39,20 @@ $contwidth : 180px;
     display: flex;
     flex-direction: column;
     width: 50%;
+    height: 50%;
     padding: 20px;
     background-color: hsla(6, 45%, 88%,1);
     border: 1px solid black;
-    input,label{
+    overflow: auto;
+    input{
       display: block;
       margin: 5px;
       width: 100%;
+      max-height: 16.5px;
+      height: 100%
+    }
+    .textarea{
+      min-height: 50px;
     }
   }
 }
