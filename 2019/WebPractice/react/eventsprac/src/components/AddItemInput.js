@@ -19,6 +19,7 @@ export class AddItemInput extends React.Component{
       }
     })
     console.log(iteminputlist);
+    this.props.addItem(iteminputlist);
   }
   handleClick=(e)=>{
     let x = document.getElementById('submitForm');

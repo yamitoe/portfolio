@@ -9,10 +9,9 @@ export class AddItem extends React.Component{
     state = {items : [{title:'Fioretto',img:seed1,desc:"Sweet and great"}]
       ,displayOn:false};
   
-    addItem = ()=>{
+    addItem = (itemObj)=>{
       this.setState(prevState=>{
-          return {items:prevState.items.concat([{title:'5'}])
-        ,displayOn:true};
+          return {items:prevState.items.concat([itemObj])};
       }
     )}
   
@@ -25,13 +24,13 @@ export class AddItem extends React.Component{
             return <Item {...x} key={shortid.generate()} />
           })}
           <section className="container-addItem">
-            <button onClick={this.addItem}>      
+            <button onClick={this.changeDisplay}>      
               <img src={sign} alt="add"/>
               <span>Add Item</span>
             </button>
           </section>
           <AddItemInput displayOn={this.state.displayOn} 
-          changeDisplay={this.changeDisplay}/>
+          changeDisplay={this.changeDisplay} addItem={this.addItem}/>
         </div>
       )
     }
