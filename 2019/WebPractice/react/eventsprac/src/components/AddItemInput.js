@@ -14,7 +14,9 @@ export class AddItemInput extends React.Component{
   }
   handleClick=(e)=>{
     let x = document.getElementById('submitForm');
-    if(!x.contains(e.target)){
+    let btn = document.getElementsByClassName('btnCancel')[0];
+
+    if(!x.contains(e.target) || e.target === btn ){
       this.props.changeDisplayOff();
     }
 
@@ -29,6 +31,8 @@ export class AddItemInput extends React.Component{
 
           <label htmlFor="desc">Description:</label>
           <input type="text" onChange={this.handleChange} id="desc" />
+          <button className="btnCancel">Cancel</button>
+          <button>Save</button>
         </form>
       </section>
     )
