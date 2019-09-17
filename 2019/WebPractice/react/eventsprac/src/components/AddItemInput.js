@@ -25,7 +25,7 @@ export class AddItemInput extends React.Component{
     let btn = document.getElementsByClassName('btnCancel')[0];
 
     if(!x.contains(e.target) || e.target === btn ){
-      this.props.changeDisplayOff();
+      this.props.changeDisplay();
     }
 
   }

@@ -16,7 +16,7 @@ export class AddItem extends React.Component{
       }
     )}
   
-    changeDisplayOff = ()=>this.setState({displayOn:false});
+    changeDisplay = ()=>this.setState(prev=>({displayOn:!prev.displayOn}));
   
     render(){
       return(
@@ -31,7 +31,7 @@ export class AddItem extends React.Component{
             </button>
           </section>
           <AddItemInput displayOn={this.state.displayOn} 
-          changeDisplayOff={this.changeDisplayOff}/>
+          changeDisplay={this.changeDisplay}/>
         </div>
       )
     }
