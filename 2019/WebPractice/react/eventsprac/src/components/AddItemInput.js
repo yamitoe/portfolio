@@ -19,14 +19,15 @@ export class AddItemInput extends React.Component {
             : window.URL.createObjectURL(node.files[0]);
       }
     });
-    console.log(iteminputlist);
     this.props.addItem(iteminputlist);
   };
   handleClick = e => {
-    let x = document.getElementById('submitForm');
+    let form = document.getElementById('submitForm');
     let btn = document.getElementsByClassName('btnCancel')[0];
-
-    if (!x.contains(e.target) || e.target === btn) {
+    if (
+      (!form.contains(e.target) && this.props.displayOn !== false) ||
+      e.target === btn
+    ) {
       this.props.changeDisplay();
     }
   };
