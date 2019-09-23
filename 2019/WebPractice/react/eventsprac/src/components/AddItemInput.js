@@ -13,7 +13,10 @@ export class AddItemInput extends React.Component {
     e.preventDefault();
     e.target.childNodes.forEach(node => {
       if (node.tagName === 'INPUT') {
-        iteminputlist[node.name] = node.value;
+        iteminputlist[node.name] =
+          node.name !== 'img'
+            ? node.value
+            : window.URL.createObjectURL(node.files[0]);
       }
     });
     console.log(iteminputlist);
