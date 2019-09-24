@@ -17,8 +17,10 @@ export class AddItemInput extends React.Component {
           node.name !== 'img'
             ? node.value
             : window.URL.createObjectURL(node.files[0]);
+        node.value = '';
       }
     });
+    e.target.reset();
     this.props.addItem(iteminputlist);
   };
   handleClick = e => {
@@ -29,8 +31,11 @@ export class AddItemInput extends React.Component {
       e.target === btn
     ) {
       this.props.changeDisplay();
+      form.reset();
     }
   };
+
+  handleClear = e => {};
   render() {
     let display = this.props.displayOn
       ? { display: 'flex' }
@@ -39,12 +44,17 @@ export class AddItemInput extends React.Component {
       <section id="handleSubmit" style={display}>
         <form onSubmit={this.handleSubmit} id="submitForm">
           <label htmlFor="img">Add Image</label>
-          <input type="file" accept="image/*" id="img" name="img" />
+          <input type="file" accept="image/*" id="img" name="img" required />
           <label htmlFor="title">Title:</label>
-          <input type="text" name="title" id="title" />
+          <input type="text" name="title" id="title" required />
 
           <label htmlFor="desc">Description:</label>
-          <input type="text" name="desc" className="textarea" id="desc" />
+          <textarea
+            name="desc"
+            className="textarea"
+            id="desc"
+            required
+          ></textarea>
           <button className="btnCancel">Cancel</button>
           <button>Save</button>
         </form>

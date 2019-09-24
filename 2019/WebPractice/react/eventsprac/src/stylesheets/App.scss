@@ -36,6 +36,9 @@ $contwidth: 180px;
   background-color: hsla(4, 20%, 10%, 0.4);
   justify-content: center;
   align-items: center;
+  :invalid {
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -52,8 +55,14 @@ $contwidth: 180px;
       margin: 5px 0 5px 0;
     }
     .textarea {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 12px;
       flex: 1 0 50px;
       max-height: 60px;
+      //For firefox specific problem
+      &:invalid {
+        box-shadow: none;
+      }
     }
   }
 }
