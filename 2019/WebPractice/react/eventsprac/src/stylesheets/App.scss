@@ -1,17 +1,21 @@
 $contwidth: 180px;
-.container-item {
-  margin: 5px;
-  img {
-    display: block;
-    width: $contwidth;
-    height: $contwidth;
-    background-color: black;
-  }
-  div.desc,
-  h2 {
-    overflow-wrap: break-word;
-    width: $contwidth;
-    margin: 0px;
+.container-items {
+  display: flex;
+  flex-wrap: wrap;
+  .container-item {
+    margin: 5px;
+    img {
+      display: block;
+      width: $contwidth;
+      height: $contwidth;
+      background-color: black;
+    }
+    div.desc,
+    h2 {
+      overflow-wrap: break-word;
+      width: $contwidth;
+      margin: 0px;
+    }
   }
 }
 
@@ -36,8 +40,6 @@ $contwidth: 180px;
   background-color: hsla(4, 20%, 10%, 0.4);
   justify-content: center;
   align-items: center;
-  :invalid {
-  }
 
   form {
     display: flex;
