@@ -1,0 +1,10 @@
+.cityWrapper{
+    display: flex;
+    .container-buttoncity{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid black;
+        background-color: purple;
+    }
+}
