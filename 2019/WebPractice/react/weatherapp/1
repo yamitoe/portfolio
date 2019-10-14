@@ -1,0 +1,19 @@
+
+> husky@3.0.9 install C:\Users\Yami\Documents\GitHub\New folder\2019\WebPractice\react\weatherapp\node_modules\husky
+> node husky install
+
+husky > Setting up git hooks
+husky > Done
+
+> husky@3.0.9 postinstall C:\Users\Yami\Documents\GitHub\New folder\2019\WebPractice\react\weatherapp\node_modules\husky
+> opencollective-postinstall || exit 0
+
+[96m[1mThank you for using husky![96m[1m
+[0m[96mIf you rely on this package, please consider supporting our open collective:[22m[39m
+> [94mhttps://opencollective.com/husky/donate[0m
+
++ husky@3.0.9
++ lint-staged@9.4.2
+added 95 packages from 84 contributors and audited 905734 packages in 22.028s
+found 0 vulnerabilities
+
