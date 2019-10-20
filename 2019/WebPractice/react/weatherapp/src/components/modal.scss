@@ -1,0 +1,30 @@
+.modal{
+    display:grid;
+    grid-template: 
+    'title title x' 1fr
+    'main main main' 1fr
+    '. . button' 1fr;
+
+    header{
+        .title{
+            grid-area: title;
+        }
+        button{
+            grid-area: x;
+            img{
+                width: 15px;
+            }
+        }
+    }
+
+    .core{
+        grid-area: main;
+    }
+
+    footer{
+        background-color: antiquewhite;
+        button{
+            grid-area: button
+        }
+    }
+}

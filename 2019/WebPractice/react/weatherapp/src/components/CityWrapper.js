@@ -1,13 +1,15 @@
 import React from "react";
 import { CityItem } from "./CityItem";
-import { ButtonCity } from "./ButtonCity";
+import { CityButton } from "./CityButton";
+import { Modal } from "./Modal";
 import "./styleCity.scss";
 
 export class CityWrapper extends React.Component {
   render() {
     return (
       <section className="cityWrapper">
-        <ButtonCity />
+        <CityButton />
+        <Modal title="city" />
       </section>
     );
   }

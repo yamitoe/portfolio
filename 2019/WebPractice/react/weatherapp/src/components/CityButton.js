@@ -2,7 +2,7 @@ import React from "react";
 import { CityItem } from "./CityItem";
 import imgcitys from "../images/citys.png";
 
-export class ButtonCity extends React.Component {
+export class CityButton extends React.Component {
   render() {
     return (
       <section className="container-buttoncity">
@@ -10,9 +10,6 @@ export class ButtonCity extends React.Component {
         <figure>
           <input type="image" src="" alt="addItem" />
         </figure>
-        <div>
-          <img src={imgcitys} alt="background-city" />
-        </div>
       </section>
     );
   }
