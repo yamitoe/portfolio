@@ -1,15 +1,18 @@
 import React from "react";
 import { CityItem } from "./CityItem";
-import imgcitys from "../images/citys.png";
+import plus from "../images/plus.png";
 
 export class CityButton extends React.Component {
   render() {
     return (
       <section className="container-buttoncity">
-        <h2>Add City</h2>
-        <figure>
-          <input type="image" src="" alt="addItem" />
-        </figure>
+        <header>
+          <h3>Add City</h3>
+            <button>
+              <img src={plus} alt="addItem"/>
+            </button>
+        </header>
+        <footer></footer>
       </section>
     );
   }

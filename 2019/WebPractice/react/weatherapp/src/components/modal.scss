@@ -26,7 +26,7 @@ $darklight: 13%;
     .modal{
         display: flex;
         flex-direction: column;
-        box-shadow: 0px 0px 2px 0px;
+        box-shadow: 0px 4px 6px 0px hsla(0, 0%, 0%, 0.2);
         width: 350px;
         height: 250px;
         background-color: hsla(208, 82%, 92%, 1);

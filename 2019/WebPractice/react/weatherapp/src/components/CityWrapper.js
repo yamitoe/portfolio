@@ -5,11 +5,15 @@ import { Modal } from "./Modal";
 import "./styleCity.scss";
 
 export class CityWrapper extends React.Component {
+  state = {modalDisplay:true};
+
+  modalDisplay = ()=>this.setState(state=>({modalDisplay:!state.modalDisplay}));
+
   render() {
     return (
       <section className="cityWrapper">
-        <CityButton />
-        <Modal title="City" />
+        <CityButton modalDisplay={this.modalDisplay} />
+        { this.state.modalDisplay &&<Modal title="City" modalDisplay={this.modalDisplay} />}
       </section>
     );
   }
