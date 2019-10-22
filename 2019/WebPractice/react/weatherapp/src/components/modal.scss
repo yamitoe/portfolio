@@ -1,30 +1,79 @@
-.modal{
-    display:grid;
-    grid-template: 
-    'title title x' 1fr
-    'main main main' 1fr
-    '. . button' 1fr;
+$modalpadding: 10px;
 
-    header{
-        .title{
-            grid-area: title;
-        }
-        button{
-            grid-area: x;
-            img{
-                width: 15px;
+@mixin tertiary{
+    border: none;
+    background: none;
+    color: hsl(0, 0%, 13%);
+} 
+ @mixin primary{
+    background-color: hsla(161, 64%, 46%, 1);
+    color: hsla(255, 255, 255, 0.8);
+}
+
+
+.modal-container{
+    display:flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+    background-color: hsla(5, 0, 0, .5);
+    justify-content: center;
+    align-items: center;
+    .modal{
+        display: flex;
+        flex-direction: column;
+        border: solid black 1px;
+        width: 350px;
+        height: 250px;
+        background-color: hsla(208, 82%, 92%, 1);
+
+        header{
+            padding: $modalpadding; 
+            .title{
+                color: hsl(0, 0%, 13%);
+                font-weight: 600;
             }
+            button{
+                float: right;
+                @include tertiary;
+                opacity: 0.3;
+                &:hover{
+                    opacity: 0.9;
+                    cursor: pointer;
+                }
+                img{
+                    width: 20px;
+                }
+            }
+        
         }
-    }
 
-    .core{
-        grid-area: main;
-    }
-
-    footer{
-        background-color: antiquewhite;
-        button{
-            grid-area: button
+        .core{
+            flex: 1;
+            padding: $modalpadding;
+       
+        }
+        footer{
+            background-color: hsla(208, 82%, 90%, 1);
+            padding: $modalpadding;
+            .btnConfirm{
+                @include primary();
+            }
+            .btnCancel{
+                @include tertiary();
+            }
+            button{
+                font-weight: 600;
+                float: right;
+                width: 100px;
+                height: 35px;
+                margin: 2px;
+                border-radius: 10%;
+                cursor: pointer;
+            }
         }
     }
 }
