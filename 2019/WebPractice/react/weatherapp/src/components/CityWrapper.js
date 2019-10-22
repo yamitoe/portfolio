@@ -9,7 +9,7 @@ export class CityWrapper extends React.Component {
     return (
       <section className="cityWrapper">
         <CityButton />
-        <Modal title="city" />
+        <Modal title="City" />
       </section>
     );
   }
