@@ -5,7 +5,7 @@ import { Modal } from "./Modal";
 import "./styleCity.scss";
 
 export class CityWrapper extends React.Component {
-  state = {modalDisplay:true};
+  state = {modalDisplay:false};
 
   modalDisplay = ()=>this.setState(state=>({modalDisplay:!state.modalDisplay}));
 

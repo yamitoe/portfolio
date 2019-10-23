@@ -8,7 +8,7 @@ export class CityButton extends React.Component {
       <section className="container-buttoncity">
         <header>
           <h3>Add City</h3>
-            <button>
+            <button onClick={this.props.modalDisplay}>
               <img src={plus} alt="addItem"/>
             </button>
         </header>
