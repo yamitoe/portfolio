@@ -3,21 +3,7 @@ import Autosuggest from 'react-autosuggest';
 import './autocomplete.scss'
 import cities from '../json/world-cities.json';
 
-// Imagine you have a list of languages that you'd like to autosuggest.
-const languages = [
-    {
-      name: 'C',
-      year: 1972
-    },
-    {
-        name: 'Caa',
-        year: 1972
-      },
-    {
-      name: 'Elm',
-      year: 2012
-    } ];
-   
+  
 export class AutoComplete extends React.Component{
     state = {
         value:'',
@@ -45,6 +31,7 @@ export class AutoComplete extends React.Component{
         this.setState({
             value: newValue
         });
+        this.props.autoCompData(newValue);
     };
         
 

@@ -18,6 +18,9 @@ export class Modal extends React.Component {
        this.props.modalDisplay();
     }
     else if(e.target.className === 'btnConfirm'){
+      e.preventDefault();
+
+      this.props.onSubmit(e);
       this.props.modalDisplay();
     }
   };
@@ -32,7 +35,7 @@ export class Modal extends React.Component {
               <img className="cancelIcon" src={close} alt="cancel" />
             </button>
           </header>
-          <div className="core">{this.props.children}</div>
+          <form className="core">{this.props.children}</form>
           <footer>
             <button className="btnConfirm">Confirm</button>
             <button className="btnCancel">Cancel</button>
