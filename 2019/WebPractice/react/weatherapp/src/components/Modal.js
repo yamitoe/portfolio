@@ -20,7 +20,7 @@ export class Modal extends React.Component {
     else if(e.target.className === 'btnConfirm'){
       e.preventDefault();
 
-      this.props.onSubmit(e);
+      this.props.onSubmit();
       this.props.modalDisplay();
     }
   };
