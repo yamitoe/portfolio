@@ -4,6 +4,7 @@ body{
 .cityWrapper{
     display: flex;
     .container-buttoncity{
+        margin: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -36,4 +37,33 @@ body{
             background-color: hsla(208, 82%, 90%, 1);
         }
     }
+
+    .container-cityitem{
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        box-shadow: 0px 4px 6px 0px hsla(0, 0%, 0%, 0.2);
+        background-color: hsla(208, 82%, 92%, 1);
+        height: 350px;
+        width: 200px;
+
+        figure{
+            flex: 1;
+        }
+
+        h3,figcaption{
+            font-weight: 600;
+            color: hsl(0, 0%, 5%);
+        }
+
+        footer{
+            height: 50px;
+            width: 100%;
+            background-color: hsla(208, 82%, 90%, 1);
+  
+        }
+    }
 }
+

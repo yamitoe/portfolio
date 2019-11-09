@@ -47,6 +47,7 @@ export class CityWrapper extends React.Component {
   itemArrCond = ()=>{
     return this.state.cityItems.map(({name, main:{temp_min,temp_max,temp},...data})=>{
       let weather = data.weather[0].main.toLowerCase();
+      let weatherDesc = data.weather[0].description.toUpperCase();
       let imgArr = ['snow','rain','clouds','thunderstorm','clear'];
       let currWeather = images['clear.png'];
       imgArr.forEach(key=>{
@@ -54,9 +55,9 @@ export class CityWrapper extends React.Component {
           currWeather = images[`${key}.png`];
         }
       })
-      console.log(weather);
 
-     return <CityItem city={name} min={temp_min} max={temp_max} temp={temp} img={currWeather} weather={weather}  key={shortid.generate()} />
+     return <CityItem city={name} min={ Math.round(temp_min)} max={Math.round(temp_max)} 
+     temp={Math.round(temp)} desc={weatherDesc} img={currWeather} weather={weather}  key={shortid.generate()} />
     }) 
   }
 
