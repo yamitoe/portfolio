@@ -64,6 +64,13 @@ body{
             background-color: hsla(208, 82%, 90%, 1);
   
         }
+
+        .container-minmax{
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+       
+        }
     }
 }
 
