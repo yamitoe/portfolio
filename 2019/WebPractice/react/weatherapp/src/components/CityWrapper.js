@@ -6,6 +6,14 @@ import "./styleCity.scss";
 import {AutoComplete} from "./AutoComplete";
 import shortid from 'shortid';
 
+function importAll(r) {
+  let images = {};
+  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+  return images;
+}
+
+const images = importAll(require.context('../images', false, /\.(png|jpe?g|svg)$/));
+
 export class CityWrapper extends React.Component {
   state = {modalDisplay:false,
     autoCompData:'',
@@ -37,15 +45,19 @@ export class CityWrapper extends React.Component {
   }
 
   itemArrCond = ()=>{
-    console.log(this.state.cityItems);
-    return this.state.cityItems.length > 0 ?
-    this.state.cityItems.map(({name, main:{temp_min,temp_max,temp},...data})=>{
+    return this.state.cityItems.map(({name, main:{temp_min,temp_max,temp},...data})=>{
       let weather = data.weather[0].main.toLowerCase();
-      let imgArr = ['snow','rain','sunny','clouds','clear'];
+      let imgArr = ['snow','rain','clouds','thunderstorm','clear'];
+      let currWeather = images['clear.png'];
+      imgArr.forEach(key=>{
+        if(weather === key){
+          currWeather = images[`${key}.png`];
+        }
+      })
       console.log(weather);
-     return <CityItem city={name} min={temp_min} max={temp_max} temp={temp}  key={shortid.generate()} />
+
+     return <CityItem city={name} min={temp_min} max={temp_max} temp={temp} img={currWeather} weather={weather}  key={shortid.generate()} />
     }) 
-    : false;
   }
 
 
@@ -55,7 +67,6 @@ export class CityWrapper extends React.Component {
       <section className="cityWrapper">
         <CityButton modalDisplay={this.modalDisplay} />
         {this.itemArrCond()}
-      
         { this.state.modalDisplay &&
         <Modal title="City" modalDisplay={this.modalDisplay} onSubmit={this.onSubmit} >
           <AutoComplete autoCompData={this.autoCompData}/>
