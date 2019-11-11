@@ -14,6 +14,8 @@
 
 @mixin cardFooter{
     footer{
+        display: flex;
+        justify-content: center;
         height: 50px;
         width: 100%;
         background-color: hsla(208, 82%, 90%, 1);
@@ -21,20 +23,25 @@
     }
 }
 
-@mixin slider{
-    max-width: 910px;
-    overflow: auto;
-}
-
-
 body{
     overflow: hidden;
 }
-.cityWrapper{
+#cityWrapper{
     display: flex;
-    max-width: 910px;
-    overflow: auto;
-
+    &[card-display="wrap"]{
+        flex-wrap: wrap;
+        button#gridview{
+            background-color: hsla(208, 82%, 70%, 1);;
+        }
+    }
+    &[card-display="scroll"]{
+        max-width: 910px;
+        overflow: auto;
+        button#scrollview{
+            background-color: hsla(208, 82%, 70%, 1);;
+        }
+    }
+  
     input:checked{
         background-color: aqua;
         padding: 10px;
@@ -48,18 +55,22 @@ body{
         }
         header{
             flex: 1;
-            button{
-                background: none;
-                border: none;
-                cursor: pointer;
-                img{
-                    max-height: 50px;   
-                }
-                &:hover{
-                    background-color: hsla(208, 82%, 80%, 1);;
-                }
-            }
         }
+        button{
+            background: none;
+            border: none;
+
+            cursor: pointer;
+            img{
+                max-height: 50px;   
+            }
+            &:hover{
+                background-color: hsla(208, 82%, 80%, 1);;
+            }
+
+
+        }
+        
     }
 
     .container-cityitem{

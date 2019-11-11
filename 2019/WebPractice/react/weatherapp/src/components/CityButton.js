@@ -1,8 +1,31 @@
 import React from "react";
-import { CityItem } from "./CityItem";
 import plus from "../images/plus.png";
+import grid from "../images/grid.png";
+import scroll from "../images/scroll.png";
 
 export class CityButton extends React.Component {
+
+  state = {wrapOrScroll: true};
+
+  wrapOrScroll = ()=>{
+    let citywrap = document.getElementById('cityWrapper');
+    if(this.state.wrapOrScroll){
+      citywrap.setAttribute('card-display','wrap');
+    }
+    else{
+      citywrap.setAttribute('card-display','scroll');
+    }
+  }
+
+  test = ()=>{
+    this.setState(state=>({wrapOrScroll:!state.wrapOrScroll}));
+    this.wrapOrScroll();
+  };
+
+  componentDidMount(){
+    this.wrapOrScroll();
+  }
+
   render() {
     return (
       <section className="container-buttoncity">
@@ -12,7 +35,10 @@ export class CityButton extends React.Component {
               <img src={plus} alt="addItem"/>
             </button>
         </header>
-        <footer></footer>
+        <footer>         
+          <button onClick={this.test} id="gridview"><img src={grid} alt="gridview"/></button>
+         <button onClick={this.test} id='scrollview'><img src={scroll} alt="scrollview"/></button>
+         </footer>
       </section>
     );
   }

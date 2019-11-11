@@ -44,6 +44,7 @@ export class CityWrapper extends React.Component {
     this.setState({autoCompData: data});
   }
 
+  //map fetched weather data
   itemArrCond = ()=>{
     return this.state.cityItems.map(({name, main:{temp_min,temp_max,temp},...data})=>{
       let weather = data.weather[0].main.toLowerCase();
@@ -65,7 +66,7 @@ export class CityWrapper extends React.Component {
 
   render() {
     return (
-      <section className="cityWrapper">
+      <section id="cityWrapper">
         <CityButton modalDisplay={this.modalDisplay} />
         {this.itemArrCond()}
         { this.state.modalDisplay &&
@@ -73,9 +74,9 @@ export class CityWrapper extends React.Component {
           <AutoComplete autoCompData={this.autoCompData}/>
         </Modal>
         }
-         <label class="switch">
+         <label className="switch">
           <input type="checkbox"/>
-          <span class="slider round"></span>
+          <span className="slider round"></span>
          </label>
       </section>
     );
