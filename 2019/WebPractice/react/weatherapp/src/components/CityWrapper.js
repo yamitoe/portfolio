@@ -73,6 +73,10 @@ export class CityWrapper extends React.Component {
           <AutoComplete autoCompData={this.autoCompData}/>
         </Modal>
         }
+         <label class="switch">
+          <input type="checkbox"/>
+          <span class="slider round"></span>
+         </label>
       </section>
     );
   }
