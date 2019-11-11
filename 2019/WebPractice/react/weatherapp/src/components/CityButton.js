@@ -18,8 +18,9 @@ export class CityButton extends React.Component {
   }
 
   test = ()=>{
-    this.setState(state=>({wrapOrScroll:!state.wrapOrScroll}));
-    this.wrapOrScroll();
+    this.setState(state=>({wrapOrScroll:!state.wrapOrScroll}),
+    ()=>this.wrapOrScroll());
+
   };
 
   componentDidMount(){
