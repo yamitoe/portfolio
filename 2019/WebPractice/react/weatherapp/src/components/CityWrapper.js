@@ -5,6 +5,8 @@ import { Modal } from "./Modal";
 import "./styleCity.scss";
 import {AutoComplete} from "./AutoComplete";
 import shortid from 'shortid';
+import es6prom from 'es6-promise';
+import fetch from 'isomorphic-fetch';
 
 function importAll(r) {
   let images = {};
@@ -61,7 +63,9 @@ export class CityWrapper extends React.Component {
      temp={Math.round(temp)} desc={weatherDesc} img={currWeather} weather={weather}  key={shortid.generate()} />
     }) 
   }
-
+  componentDidMount(){
+    es6prom.polyfill();
+  }
 
 
   render() {
