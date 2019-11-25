@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { CityWrapper } from "./components/CityWrapper";
+import { CityWrapper } from "./module-weather/components/CityWrapper";
 
 export default class App extends React.Component {
   render() {

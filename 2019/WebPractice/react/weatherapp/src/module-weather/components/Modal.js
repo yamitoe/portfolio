@@ -3,21 +3,20 @@ import close from "../images/close.png";
 import "./modal.scss";
 
 export class Modal extends React.Component {
-  componentDidMount(){
-    document.addEventListener('click',this.closeModal);
+  componentDidMount() {
+    document.addEventListener("click", this.closeModal);
   }
 
-  componentWillUnmount(){
-    document.removeEventListener('click',this.closeModal);
+  componentWillUnmount() {
+    document.removeEventListener("click", this.closeModal);
   }
 
-  closeModal = e=>{
-    const list = ['modal-container','btnCancel','cancelIcon'];
-    if(list.includes(e.target.className)){
+  closeModal = e => {
+    const list = ["modal-container", "btnCancel", "cancelIcon"];
+    if (list.includes(e.target.className)) {
       //If clicked outside, hide modal
-       this.props.modalDisplay();
-    }
-    else if(e.target.className === 'btnConfirm'){
+      this.props.modalDisplay();
+    } else if (e.target.className === "btnConfirm") {
       e.preventDefault();
 
       this.props.onSubmit();
