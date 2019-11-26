@@ -5,7 +5,7 @@ import { Modal } from "./Modal";
 import "./styleCity.scss";
 import { AutoComplete } from "./AutoComplete";
 import shortid from "shortid";
-import es6prom from "es6-promise";
+
 import fetch from "isomorphic-fetch";
 
 function importAll(r) {
@@ -82,9 +82,6 @@ export class CityWrapper extends React.Component {
       }
     );
   };
-  componentDidMount() {
-    es6prom.polyfill();
-  }
 
   render() {
     return (

@@ -1,0 +1,6 @@
+body{
+    &[backcolor="home"]{
+        background-color: white;
+    }
+
+}
