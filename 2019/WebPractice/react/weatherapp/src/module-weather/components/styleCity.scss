@@ -24,11 +24,11 @@
 }
 
 body{
-    overflow: hidden;
     background-color: hsla(208, 82%, 35%, 1);
 }
 #cityWrapper{
     display: flex;
+    overflow: auto;
     &[card-display="wrap"]{
         flex-wrap: wrap;
         button#gridview{
@@ -95,7 +95,7 @@ body{
         }
     }
 
-
+/*
     .switch {
         position: relative;
         display: inline-block;
@@ -146,14 +146,14 @@ body{
         transform: translateX(20px);
       }
       
-      /* Rounded sliders */
+
       .slider.round {
         border-radius: 34px;
       }
       
       .slider.round:before {
         border-radius: 50%;
-      }
+      }*/
     
 }
 
