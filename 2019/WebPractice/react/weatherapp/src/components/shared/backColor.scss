@@ -1,0 +1,8 @@
+body{
+    &[backcolor="home"]{
+        background-color: rgb(209, 104, 104);
+    }
+    &[backcolor="weatherapp"]{
+        background-color: hsla(208, 82%, 35%, 1);  
+    }
+}

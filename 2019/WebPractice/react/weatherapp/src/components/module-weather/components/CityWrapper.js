@@ -86,6 +86,7 @@ export class CityWrapper extends React.Component {
   render() {
     return (
       <section id="cityWrapper">
+        {document.body.setAttribute("backColor", "weatherapp")}
         <CityButton modalDisplay={this.modalDisplay} />
         {this.itemArrCond()}
         {this.state.modalDisplay && (
