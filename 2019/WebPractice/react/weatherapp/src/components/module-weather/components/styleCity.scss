@@ -29,14 +29,14 @@
     &[card-display="wrap"]{
         flex-wrap: wrap;
         button#gridview{
-            background-color: hsla(208, 82%, 70%, 1);;
+            background-color: hsla(208, 82%, 70%, 1);
         }
     }
     &[card-display="scroll"]{
         max-width: 910px;
         overflow: auto;
         button#scrollview{
-            background-color: hsla(208, 82%, 70%, 1);;
+            background-color: hsla(208, 82%, 70%, 1);
         }
     }
   
@@ -63,7 +63,7 @@
                 max-height: 50px;   
             }
             &:hover{
-                background-color: hsla(208, 82%, 80%, 1);;
+                background-color: hsla(208, 82%, 80%, 1);
             }
 
 

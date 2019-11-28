@@ -71,7 +71,7 @@ $darklight: 13%;
             .btnCancel{
                 @include tertiary($darklight);
                 &:hover{
-                    background-color: hsla(208, 82%, 80%, 1);;
+                    background-color: hsla(208, 82%, 80%, 1);
                 }
             }
             button{

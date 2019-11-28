@@ -1,8 +1,66 @@
+$dark-color: hsla(206, 9%, 15%, 1);
+$darklight-color:  hsla(214, 7%, 19%, 1);
+
+$whitetext-main: hsla(0, 0%, 85%, 1);
+$whitetext-header: hsla(0, 0%, 90%, 1);
+
 body{
     &[backcolor="home"]{
-        background-color: hsla(208, 28%, 52%, 1); 
+        background-color: $dark-color; 
+        color: $whitetext-main;
+        main{
+            padding: 5px;
+        }
+        section.container-home{
+            section{
+               margin-bottom: 10px;
+                background-color: $darklight-color; 
+            }
+
+            h3{
+                margin:0 0 5px 0;
+                font-weight: 600;
+                color: $whitetext-header;
+            }
+            .projects{
+                article{
+                    background-color: $darklight-color; 
+                }
+
+                a{
+                    font-weight: 600;
+                    font-size: large;
+                }
+                //Color of each project
+                .weather{
+                    color: hsla(208, 82%, 70%, 1);
+                    &:hover{
+                        color: hsla(208, 82%, 50%, 1);
+                    }
+                }
+            }
+        }
+        section.skills{
+            ul{
+                display: flex;
+                padding: 0px;
+                li{
+                    list-style: none;
+                    margin: 5px;
+                    padding: 8px;
+                    background-color: hsla(208, 82%, 35%, 1);
+                    color: hsla(208, 82%, 89%, 1);
+                    text-align: center;
+                    &:first-child{
+                        margin-left: 0;
+                    }
+                }
+                
+            }
+        }
     }
     &[backcolor="weatherapp"]{
         background-color: hsla(208, 82%, 35%, 1);  
     }
+    
 }
