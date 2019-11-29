@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 export function Homepage() {
   return (
     <section className="container-home">
@@ -22,8 +23,10 @@ export function Homepage() {
               use fetch api to get the corresponding data.
             </div>
           </article>
-          You can checkout other projects here:
-          <div className="github"></div>
+          <div className="github">
+            <span>You can checkout other projects here: </span>
+            <a href="https://github.com/yamitoe/portfolio">Github</a>
+          </div>
         </section>
         <section className="skills">
           <div>My current skillset includes:</div>
@@ -38,6 +41,7 @@ export function Homepage() {
           </ul>
         </section>
       </main>
+      <footer></footer>
     </section>
   );
 }

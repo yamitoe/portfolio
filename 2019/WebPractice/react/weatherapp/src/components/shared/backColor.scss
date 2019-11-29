@@ -1,17 +1,27 @@
 $dark-color: hsla(206, 9%, 15%, 1);
 $darklight-color:  hsla(214, 7%, 19%, 1);
+$darklightlight-color:  hsla(214, 7%, 25%, 1);
+$darklightlight-text:hsla(214, 7%, 68%, 1);
 
-$whitetext-main: hsla(0, 0%, 85%, 1);
+$whitetext-main: hsla(0, 0%, 90%, 1);
 $whitetext-header: hsla(0, 0%, 90%, 1);
 
 body{
     &[backcolor="home"]{
         background-color: $dark-color; 
         color: $whitetext-main;
-        main{
-            padding: 5px;
-        }
+        //overall container  
         section.container-home{
+            display: flex;
+            flex-direction: column;
+            main{
+                padding: 5px;
+            }
+    
+            footer{
+                flex-grow: 1;
+            }
+
             section{
                margin-bottom: 10px;
                 background-color: $darklight-color; 
@@ -24,12 +34,30 @@ body{
             }
             .projects{
                 article{
-                    background-color: $darklight-color; 
+                    background-color: $darklightlight-color; 
+                    width: 400px;
+                    word-break: break-all;
                 }
 
                 a{
                     font-weight: 600;
                     font-size: large;
+                }
+
+                .details{
+                    margin-top: 4px;
+                    color: $darklightlight-text ;
+                }
+
+                .github{
+                    margin-top: 5px;
+                    a{
+                        color: hsla(108, 82%, 89%, 1);
+                        background-color: hsla(108, 82%, 19%, 1);
+                        &:hover{
+                            background-color: hsla(108, 82%, 29%, 1);
+                        }
+                    }
                 }
                 //Color of each project
                 .weather{
