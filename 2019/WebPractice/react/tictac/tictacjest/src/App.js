@@ -1,24 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import './App.scss';
+import {Square} from './Square';
+
+function Board(){
+  const [board, setBoard] = useState(Array(9).fill(null));
+
+  let handleClick = (index)=>{
+    console.log(index);
+    if(board[index] === null){
+      let copy = [...board];
+      copy.splice(index,1,85);
+      console.log(copy);
+      setBoard(copy);
+    }
+  }
+
+  let makeSquare = (box)=>{
+    return <Square num={board[box]} handleClick={()=> handleClick(box)}/>
+  }
+
+  return(
+    <section className="board">
+      <div>
+        {makeSquare(0)}
+      </div>
+
+      <button>Undo</button>
+      <button>Redo</button>
+    </section>
+  )
+    
+}
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Board/>
     </div>
   );
 }
