@@ -4,15 +4,36 @@ import {Square} from './Square';
 
 function Board(){
   const [board, setBoard] = useState(Array(9).fill(null));
+  const [turn, setTurn] = useState("X");
+  const [history,setHistory] = useState([board]);
 
   let handleClick = (index)=>{
-    console.log(index);
     if(board[index] === null){
-      let copy = [...board];
-      copy.splice(index,1,85);
-      console.log(copy);
-      setBoard(copy);
+      handleBoard(index);
+      handleTurn();
+      handleHistory();
+
+
     }
+  }
+  let handleBoard = (index) =>{
+    setBoard(prevBoard=>{
+      let currBoard = prevBoard.slice();
+      currBoard.splice(index,1,turn);
+      return currBoard;
+    });
+  }
+  
+  let handleTurn =()=>{
+    setTurn(prevTurn=>(prevTurn === "X") ? "O" : "X");
+  }
+
+  let handleHistory = () =>{
+    setHistory(prevHistory=>{
+      let currHistory = prevHistory.slice();
+      currHistory.push(board);
+      return currHistory;
+    });
   }
 
   let makeSquare = (box)=>{
@@ -23,6 +44,18 @@ function Board(){
     <section className="board">
       <div>
         {makeSquare(0)}
+        {makeSquare(1)}
+        {makeSquare(2)}
+      </div>
+      <div>
+        {makeSquare(3)}
+        {makeSquare(4)}
+        {makeSquare(5)}
+      </div>
+      <div>
+        {makeSquare(6)}
+        {makeSquare(7)}
+        {makeSquare(8)}
       </div>
 
       <button>Undo</button>
