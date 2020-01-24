@@ -3,24 +3,28 @@ import './App.scss';
 import {Square} from './Square';
 
 function Board(){
-  const [board, setBoard] = useState(Array(9).fill(null));
   const [turn, setTurn] = useState("X");
-  const [history,setHistory] = useState([board]);
+  const [gameState,setGameState] =useState({
+    board:Array(9).fill(null),
+    history: Array(9).fill(null)
+  });
 
   let handleClick = (index)=>{
-    if(board[index] === null){
+    if(gameState.board[index] === null){
       handleBoard(index);
       handleTurn();
-      handleHistory();
+      //handleHistory();
 
 
     }
   }
   let handleBoard = (index) =>{
-    setBoard(prevBoard=>{
-      let currBoard = prevBoard.slice();
+    setGameState(prevBoard=>{
+      let currBoard = prevBoard.board.slice();
+      let currHistory = prevBoard.history.slice();
       currBoard.splice(index,1,turn);
-      return currBoard;
+      currHistory.push(currBoard); 
+      return {board: currBoard, history: currHistory};
     });
   }
   
@@ -28,16 +32,15 @@ function Board(){
     setTurn(prevTurn=>(prevTurn === "X") ? "O" : "X");
   }
 
-  let handleHistory = () =>{
-    setHistory(prevHistory=>{
-      let currHistory = prevHistory.slice();
-      currHistory.push(board);
-      return currHistory;
-    });
-  }
+  // let handleHistory = () =>{
+  //   setHistory(prevHistory=>{
+  //     currHistory.push(board);
+  //     return currHistory;
+  //   });
+  // }
 
   let makeSquare = (box)=>{
-    return <Square num={board[box]} handleClick={()=> handleClick(box)}/>
+    return <Square num={gameState.board[box]} handleClick={()=> handleClick(box)}/>
   }
 
   return(
