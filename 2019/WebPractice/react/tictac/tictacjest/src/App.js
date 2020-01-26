@@ -32,15 +32,17 @@ function Board(){
   }
 
   let buttonUndo = ()=>{
-    // let currIndex = (gameState.history.length -1) - (counter + 1);
+    let currIndex = (gameState.history.length -1) - (counter + 1);
+    //Case when index is at 0
+    if(currIndex <= 0){
+      currIndex = 0;
+    }
     // console.log(gameState.history.length, 'length is');
     //   console.log(currIndex);
-    //   setCounter(i=>i+1);
+      setCounter(i=>i+1);
     setGameState(prevBoard =>{
-      //let arr = prevBoard.history.slice(currIndex, currIndex + 1);
-      console.log(prevBoard.board);
-     
-      //spready syntax error
+      let arr = prevBoard.history.slice(currIndex, currIndex + 1);
+      console.log(arr);
       return {board: prevBoard.board, history:prevBoard.history};
     });
     
