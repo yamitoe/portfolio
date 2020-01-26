@@ -3,19 +3,18 @@ import './App.scss';
 import {Square} from './Square';
 
 function Board(){
+  const arraryInit = 9;
   const [turn, setTurn] = useState("X");
   const [gameState,setGameState] =useState({
-    board:Array(9).fill(null),
-    history: Array(9).fill(null)
+    board:Array(arraryInit).fill(null),
+    history: [Array(arraryInit).fill(null)]
   });
+  const [counter, setCounter] = useState(0);
 
   let handleClick = (index)=>{
     if(gameState.board[index] === null){
       handleBoard(index);
       handleTurn();
-      //handleHistory();
-
-
     }
   }
   let handleBoard = (index) =>{
@@ -32,16 +31,24 @@ function Board(){
     setTurn(prevTurn=>(prevTurn === "X") ? "O" : "X");
   }
 
-  // let handleHistory = () =>{
-  //   setHistory(prevHistory=>{
-  //     currHistory.push(board);
-  //     return currHistory;
-  //   });
-  // }
+  let buttonUndo = ()=>{
+    // let currIndex = (gameState.history.length -1) - (counter + 1);
+    // console.log(gameState.history.length, 'length is');
+    //   console.log(currIndex);
+    //   setCounter(i=>i+1);
+    setGameState(prevBoard =>{
+      //let arr = prevBoard.history.slice(currIndex, currIndex + 1);
+      console.log(prevBoard);
+      return {...prevBoard, board : []}
+    });
+    
+  }
 
   let makeSquare = (box)=>{
     return <Square num={gameState.board[box]} handleClick={()=> handleClick(box)}/>
   }
+
+
 
   return(
     <section className="board">
@@ -61,7 +68,7 @@ function Board(){
         {makeSquare(8)}
       </div>
 
-      <button>Undo</button>
+      <button onClick={buttonUndo}>Undo</button>
       <button>Redo</button>
     </section>
   )
