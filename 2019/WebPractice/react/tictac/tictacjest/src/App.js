@@ -38,8 +38,10 @@ function Board(){
     //   setCounter(i=>i+1);
     setGameState(prevBoard =>{
       //let arr = prevBoard.history.slice(currIndex, currIndex + 1);
-      console.log(prevBoard);
-      return {...prevBoard, board : []}
+      console.log(prevBoard.board);
+     
+      //spready syntax error
+      return {board: prevBoard.board, history:prevBoard.history};
     });
     
   }
