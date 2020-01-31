@@ -37,13 +37,11 @@ function Board(){
     if(currIndex <= 0){
       currIndex = 0;
     }
-    // console.log(gameState.history.length, 'length is');
-    //   console.log(currIndex);
-      setCounter(i=>i+1);
+    setCounter(i=>i+1);
     setGameState(prevBoard =>{
       let arr = prevBoard.history.slice(currIndex, currIndex + 1);
-      console.log(arr);
-      return {board: prevBoard.board, history:prevBoard.history};
+      let merge = Object.assign(prevBoard,{board:arr})
+      return merge;
     });
     
   }
