@@ -20,8 +20,17 @@ function Board(){
   let handleBoard = (index) =>{
     setGameState(prevBoard=>{
       let currBoard = prevBoard.board.slice();
-      let currHistory = prevBoard.history.slice();
+      let currHistory;
       currBoard.splice(index,1,turn);
+      //Means a undo has been done
+      if(counter > 0){
+        let currIndex = (gameState.history.length -1) - (counter);
+        currHistory = prevBoard.history.slice(0,currIndex+1);
+        setCounter(0);
+      }
+      else{
+        currHistory = prevBoard.history.slice();
+      }
       currHistory.push(currBoard); 
       return {board: currBoard, history: currHistory};
     });
@@ -43,9 +52,7 @@ function Board(){
       let arr = prevBoard.history.slice();
       //Get the previous board from history
       let [lastArr] = arr.splice(currIndex,1);
-      console.log("The last array was", lastArr, "the fusion is", {board:lastArr});
       let merge = Object.assign(prevBoard,{board:lastArr})
-      console.log("The fusion is",merge)
       return merge;
     });
     
