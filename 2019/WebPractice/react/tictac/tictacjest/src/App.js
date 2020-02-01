@@ -43,10 +43,10 @@ function Board(){
   let buttonUndo = ()=>{
     let currIndex = (gameState.history.length -1) - (counter + 1);
     //Case when index is at 0
-    if(currIndex <= 0){
-      currIndex = 0;
+    if(currIndex > 0){
+      setCounter(i=>i+1);
     }
-    setCounter(i=>i+1);
+    //change the currently displayed board
     setGameState(prevBoard =>{
       //copy data
       let arr = prevBoard.history.slice();
@@ -56,6 +56,23 @@ function Board(){
       return merge;
     });
     
+  }
+
+  let buttonRedo = ()=>{
+    let currIndex = (gameState.history.length -1) - (counter - 1);
+
+    if(currIndex < gameState.history.length){
+      setCounter(i=>i-1);
+    }
+    //change the currently displayed board
+    setGameState(prevBoard =>{
+      //copy data
+      let arr = prevBoard.history.slice();
+      //Get the previous board from history
+      let [lastArr] = arr.splice(currIndex,1);
+      let merge = Object.assign(prevBoard,{board:lastArr})
+      return merge;
+    });
   }
 
   let makeSquare = (box)=>{
@@ -83,7 +100,7 @@ function Board(){
       </div>
 
       <button onClick={buttonUndo}>Undo</button>
-      <button>Redo</button>
+      <button onClick={buttonRedo}>Redo</button>
     </section>
   )
     
