@@ -39,8 +39,13 @@ function Board(){
     }
     setCounter(i=>i+1);
     setGameState(prevBoard =>{
-      let arr = prevBoard.history.slice(currIndex, currIndex + 1);
-      let merge = Object.assign(prevBoard,{board:arr})
+      //copy data
+      let arr = prevBoard.history.slice();
+      //Get the previous board from history
+      let [lastArr] = arr.splice(currIndex,1);
+      console.log("The last array was", lastArr, "the fusion is", {board:lastArr});
+      let merge = Object.assign(prevBoard,{board:lastArr})
+      console.log("The fusion is",merge)
       return merge;
     });
     
