@@ -52,7 +52,7 @@ function Board(){
       let arr = prevBoard.history.slice();
       //Get the previous board from history
       let [lastArr] = arr.splice(toIndex,1);
-      let merge = Object.assign(prevBoard,{board:lastArr})
+      let merge = {...prevBoard, board:lastArr};
       return merge;
     });
     
@@ -60,6 +60,7 @@ function Board(){
 
   let buttonRedo = ()=>{
     let currIndex = (gameState.history.length -1) - (counter);
+    //IF only one index return current index
     let toIndex = (counter > 0) ? (gameState.history.length -1) - (counter - 1) 
     : currIndex;
 
@@ -73,14 +74,10 @@ function Board(){
     }
     //change the currently displayed board
     setGameState(prevBoard =>{
-      //copy data
       let arr = prevBoard.history.slice();
       //Get the previous board from history
       let [lastArr] = arr.splice(toIndex,1);
-      console.log([lastArr]);
-      console.log(prevBoard);
-      let merge = Object.assign(prevBoard,{board:lastArr});
-      console.log(merge);
+      let merge = {...prevBoard, board:lastArr};
       return merge;
     });
   }
