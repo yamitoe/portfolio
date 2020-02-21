@@ -1,9 +1,25 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent, findAllByTitle } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+it("renders", () => {
+  const { asFragment } = render(<App />);
+  expect(asFragment()).toMatchSnapshot();
 });
+
+it("has Undo", ()=>{
+  const { getByText } = render(<App />);
+  const undoBtn = getByText("Undo");
+})
+
+it("has Redo", ()=>{
+  const { getByText } = render(<App />);
+  const undoBtn = getByText("Undo");
+
+})
+
+it("fires button", ()=>{
+  const { getByText } = render(<App />);
+  fireEvent.click(getByText("Undo"));
+})
