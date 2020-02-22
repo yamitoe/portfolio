@@ -79,6 +79,7 @@ body{
             ul{
                 display: flex;
                 padding: 0px;
+                flex-wrap: wrap;
                 li{
                     list-style: none;
                     margin: 5px;
@@ -96,6 +97,9 @@ body{
     }
     &[backcolor="weatherapp"]{
         background-color: hsla(208, 82%, 35%, 1);  
+    }
+    &[backcolor="tictac"]{
+        background-color: rgb(129, 166, 199);  
     }
     
 }
