@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import { route } from "./components/shared/routing";
 import { Link } from "react-router-dom";
 

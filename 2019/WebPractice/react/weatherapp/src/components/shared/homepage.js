@@ -2,6 +2,18 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export function Homepage() {
+  let displayProject = (url, title, summary, details) => {
+    return (
+      <article>
+        <Link to={url} className="weather">
+          {title} App
+        </Link>
+        <div>{summary}</div>
+        <div className="details">{details}</div>
+      </article>
+    );
+  };
+
   return (
     <section className="container-home">
       {document.body.setAttribute("backColor", "home")}
@@ -12,26 +24,19 @@ export function Homepage() {
         </div>
         <section className="projects">
           <h3>Projects</h3>
-          <article>
-            <Link to="/weatherapp" className="weather">
-              Weather App
-            </Link>
-            <div>Give it a city and it will get you the weather</div>
-            <div className="details">
-              Enter a city in the autocomplete, if it is a valid city it will
-              use fetch api to get the corresponding data.
-            </div>
-          </article>
-          <article>
-            <Link to="/tictac" className="weather">
-              Weather App
-            </Link>
-            <div>Give it a city and it will get you the weather</div>
-            <div className="details">
-              Enter a city in the autocomplete, if it is a valid city it will
-              use fetch api to get the corresponding data.
-            </div>
-          </article>
+          {displayProject(
+            "/weatherapp",
+            "Weather",
+            "Give it a city and it will get you the weather",
+            "Enter a city in the autocomplete, if it is a valid city it will use fetch api to get the corresponding data."
+          )}
+
+          {displayProject(
+            "/tictac",
+            "Tic-Tac-Toe",
+            "A simple tic-tac-toe game",
+            "React Tutorial Game recreated with Hooks API with minor jest testing"
+          )}
 
           <div className="github">
             <span>You can checkout other projects here: </span>
