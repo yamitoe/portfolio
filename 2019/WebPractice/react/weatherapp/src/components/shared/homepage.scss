@@ -27,21 +27,27 @@ section.container-home{
         font-weight: 600;
         color: $whitetext-header;
     }
-    .projects{
-        article{
-            background-color: $darklightlight-color; 
-            width: 400px;
-            word-break: break-all;
+    .container-projects{
+        #projects{
+            display: flex;
+            flex-wrap: wrap;
+            article{
+                margin: 5px;
+                padding: 3px;
+                background-color: $darklightlight-color; 
+                width: 400px;
+                word-break: break-all;
+            }
+
+            .details{
+                margin-top: 4px;
+                color: $darklightlight-text ;
+            }
         }
 
         a{
             font-weight: 600;
             font-size: large;
-        }
-
-        .details{
-            margin-top: 4px;
-            color: $darklightlight-text ;
         }
 
         .github{
@@ -54,6 +60,7 @@ section.container-home{
                 }
             }
         }
+
         //Color of each project
         .weather{
             color: hsla(208, 82%, 70%, 1);

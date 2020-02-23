@@ -23,21 +23,23 @@ export function Homepage() {
           Hello! this is my personnal homepage where you will find some projects
           I have worked on.
         </div>
-        <section className="projects">
+        <section className="container-projects">
           <h3>Projects</h3>
-          {displayProject(
-            "/weatherapp",
-            "Weather",
-            "Give it a city and it will get you the weather",
-            "Enter a city in the autocomplete, if it is a valid city it will use fetch api to get the corresponding data."
-          )}
+          <section id="projects">
+            {displayProject(
+              "/weatherapp",
+              "Weather",
+              "Give it a city and it will get you the weather",
+              "Enter a city in the autocomplete, if it is a valid city it will use fetch api to get the corresponding data."
+            )}
 
-          {displayProject(
-            "/tictac",
-            "Tic-Tac-Toe",
-            "A simple tic-tac-toe game",
-            "React Tutorial Game recreated with Hooks API with minor jest testing"
-          )}
+            {displayProject(
+              "/tictac",
+              "Tic-Tac-Toe",
+              "A simple tic-tac-toe game",
+              "React Tutorial Game recreated with Hooks API with minor jest testing"
+            )}
+          </section>
 
           <div className="github">
             <span>You can checkout other projects here: </span>
