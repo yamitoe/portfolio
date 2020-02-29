@@ -10,6 +10,7 @@ function Board() {
     history: [Array(arraryInit).fill(null)]
   });
   const [counter, setCounter] = useState(0);
+  const [winner, setWinner] = useState(false);
 
   let handleClick = index => {
     if (gameState.board[index] === null) {
@@ -17,6 +18,7 @@ function Board() {
       handleTurn();
     }
   };
+  // Update game history //Update board //Reset Counter
   let handleBoard = index => {
     setGameState(prevBoard => {
       let currBoard = prevBoard.board.slice();
@@ -30,6 +32,7 @@ function Board() {
       } else {
         currHistory = prevBoard.history.slice();
       }
+      winCondition(currBoard);
       currHistory.push(currBoard);
       return { board: currBoard, history: currHistory };
     });
@@ -37,6 +40,27 @@ function Board() {
 
   let handleTurn = () => {
     setTurn(prevTurn => (prevTurn === "X" ? "O" : "X"));
+  };
+
+  let winCondition = currBoard => {
+    let size = 3;
+    //Make the horizontal win condition
+    for (let x = 0; x < currBoard.length; x += 3) {
+      if (x % size === 0) {
+        let rowWin = currBoard.slice(x, x + size);
+        checkWinnerFunc(rowWin, "X");
+      }
+    }
+  };
+
+  let checkWinnerFunc = (test, player) => {
+    //If someone won
+    if (test.every(match => match === player) === true) {
+      //If no one has won yet
+      if (winner === false) {
+        setWinner(player + " Wins");
+      }
+    }
   };
 
   let buttonUndo = () => {
@@ -111,6 +135,7 @@ function Board() {
         <button onClick={buttonUndo}>Undo</button>
         <button onClick={buttonRedo}>Redo</button>
       </div>
+      {winner ? <h2>{winner}</h2> : false}
     </section>
   );
 }
