@@ -49,7 +49,28 @@ function Board() {
       if (x % size === 0) {
         let rowWin = currBoard.slice(x, x + size);
         checkWinnerFunc(rowWin, "X");
+        checkWinnerFunc(rowWin, "O");
       }
+    }
+    //Vert test
+    for (let x = 0; x < size; x++) {
+      let vertWin = [
+        currBoard[x],
+        currBoard[x + size],
+        currBoard[x + size + size]
+      ];
+      checkWinnerFunc(vertWin, "X");
+      checkWinnerFunc(vertWin, "O");
+    }
+    //Diagonal
+    for (let x = 0; x < size - 1; x++) {
+      let diagonalWin = [
+        currBoard[x],
+        currBoard[x + size + 1],
+        currBoard[x + size + size + 2]
+      ];
+      checkWinnerFunc(diagonalWin, "X");
+      checkWinnerFunc(diagonalWin, "O");
     }
   };
 
