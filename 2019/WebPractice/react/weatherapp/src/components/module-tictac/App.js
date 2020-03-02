@@ -41,7 +41,7 @@ function Board() {
   let handleTurn = () => {
     setTurn(prevTurn => (prevTurn === "X" ? "O" : "X"));
   };
-
+  //Game winning logic
   let winCondition = currBoard => {
     let size = 3;
     //Make the horizontal win condition
@@ -83,7 +83,7 @@ function Board() {
       }
     }
   };
-
+  //Hooks doesn't shallow merge so if using object form must do this
   let buttonUndo = () => {
     //Minus by 1 more value
     let currIndex = gameState.history.length - 1 - counter;
@@ -94,19 +94,14 @@ function Board() {
         ? gameState.history.length - 1 - (counter + 1)
         : currIndex;
     //Case when index is 0 and above //If not outofbounds
-    console.log(toIndex);
+
     if (currIndex > 0) {
+      handleTurn();
+      setWinner(false);
       setCounter(i => i + 1);
     }
     //change the currently displayed board
-    setGameState(prevBoard => {
-      //copy data
-      let arr = prevBoard.history.slice();
-      //Get the previous board from history
-      let [lastArr] = arr.splice(toIndex, 1);
-      let merge = { ...prevBoard, board: lastArr };
-      return merge;
-    });
+    buttonMergeState(toIndex);
   };
 
   let buttonRedo = () => {
@@ -116,15 +111,22 @@ function Board() {
       counter > 0 ? gameState.history.length - 1 - (counter - 1) : currIndex;
 
     if (currIndex < gameState.history.length - 1) {
+      handleTurn();
       setCounter(i => i - 1);
     }
+    buttonMergeState(toIndex, "redo");
+  };
 
+  let buttonMergeState = (toIndex, test) => {
     //change the currently displayed board
     setGameState(prevBoard => {
       let arr = prevBoard.history.slice();
       //Get the previous board from history
       let [lastArr] = arr.splice(toIndex, 1);
       let merge = { ...prevBoard, board: lastArr };
+      if (test === "redo") {
+        winCondition(lastArr);
+      }
       return merge;
     });
   };
