@@ -80,6 +80,18 @@ function Board() {
       //If no one has won yet
       if (winner === false) {
         setWinner(player + " Wins");
+        //Set board to finished
+        setGameState(prevData => {
+          let curBoard = prevData.board.slice();
+          let curHistory = prevData.history.slice();
+          for (let x = 0; x < gameState.board.length; x++) {
+            if (curBoard[x] === null) {
+              curBoard[x] = true;
+            }
+          }
+          curHistory.push(curBoard);
+          return { ...prevData, board: curBoard };
+        });
       }
     }
   };
