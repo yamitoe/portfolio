@@ -6,8 +6,9 @@ export default function Pagination({data}) {
     <section className="container-content">
       {data.map(output=>{
         return (
-        <article>
-          {output}
+        <article key={output.id}>
+          <div>{output.userId}</div>
+          <div>{output.id}</div>
         </article>
         )
       })}

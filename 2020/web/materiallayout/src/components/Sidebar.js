@@ -145,9 +145,9 @@ export default function PersistentDrawerLeft(props) {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
+        <React.Fragment>
           {props.children}
-        </Typography>
+        </React.Fragment>
 
       </main>
 
