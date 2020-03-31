@@ -11,10 +11,10 @@ function App() {
 
   useEffect(()=>{
   let fetchPosts = async () =>{
-    let result;
-    do {
-      result = await fetch('https://jsonplaceholder.typicode.com/todos');
-    } while (result.ok !== true);
+  let result = await fetch('https://jsonplaceholder.typicode.com/todos');
+  if(!result.ok){
+    throw Error(result.status +" " + result.statusText);
+  }
     let data = await result.json();
     setTotalAmount(data.length);
     //items currently displayed
