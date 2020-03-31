@@ -16,11 +16,8 @@ function App() {
       result = await fetch('https://jsonplaceholder.typicode.com/todos');
     } while (result.ok !== true);
     let data = await result.json();
-    console.log("called");
     setTotalAmount(data.length);
     //items currently displayed
-    console.log(data);
-    //let displayData = <div>Test</div>;
     let displayData = <Pagination data={data.slice(0,10)}/>;
     console.log(displayData);
     setCurrentData(displayData);

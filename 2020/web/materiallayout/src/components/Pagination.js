@@ -1,4 +1,5 @@
 import React from 'react';
+import "./pagination.scss";
 
 
 export default function Pagination({data}) {
@@ -7,8 +8,8 @@ export default function Pagination({data}) {
       {data.map(output=>{
         return (
         <article key={output.id}>
-          <div>{output.userId}</div>
-          <div>{output.id}</div>
+          <div>User ID: {output.userId}</div>
+          <div>ID: {output.id}</div>
         </article>
         )
       })}
