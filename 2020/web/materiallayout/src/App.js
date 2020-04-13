@@ -2,38 +2,38 @@ import React,{useState, useEffect} from 'react';
 import './App.css';
 import Sidebar from './components/Sidebar';
 import Pagination from './components/Pagination';
+import {TaskBar} from './components/TaskBar';
 
 function App() {
-  let [currentData,setCurrentData] = useState(false);
+  let [currentData,setCurrentData] = useState([]);
   let [amountPerPage,setAmountPerPage] = useState(10);
-  let [totalAmount,setTotalAmount] = useState(0);
-  let [amountLeft,setAmountLeft] = useState(0)
+  let [currentPage,setcurrentPage] = useState(1);
 
   useEffect(()=>{
   let fetchPosts = async () =>{
-  let result = await fetch('https://jsonplaceholder.typicode.com/todos');
-  if(!result.ok){
-    throw Error(result.status +" " + result.statusText);
-  }
+    let result = await fetch('https://jsonplaceholder.typicode.com/todos');
+    if(!result.ok){
+      throw Error(result.status +" " + result.statusText);
+    }
     let data = await result.json();
-    setTotalAmount(data.length);
-    //items currently displayed
-    let displayData = <Pagination data={data.slice(0,10)}/>;
-    console.log(displayData);
-    setCurrentData(displayData);
-    setAmountLeft(data.length - setAmountPerPage);
-  
-  }
+    setCurrentData(data);
 
+  }
   fetchPosts();
 
   },[])
 
+  let endIndex = currentPage * amountPerPage;
+  let startIndex = endIndex - amountPerPage;
+  let barAmount = currentData.length / amountPerPage;
 
   return (
     <div className="App">
       <Sidebar>
-        {currentData}
+        <Pagination data={currentData.slice(startIndex,endIndex)}/>
+        <ul className="pagination-bar">
+          <TaskBar number={barAmount}/>
+        </ul>
       </Sidebar>
 
     </div>

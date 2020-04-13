@@ -7,3 +7,13 @@
         }
     }
 }
+
+ul.pagination-bar{
+    display: flex;
+    list-style-type: none;
+    li{
+        padding: 5px;
+        margin: 2px;
+    }
+
+}
