@@ -23,16 +23,22 @@ function App() {
 
   },[])
 
+  let onClick = (parameter) => (e) => {
+    console.log(parameter);
+
+  }
+
   let endIndex = currentPage * amountPerPage;
   let startIndex = endIndex - amountPerPage;
   let barAmount = currentData.length / amountPerPage;
+  
 
   return (
     <div className="App">
       <Sidebar>
         <Pagination data={currentData.slice(startIndex,endIndex)}/>
         <ul className="pagination-bar">
-          <TaskBar number={barAmount}/>
+          <TaskBar number={barAmount} onClick={onClick}/>
         </ul>
       </Sidebar>
 
