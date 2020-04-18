@@ -7,7 +7,7 @@ import {TaskBar} from './components/TaskBar';
 function App() {
   let [currentData,setCurrentData] = useState([]);
   let [amountPerPage,setAmountPerPage] = useState(10);
-  let [currentPage,setcurrentPage] = useState(1);
+  let [currentPage,setCurrentPage] = useState(0);
 
   useEffect(()=>{
   let fetchPosts = async () =>{
@@ -23,13 +23,13 @@ function App() {
 
   },[])
 
-  let onClick = (parameter) => (e) => {
-    console.log(parameter);
+  let onClick = (page) => (e) => {
+    setCurrentPage(page);
 
   }
 
-  let endIndex = currentPage * amountPerPage;
-  let startIndex = endIndex - amountPerPage;
+  let startIndex = currentPage * amountPerPage;
+  let endIndex = startIndex + amountPerPage;
   let barAmount = currentData.length / amountPerPage;
   
 
