@@ -11,6 +11,14 @@
 ul.pagination-bar{
     display: flex;
     list-style-type: none;
+    :hover{
+        background-color: hsl(3, 0%, 80%);
+    }
+
+    .selected{
+        background-color: hsl(3, 0%, 70%);
+    }
+
     li{
         padding: 5px;
         margin: 2px;

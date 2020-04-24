@@ -38,7 +38,7 @@ function App() {
       <Sidebar>
         <Pagination data={currentData.slice(startIndex,endIndex)}/>
         <ul className="pagination-bar">
-          <TaskBar number={barAmount} onClick={onClick}/>
+          <TaskBar number={barAmount} onClick={onClick} currentPage={currentPage}/>
         </ul>
       </Sidebar>
 
