@@ -1,0 +1,36 @@
+
+section .test{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  video{
+    overflow: hidden;
+
+
+    height: 100%;
+    width: 100%;
+    object-fit: fill;
+
+
+    position: absolute ;
+    top: 0;
+    left: 0;  
+    z-index: -10;
+
+  }
+  
+  article{
+    text-align: center;
+    div{
+      color: white;
+    }
+  
+  }
+}
+
+div{
+  color: white;
+}
+
