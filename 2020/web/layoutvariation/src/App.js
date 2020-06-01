@@ -9,28 +9,13 @@ function App() {
       <div className="test">
         <video poster={starimg} autoPlay loop muted src={stars} ></video>
         <article>
-          <div>Fullscreen Background</div>
-          <button>Click here</button>
+          <h1>Fullscreen Background</h1>
         </article>
       </div>
       <div>
         Testing other 
       </div>
-      <div>
-        Testing other 
-      </div>
-      <div>
-        Testing other 
-      </div>
-      <div>
-        Testing other 
-      </div>
-      <div>
-        Testing other 
-      </div>
-      <div>
-        Testing other 
-      </div>
+
 
 
 
