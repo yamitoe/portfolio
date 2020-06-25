@@ -47,6 +47,7 @@
 body{
     background-color: var(--background-color-main);
     color: var(--color-text-main-high);
+
 }
 
 ul{
@@ -59,7 +60,7 @@ a{
     color: var(--color-text-main-high);
     text-decoration: none;
 }
-
+//navbar
 .navbar{
     height: var(--nav-size);
     background-color: var(--background-color-main-container);
@@ -98,11 +99,10 @@ a{
 
         svg{
             fill: var(--color-text-main-high);
-            //width: 90px;
             height: 20px;
         }
     }
-
+    //dropdown
     .dropdownmenu{
         position: absolute;
         top: calc(var(--nav-size) - 2px);
@@ -115,7 +115,12 @@ a{
         overflow: hidden;
         display: flex;
         flex-direction: column;
+
+        transition: height var(--speed) ease;
+   
+    
     }
+
 
     .dropdownmenu-item{
         height: 50px;
@@ -124,6 +129,7 @@ a{
         border-radius: var(--border-radius);
         transition: var(--speed);
         padding: 0.5rem;
+    
         &:hover{
             background-color: var(--background-color-main-container-hover);
         }
@@ -131,6 +137,7 @@ a{
         .icon-right{
             margin-left: auto;
             display: flex;
+
             svg{
                 fill: var(--color-text-main-high);
                 height: 20px;
@@ -138,6 +145,40 @@ a{
     
         }
     }
+    //transitions
+    .menu-primary-enter {
+        position: absolute;
+        transform: translateX(-110%);
+
+      }
+      .menu-primary-enter-active {
+        transform: translateX(0%);
+        transition: all var(--speed) ease;
+
+      }
+      .menu-primary-exit {
+        position: absolute;
+      }
+      .menu-primary-exit-active {
+        transform: translateX(-110%);
+        transition: all var(--speed) ease;
+      }
+
+      .menu-secondary-enter {
+        //position: absolute;
+        transform: translateX(110%);
+      }
+      .menu-secondary-enter-active {
+        transform: translateX(0%);
+        transition: all var(--speed) ease;
+      }
+      .menu-secondary-exit {
+        //Keep this empty so it doesn't conflict with the others ones exit
+      }
+      .menu-secondary-exit-active {
+        transform: translateX(110%);
+        transition: all var(--speed) ease;
+      }
 
 }
 
