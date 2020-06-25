@@ -98,7 +98,7 @@ a{
 
         svg{
             fill: var(--color-text-main-high);
-            width: 90px;
+            //width: 90px;
             height: 20px;
         }
     }
@@ -127,12 +127,18 @@ a{
         &:hover{
             background-color: var(--background-color-main-container-hover);
         }
+
+        .icon-right{
+            margin-left: auto;
+            display: flex;
+            svg{
+                fill: var(--color-text-main-high);
+                height: 20px;
+            }
+    
+        }
     }
 
-    .icon-right{
-        width: 25px;
-        height: 25px;
-    }
 }
 
 
