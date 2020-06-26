@@ -92,6 +92,7 @@ a{
         justify-content: center;
         align-items: center;
         transition: 300ms;
+        margin-right: 0.5rem;
 
         &:hover{
             filter: brightness(1.5);
@@ -113,8 +114,7 @@ a{
         border-radius: var(--border-radius);
         padding: 1rem;
         overflow: hidden;
-        display: flex;
-        flex-direction: column;
+
 
         transition: height var(--speed) ease;
    
@@ -129,15 +129,18 @@ a{
         border-radius: var(--border-radius);
         transition: var(--speed);
         padding: 0.5rem;
+        margin-right: 0.5rem;
     
         &:hover{
             background-color: var(--background-color-main-container-hover);
         }
+ 
 
         .icon-right{
-            margin-left: auto;
-            display: flex;
-
+           margin-left: 10vw;
+           display: flex;
+            
+     
             svg{
                 fill: var(--color-text-main-high);
                 height: 20px;
@@ -145,6 +148,7 @@ a{
     
         }
     }
+
     //transitions
     .menu-primary-enter {
         position: absolute;
