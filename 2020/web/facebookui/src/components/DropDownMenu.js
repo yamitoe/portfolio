@@ -4,12 +4,17 @@ import { ReactComponent as Chevron } from "../icons/chevron.svg";
 import { ReactComponent as Arrow } from "../icons/arrow.svg";
 import { ReactComponent as Bell } from "../icons/bell.svg";
 import { CSSTransition } from "react-transition-group";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function DropDownMenu(props) {
   //settings
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
+  }, []);
 
   function calcHeight(el) {
     const height = el.offsetHeight;
@@ -29,7 +34,11 @@ export function DropDownMenu(props) {
     );
   }
   return (
-    <div className="dropdownmenu" style={{ height: menuHeight }}>
+    <div
+      className="dropdownmenu"
+      style={{ height: menuHeight }}
+      ref={dropdownRef}
+    >
       <CSSTransition
         in={activeMenu === "main"}
         unmountOnExit

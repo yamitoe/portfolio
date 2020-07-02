@@ -47,6 +47,7 @@
 body{
     background-color: var(--background-color-main);
     color: var(--color-text-main-high);
+    font-size: 16px;
 
 }
 
@@ -105,16 +106,16 @@ a{
     }
     //dropdown
     .dropdownmenu{
+
+        width: 300px;
         position: absolute;
         top: calc(var(--nav-size) - 2px);
-        width: 300px;
         transform: translateX(-45%);
         background-color: var(--background-color-main-container);
         border: var(--border);
         border-radius: var(--border-radius);
         padding: 1rem;
         overflow: hidden;
-
 
         transition: height var(--speed) ease;
    
@@ -124,7 +125,10 @@ a{
 
     .dropdownmenu-item{
         height: 50px;
-        display: flex;
+        display: grid;
+        grid-template-columns: 
+        50px 200px 20px;
+
         align-items: center;
         border-radius: var(--border-radius);
         transition: var(--speed);
@@ -137,9 +141,8 @@ a{
  
 
         .icon-right{
-           margin-left: 10vw;
+           margin-left: 10px;
            display: flex;
-            
      
             svg{
                 fill: var(--color-text-main-high);
