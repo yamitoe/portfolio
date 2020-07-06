@@ -45,6 +45,7 @@ export function DropDownMenu(props) {
         timeout={500}
         classNames="menu-primary"
         onEnter={calcHeight}
+        nodeRef={dropdownRef}
       >
         <div className="menu">
           <DropDownItem lefticon={<Bell />}>My profile</DropDownItem>
@@ -64,6 +65,7 @@ export function DropDownMenu(props) {
         timeout={500}
         classNames="menu-secondary"
         onEnter={calcHeight}
+        nodeRef={dropdownRef}
       >
         <div className="menu">
           <DropDownItem lefticon={<Arrow />} goToMenu={"main"}>
