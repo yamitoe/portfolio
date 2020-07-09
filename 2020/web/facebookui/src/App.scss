@@ -55,7 +55,10 @@ ul{
     list-style: none;
     margin: 0;
     padding: 0;
-}
+} 
+
+
+
 
 a{
     color: var(--color-text-main-high);
@@ -69,7 +72,7 @@ a{
     border-bottom: var(--border);
     ul{
         width: 100%;
-        height: 100%;
+         height: 100%;
         display: flex;
         justify-content: flex-end;
     }
@@ -98,7 +101,7 @@ a{
         &:hover{
             filter: brightness(1.5);
         }
-
+ 
         svg{
             fill: var(--color-text-main-high);
             height: 20px;

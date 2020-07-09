@@ -10,16 +10,32 @@ export function DropDownMenu(props) {
   //settings
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
-  const dropdownRef = useRef(null);
+  const dropDownRef = useRef(null);
+  const dropDownItemLeftRef = useRef(null);
+  const dropDownItemRightRef = useRef(null);
 
-  useEffect(() => {
-    setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
-  }, []);
+  // useEffect(() => {
+  //   setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
+  // }, []);
 
-  function calcHeight(el) {
-    const height = el.offsetHeight;
+  function calcHeight() {
+    //const height = el.offsetHeight;
+    const height = dropDownRef.current.offsetHeight;
     setMenuHeight(height);
   }
+
+  function calcHeightL() {
+    //const height = el.offsetHeight;
+    const height = dropDownItemLeftRef.current.offsetHeight;
+    setMenuHeight(height);
+  }
+
+  function calcHeightR() {
+    //const height = el.offsetHeight;
+    const height = dropDownItemRightRef.current.offsetHeight;
+    setMenuHeight(height);
+  }
+
   function DropDownItem(props) {
     return (
       <a
@@ -37,17 +53,17 @@ export function DropDownMenu(props) {
     <div
       className="dropdownmenu"
       style={{ height: menuHeight }}
-      ref={dropdownRef}
+      ref={dropDownRef} //For height to change dynamcally
     >
       <CSSTransition
         in={activeMenu === "main"}
         unmountOnExit
         timeout={500}
         classNames="menu-primary"
-        onEnter={calcHeight}
-        nodeRef={dropdownRef}
+        onEnter={calcHeightL} //expects a function
+        nodeRef={dropDownItemLeftRef}
       >
-        <div className="menu">
+        <div className="menu" ref={dropDownItemLeftRef}>
           <DropDownItem lefticon={<Bell />}>My profile</DropDownItem>
           <DropDownItem
             lefticon={<Cog />}
@@ -64,10 +80,10 @@ export function DropDownMenu(props) {
         unmountOnExit
         timeout={500}
         classNames="menu-secondary"
-        onEnter={calcHeight}
-        nodeRef={dropdownRef}
+        onEnter={calcHeightR}
+        nodeRef={dropDownItemRightRef}
       >
-        <div className="menu">
+        <div className="menu" ref={dropDownItemRightRef}>
           <DropDownItem lefticon={<Arrow />} goToMenu={"main"}>
             Settings
           </DropDownItem>
