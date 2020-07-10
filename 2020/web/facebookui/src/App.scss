@@ -130,7 +130,7 @@ a{
         height: 50px;
         display: grid;
         grid-template-columns: 
-        50px 200px 20px;
+        50px 180px 20px;
 
         align-items: center;
         border-radius: var(--border-radius);
@@ -144,7 +144,7 @@ a{
  
 
         .icon-right{
-           margin-left: 10px;
+           margin-left: 30px;
            display: flex;
      
             svg{

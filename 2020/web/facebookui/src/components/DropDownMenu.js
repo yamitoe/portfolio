@@ -3,8 +3,10 @@ import { ReactComponent as Cog } from "../icons/cog.svg";
 import { ReactComponent as Chevron } from "../icons/chevron.svg";
 import { ReactComponent as Arrow } from "../icons/arrow.svg";
 import { ReactComponent as Bell } from "../icons/bell.svg";
+import { ReactComponent as SunMoon } from "../icons/sunmoon.svg";
 import { CSSTransition } from "react-transition-group";
 import { useState, useEffect, useRef } from "react";
+import { ToggleSwitch } from "./ToggleSwitch";
 
 export function DropDownMenu(props) {
   //settings
@@ -14,24 +16,13 @@ export function DropDownMenu(props) {
   const dropDownItemLeftRef = useRef(null);
   const dropDownItemRightRef = useRef(null);
 
-  // useEffect(() => {
-  //   setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
-  // }, []);
-
-  function calcHeight() {
-    //const height = el.offsetHeight;
-    const height = dropDownRef.current.offsetHeight;
-    setMenuHeight(height);
-  }
-
+  //For Refs
   function calcHeightL() {
-    //const height = el.offsetHeight;
     const height = dropDownItemLeftRef.current.offsetHeight;
     setMenuHeight(height);
   }
 
   function calcHeightR() {
-    //const height = el.offsetHeight;
     const height = dropDownItemRightRef.current.offsetHeight;
     setMenuHeight(height);
   }
@@ -65,6 +56,12 @@ export function DropDownMenu(props) {
       >
         <div className="menu" ref={dropDownItemLeftRef}>
           <DropDownItem lefticon={<Bell />}>My profile</DropDownItem>
+          <DropDownItem
+            lefticon={<SunMoon></SunMoon>}
+            righticon={<ToggleSwitch />}
+          >
+            Dark Theme
+          </DropDownItem>
           <DropDownItem
             lefticon={<Cog />}
             goToMenu={"settings"}

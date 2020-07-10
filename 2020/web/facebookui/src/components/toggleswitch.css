@@ -1,8 +1,8 @@
 .switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: calc(var(--nav-size) * 0.8);
+  height: calc(var(--nav-size) * 0.4);
 }
 
 /* Hide default HTML checkbox */
@@ -25,10 +25,10 @@
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
+  height: calc(var(--nav-size) * 0.3);
+  width: calc(var(--nav-size) * 0.3);
   left: 4px;
-  bottom: 4px;
+  bottom: calc(((var(--nav-size) * 0.4) - (var(--nav-size) * 0.3)) / 2);
   background-color: white;
   transition: 0.4s;
 }
@@ -42,7 +42,7 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translateX(calc(var(--nav-size) * 0.4));
 }
 
 /* Rounded sliders */
