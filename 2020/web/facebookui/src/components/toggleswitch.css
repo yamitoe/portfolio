@@ -3,6 +3,7 @@
   display: inline-block;
   width: calc(var(--nav-size) * 0.8);
   height: calc(var(--nav-size) * 0.4);
+  flex: 0 0 auto;
 }
 
 /* Hide default HTML checkbox */
