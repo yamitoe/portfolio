@@ -12,9 +12,33 @@ export function DropDownMenu(props) {
   //settings
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
+  //For theme changer
+  const [checked, setChecked] = useState(true);
+
+  //when theme is changed
+  // useEffect(()=>{
+  //   if (localStorage.getItem("theme") === "dark") {
+  //     localStorage.setItem("theme","light");
+  //   }
+  //   else{
+  //     localStorage.setItem("theme","dark");
+  //   }
+
+  // },[checked]);
   const dropDownRef = useRef(null);
   const dropDownItemLeftRef = useRef(null);
   const dropDownItemRightRef = useRef(null);
+
+  function checkSwap(e) {
+    //setChecked((curr)=>!curr);
+
+    console.log("asa");
+    if (localStorage.getItem("theme") === "dark") {
+      localStorage.setItem("theme", "light");
+    } else {
+      localStorage.setItem("theme", "dark");
+    }
+  }
 
   //For Refs
   function calcHeightL() {
@@ -58,7 +82,7 @@ export function DropDownMenu(props) {
           <DropDownItem lefticon={<Bell />}>My profile</DropDownItem>
           <DropDownItem
             lefticon={<SunMoon></SunMoon>}
-            righticon={<ToggleSwitch />}
+            righticon={<ToggleSwitch checked={checked} onClick={checkSwap} />}
           >
             Dark Theme
           </DropDownItem>

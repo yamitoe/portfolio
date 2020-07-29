@@ -1,9 +1,8 @@
 import React from "react";
-export function NavBar(props){
-    return (
+export function NavBar(props) {
+  return (
     <nav className="navbar">
-        <ul>
-            {props.children}
-        </ul>
-    </nav>)
+      <ul>{props.children}</ul>
+    </nav>
+  );
 }

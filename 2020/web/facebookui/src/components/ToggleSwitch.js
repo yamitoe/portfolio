@@ -4,8 +4,8 @@ import "./toggleswitch.css";
 export function ToggleSwitch(props) {
   return (
     <label className="switch">
-      <input type="checkbox" />
-      <span className="slider round"></span>
+      <input type="checkbox" defaultChecked={props.checked} />
+      <span className="slider round" onClick={props.onClick}></span>
     </label>
   );
 }
