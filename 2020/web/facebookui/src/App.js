@@ -11,16 +11,17 @@ import { ReactComponent as Bell } from "./icons/bell.svg";
 import { ReactComponent as Caret } from "./icons/caret.svg";
 
 function App() {
-  //on first load theme is set to dark
-  // useEffect(()=>{
-  //   if (localStorage.getItem("theme") === null) {
-  //     localStorage.setItem("theme","dark");
-  //   }
-  //   else{
-  //     //setChecked(localStorage.getItem.theme === "dark" ? true : false);
-  //   }
+  //For theme changer
+  const [checked, setChecked] = useState(true);
 
-  // },[]);
+  //on first load theme is set to dark
+  useEffect(() => {
+    //if empty, dark theme is default
+    if (localStorage.getItem("theme") === null) {
+      localStorage.setItem("theme", "dark");
+    }
+    setChecked(localStorage.getItem("theme") === "dark" ? true : false);
+  }, []);
 
   return (
     <div className="App">
@@ -29,7 +30,7 @@ function App() {
         <NavItem img={<Plus />} />
         <NavItem img={<Bolt />} />
         <NavItem img={<Caret />}>
-          <DropDownMenu />
+          <DropDownMenu checked={checked} checkedFunc={setChecked} />
         </NavItem>
       </NavBar>
     </div>
