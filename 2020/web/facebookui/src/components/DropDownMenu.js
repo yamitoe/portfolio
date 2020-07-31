@@ -21,8 +21,10 @@ export function DropDownMenu(props) {
     props.checkedFunc((val) => !val);
     if (localStorage.getItem("theme") === "dark") {
       localStorage.setItem("theme", "light");
+      document.body.setAttribute("theme", localStorage.getItem("theme"));
     } else {
       localStorage.setItem("theme", "dark");
+      document.body.setAttribute("theme", localStorage.getItem("theme"));
     }
   }
 
