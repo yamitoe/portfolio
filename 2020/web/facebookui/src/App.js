@@ -20,6 +20,7 @@ function App() {
     if (localStorage.getItem("theme") === null) {
       localStorage.setItem("theme", "dark");
     }
+    document.body.setAttribute("theme", localStorage.getItem("theme"));
     setChecked(localStorage.getItem("theme") === "dark" ? true : false);
   }, []);
 
