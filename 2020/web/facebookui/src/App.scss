@@ -31,6 +31,7 @@
         //Main colours
         --background-color-main: hsla(0, 0%, 95%, 1);
         --background-color-main-container:  hsla(0, 0%, 90%, 1);
+        --background-color-main-acsent:  hsla(0, 0%, 82%, 1);
     
         --background-color-secondary: hsla(216, 100%, 68%, 1);
         --background-color-secondary-container:  hsla(216, 100%, 78%, 1);
@@ -137,6 +138,7 @@ a{
         transition: var(--speed);
         padding: 0.5rem;
         //margin-right: 0.5rem;
+        
     
         &:hover{
             background-color: var(--background-color-main-container-hover);
@@ -183,13 +185,24 @@ a{
         transition: all var(--speed) ease;
       }
       .menu-secondary-exit {
-        //Keep this empty so it doesn't conflict with the others ones exit
+        
       }
       .menu-secondary-exit-active {
         transform: translateX(110%);
         transition: all var(--speed) ease;
       }
 
+
 }
 
+.MuiPagination-root{
+//   background-color: bisque ; 
+color: var(--color-text-main-high) !important;
 
+}
+
+.MuiPaginationItem-page{
+  background-color: var(--background-color-main-acsent) !important;
+  color: var(--color-text-main-high) !important;
+ 
+}
