@@ -17,7 +17,6 @@ export function Homepage() {
 
   return (
     <section className="container-home">
-      {document.body.setAttribute("backColor", "home")}
       <main>
         <div>
           Hello! this is my personnal homepage where you will find some projects
@@ -26,6 +25,13 @@ export function Homepage() {
         <section className="container-projects">
           <h3>Projects</h3>
           <section id="projects">
+            {displayProject(
+              "/facebookui",
+              "Facebook UI",
+              "Facebook dropdown UI with pagination and theme",
+              `Animated dropdown that 'scrolls' left and right. A dark/white theme button, stores the data in cache.
+               A simple pagination with materail ui and some mock data.`
+            )}
             {displayProject(
               "/weatherapp",
               "Weather",

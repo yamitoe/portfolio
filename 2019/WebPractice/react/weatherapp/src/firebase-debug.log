@@ -1,0 +1,76 @@
+[debug] [2020-08-26T22:51:21.492Z] ----------------------------------------------------------------------
+[debug] [2020-08-26T22:51:21.494Z] Command:       /home/season/.nvm/versions/node/v12.18.3/bin/node /mnt/c/Users/Yami/AppData/Roaming/npm/node_modules/firebase-tools/lib/bin/firebase.js serve --only hosting
+[debug] [2020-08-26T22:51:21.494Z] CLI Version:   7.8.1
+[debug] [2020-08-26T22:51:21.494Z] Platform:      linux
+[debug] [2020-08-26T22:51:21.494Z] Node Version:  v12.18.3
+[debug] [2020-08-26T22:51:21.495Z] Time:          Wed Aug 26 2020 15:51:21 GMT-0700 (Pacific Daylight Time)
+[debug] [2020-08-26T22:51:21.495Z] ----------------------------------------------------------------------
+[debug] [2020-08-26T22:51:21.495Z] 
+[debug] [2020-08-26T22:51:21.503Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-26T22:51:21.504Z] > authorizing via signed-in user
+[debug] [2020-08-26T22:51:21.504Z] [iam] checking project kdwebsite-wind for permissions ["firebase.projects.get"]
+[debug] [2020-08-26T22:51:21.505Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-08-26T22:51:21.505Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-08-26T22:51:21.671Z] <<< HTTP RESPONSE 200
+[debug] [2020-08-26T22:51:21.690Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/kdwebsite-wind:testIamPermissions  
+
+[debug] [2020-08-26T22:51:21.863Z] <<< HTTP RESPONSE 200
+[debug] [2020-08-26T22:51:21.864Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/kdwebsite-wind  
+ 
+[debug] [2020-08-26T22:51:22.272Z] <<< HTTP RESPONSE 200
+[debug] [2020-08-26T22:51:22.275Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/kdwebsite-wind/webApps/-/config  
+ 
+[debug] [2020-08-26T22:51:22.776Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2020-08-26T22:55:13.408Z] ----------------------------------------------------------------------
+[debug] [2020-08-26T22:55:13.410Z] Command:       /home/season/.nvm/versions/node/v12.18.3/bin/node /mnt/c/Users/Yami/AppData/Roaming/npm/node_modules/firebase-tools/lib/bin/firebase.js serve
+[debug] [2020-08-26T22:55:13.410Z] CLI Version:   7.8.1
+[debug] [2020-08-26T22:55:13.410Z] Platform:      linux
+[debug] [2020-08-26T22:55:13.410Z] Node Version:  v12.18.3
+[debug] [2020-08-26T22:55:13.411Z] Time:          Wed Aug 26 2020 15:55:13 GMT-0700 (Pacific Daylight Time)
+[debug] [2020-08-26T22:55:13.411Z] ----------------------------------------------------------------------
+[debug] [2020-08-26T22:55:13.411Z] 
+[debug] [2020-08-26T22:55:13.420Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-26T22:55:13.420Z] > authorizing via signed-in user
+[debug] [2020-08-26T22:55:13.420Z] [iam] checking project kdwebsite-wind for permissions ["firebase.projects.get"]
+[debug] [2020-08-26T22:55:13.422Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/kdwebsite-wind:testIamPermissions  
+
+[debug] [2020-08-26T22:55:13.579Z] <<< HTTP RESPONSE 200
+[debug] [2020-08-26T22:55:13.586Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/kdwebsite-wind  
+ 
+[debug] [2020-08-26T22:55:13.756Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/mnt/c/Users/Yami/Documents/GitHub/New folder/2019/WebPractice/react/weatherapp'...
+[info] 
+[debug] [2020-08-26T22:55:13.764Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/kdwebsite-wind/webApps/-/config  
+ 
+[debug] [2020-08-26T22:55:14.376Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] ✔  hosting: Local server: http://localhost:5000
+[debug] [2020-08-26T23:04:33.945Z] ----------------------------------------------------------------------
+[debug] [2020-08-26T23:04:33.948Z] Command:       /home/season/.nvm/versions/node/v12.18.3/bin/node /mnt/c/Users/Yami/AppData/Roaming/npm/node_modules/firebase-tools/lib/bin/firebase.js serve
+[debug] [2020-08-26T23:04:33.948Z] CLI Version:   7.8.1
+[debug] [2020-08-26T23:04:33.948Z] Platform:      linux
+[debug] [2020-08-26T23:04:33.949Z] Node Version:  v12.18.3
+[debug] [2020-08-26T23:04:33.949Z] Time:          Wed Aug 26 2020 16:04:33 GMT-0700 (Pacific Daylight Time)
+[debug] [2020-08-26T23:04:33.949Z] ----------------------------------------------------------------------
+[debug] [2020-08-26T23:04:33.950Z] 
+[debug] [2020-08-26T23:04:33.961Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-08-26T23:04:33.961Z] > authorizing via signed-in user
+[debug] [2020-08-26T23:04:33.962Z] [iam] checking project kdwebsite-wind for permissions ["firebase.projects.get"]
+[debug] [2020-08-26T23:04:33.963Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/kdwebsite-wind:testIamPermissions  
+
+[debug] [2020-08-26T23:04:34.148Z] <<< HTTP RESPONSE 200
+[debug] [2020-08-26T23:04:34.150Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/kdwebsite-wind  
+ 
+[debug] [2020-08-26T23:04:34.338Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/mnt/c/Users/Yami/Documents/GitHub/New folder/2019/WebPractice/react/weatherapp'...
+[info] 
+[debug] [2020-08-26T23:04:34.345Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/kdwebsite-wind/webApps/-/config  
+ 
+[debug] [2020-08-26T23:04:34.943Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: build
+[info] ✔  hosting: Local server: http://localhost:5000
