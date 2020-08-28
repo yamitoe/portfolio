@@ -17,6 +17,7 @@ export function Homepage() {
 
   return (
     <section className="container-home">
+      {document.body.setAttribute("backColor", "home")}
       <main>
         <div>
           Hello! this is my personnal homepage where you will find some projects

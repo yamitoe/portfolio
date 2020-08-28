@@ -27,6 +27,7 @@ export function App() {
 
   return (
     <div className="App">
+      {document.body.removeAttribute("backColor")}
       <NavBar>
         <NavItem img={<Arrow />} />
         <NavItem img={<Plus />} />
