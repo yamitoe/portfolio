@@ -2,10 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./homepage.scss";
 
+import fbFav from "./images/facebookuidark2.png";
+import tictacFav from "./images/tictactoe.png";
+import weatherappFav from "./images/weatherapp.png";
+
 export function Homepage() {
-  let displayProject = (url, title, summary, details) => {
+  let displayProject = (url, title, summary, details, img) => {
     return (
       <article>
+        <img src={img} alt={img + "picture"} />
         <Link to={url} className="weather">
           {title} App
         </Link>
@@ -31,20 +36,23 @@ export function Homepage() {
               "Facebook UI",
               "Facebook dropdown UI with pagination and theme",
               `Animated dropdown that 'scrolls' left and right. A dark/white theme button, stores the data in cache.
-               A simple pagination with materail ui and some mock data.`
+               A simple pagination with material ui and some mock data.`,
+              fbFav
             )}
             {displayProject(
               "/weatherapp",
               "Weather",
               "Give it a city and it will get you the weather",
-              "Enter a city in the autocomplete, if it is a valid city it will use fetch api to get the corresponding data."
+              "Enter a city in the autocomplete, if it is a valid city it will use fetch api to get the corresponding data.",
+              weatherappFav
             )}
 
             {displayProject(
               "/tictac",
               "Tic-Tac-Toe",
               "A simple tic-tac-toe game",
-              "React Tutorial Game recreated with Hooks API with minor jest testing"
+              "React Tutorial Game recreated with Hooks API with minor jest testing",
+              tictacFav
             )}
           </section>
 
