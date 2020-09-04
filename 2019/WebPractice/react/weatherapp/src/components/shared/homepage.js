@@ -10,12 +10,12 @@ export function Homepage() {
   let displayProject = (url, title, summary, details, img) => {
     return (
       <article>
-        <img src={img} alt={img + "picture"} />
-        <Link to={url} className="weather">
-          {title} App
+        <Link to={url}>
+          <img src={img} alt={img + "picture"} />
+          <h2 className="projectTag">{title} App</h2>
+          <div>{summary}</div>
+          <div className="details">{details}</div>
         </Link>
-        <div>{summary}</div>
-        <div className="details">{details}</div>
       </article>
     );
   };

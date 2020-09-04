@@ -54,9 +54,10 @@ section.container-home{
             }
         }
 
-        a{
+        h2{
             font-weight: 600;
             font-size: large;
+            margin: 0;
         }
 
         .github{
@@ -71,7 +72,7 @@ section.container-home{
         }
 
         //Color of each project
-        .weather{
+        .projectTag{
             color: hsla(208, 82%, 70%, 1);
             &:hover{
                 color: hsla(208, 82%, 50%, 1);
