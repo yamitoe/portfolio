@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import "./homepage.scss";
 
@@ -6,7 +6,11 @@ import fbFav from "./images/facebookuidark2.png";
 import tictacFav from "./images/tictactoe.png";
 import weatherappFav from "./images/weatherapp.png";
 
+import { CSSTransition } from "react-transition-group";
+
 export function Homepage() {
+  const titlesplashref = useRef(null);
+  const [titleSplash, setTitleSplash] = useState(true);
   let displayProject = (url, title, summary, details, img) => {
     return (
       <article>
@@ -24,10 +28,20 @@ export function Homepage() {
     <section className="container-home">
       {document.body.setAttribute("backColor", "home")}
       <main>
-        <div>
-          Hello! this is my personnal homepage where you will find some projects
-          I have worked on.
-        </div>
+        <section id="introduction">
+          <CSSTransition
+            in={titleSplash}
+            classNames="fade-effect"
+            timeout={500}
+            unmountOnExit
+            nodeRef={titlesplashref}
+          >
+            <p ref={titlesplashref}>
+              Hello! this is my personnal homepage where you will find a list of
+              projects I have worked on.
+            </p>
+          </CSSTransition>
+        </section>
         <section className="container-projects">
           <h3>Projects</h3>
           <section id="projects">

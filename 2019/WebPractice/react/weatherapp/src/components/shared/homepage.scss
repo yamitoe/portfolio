@@ -7,75 +7,93 @@ $whitetext-main: hsla(0, 0%, 90%, 1);
 $whitetext-header: hsla(0, 0%, 90%, 1);
 
 section.container-home{
-    display: flex;
-    flex-direction: column;
+    padding: 5px;
     main{
-        padding: 5px;
-    }
-
-    footer{
-        flex-grow: 1;
-    }
-
-    section{
-       margin-bottom: 10px;
-        background-color: $darklight-color; 
-    }
-
-    h3{
-        margin:0 0 5px 0;
-        font-weight: 600;
-        color: $whitetext-header;
-    }
-    .container-projects{
-        #projects{
+        display: flex;
+        flex-direction: column;
+        #introduction{
             display: flex;
-            flex-wrap: wrap;
-            article{
-                margin: 5px;
-                padding: 3px;
-                background-color: $darklightlight-color; 
-                width: 500px;
-                word-break: break-all;
-                &:hover{
-                    filter: brightness(0.80);
-                }
-            }
-
-            .details{
-                margin-top: 4px; 
-                color: $darklightlight-text ;
-            }
-
-            img{
-                width: 100%;
-                max-height: 300px;
-              
+            justify-content: flex-end;
+            align-items: center;
+            padding: 15px;
+            height: 150px;
+            overflow: hidden;
+            p{
+                //transform: translateX(150%);
+                font-weight: 600;
+                font-size: large;
+                //transition:  translateX 0.5s ease;
             }
         }
 
-        h2{
+        main{
+            padding: 5px;
+        }
+    
+        footer{
+            flex-grow: 1;
+        }
+    
+        section{
+           margin-bottom: 10px;
+            background-color: $darklight-color; 
+        }
+    
+        h3{
+            margin:0 0 5px 0;
             font-weight: 600;
-            font-size: large;
-            margin: 0;
+            color: $whitetext-header;
         }
-
-        .github{
-            margin-top: 5px;
-            a{
-                color: hsla(108, 82%, 89%, 1);
-                background-color: hsla(108, 82%, 19%, 1);
-                &:hover{
-                    background-color: hsla(108, 82%, 29%, 1);
+        .container-projects{
+            #projects{
+                display: flex;
+                flex-wrap: wrap;
+                article{
+                    margin: 5px;
+                    padding: 3px;
+                    background-color: $darklightlight-color; 
+                    width: 500px;
+                    word-break: break-all;
+                    &:hover{
+                        filter: brightness(0.80);
+                    }
+                }
+    
+                .details{
+                    margin-top: 4px; 
+                    color: $darklightlight-text ;
+                }
+    
+                img{
+                    width: 100%;
+                    max-height: 300px;
+                  
                 }
             }
-        }
-
-        //Color of each project
-        .projectTag{
-            color: hsla(208, 82%, 70%, 1);
-            &:hover{
-                color: hsla(208, 82%, 50%, 1);
+    
+            h2{
+                font-weight: 600;
+                font-size: large;
+                margin: 0;
+            }
+    
+            .github{
+                margin-top: 5px;
+                a{
+                    color: hsla(108, 82%, 89%, 1);
+                    background-color: hsla(108, 82%, 19%, 1);
+                    &:hover{
+                        background-color: hsla(108, 82%, 29%, 1);
+                    }
+                }
+            }
+    
+            //Color of each project
+            .projectTag{
+                color: hsla(208, 82%, 70%, 1);
+                &:hover{
+                    color: hsla(208, 82%, 50%, 1);
+                }
             }
         }
     }
@@ -99,4 +117,21 @@ section.skills{
         }
         
     }
+}
+
+
+.fade-effect-enter{
+    transform: translateX(150%);
+}
+.fade-effect-enter-active{
+    transform: translateX(0%);
+    transition: all 4s ease;
+
+}
+.fade-effect-exit{
+    transform: translateX(0%);
+}
+.fade-effect-exit-active{
+    transform: translateX(150%);
+    transition: all 1s ease;
 }
