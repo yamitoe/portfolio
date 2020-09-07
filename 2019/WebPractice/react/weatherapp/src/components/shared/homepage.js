@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./homepage.scss";
 
@@ -10,7 +10,20 @@ import { CSSTransition } from "react-transition-group";
 
 export function Homepage() {
   const titlesplashref = useRef(null);
-  const [titleSplash, setTitleSplash] = useState(true);
+  const [titleSplash, setTitleSplash] = useState(false);
+  useEffect(() => {
+    const onScroll = e => {
+      console.log(window.pageYOffset);
+      if (window.pageYOffset >= 0 && window.pageYOffset < 140) {
+        setTitleSplash(true);
+      } else {
+        setTitleSplash(false);
+      }
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+  }, []);
+
   let displayProject = (url, title, summary, details, img) => {
     return (
       <article>
@@ -32,7 +45,7 @@ export function Homepage() {
           <CSSTransition
             in={titleSplash}
             classNames="fade-effect"
-            timeout={500}
+            timeout={1000}
             unmountOnExit
             nodeRef={titlesplashref}
           >
