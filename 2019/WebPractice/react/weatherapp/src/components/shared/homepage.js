@@ -49,10 +49,13 @@ export function Homepage() {
             unmountOnExit
             nodeRef={titlesplashref}
           >
-            <p ref={titlesplashref}>
-              Hello! this is my personnal homepage where you will find a list of
-              projects I have worked on.
-            </p>
+            <div ref={titlesplashref}>
+              <p>
+                Hello! this is my personnal homepage where you will find a list
+                of projects I have worked on.
+              </p>
+              <div>Shown below are live demos that you may interact with.</div>
+            </div>
           </CSSTransition>
         </section>
         <section className="container-projects">
