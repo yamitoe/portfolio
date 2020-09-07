@@ -13,7 +13,6 @@ export function Homepage() {
   const [titleSplash, setTitleSplash] = useState(false);
   useEffect(() => {
     const onScroll = e => {
-      console.log(window.pageYOffset);
       if (window.pageYOffset >= 0 && window.pageYOffset < 140) {
         setTitleSplash(true);
       } else {
@@ -28,7 +27,7 @@ export function Homepage() {
     return (
       <article>
         <Link to={url}>
-          <img src={img} alt={img + "picture"} />
+          <img src={img} alt={img + "pic"} className={title + "Pic"} />
           <h2 className="projectTag">{title} App</h2>
           <div>{summary}</div>
           <div className="details">{details}</div>
@@ -63,7 +62,7 @@ export function Homepage() {
           <section id="projects">
             {displayProject(
               "/facebookui",
-              "Facebook UI",
+              "FacebookUI",
               "Facebook dropdown UI with pagination and theme",
               `Animated dropdown that 'scrolls' left and right. A dark/white theme button, stores the data in cache.
                A simple pagination with material ui and some mock data.`,

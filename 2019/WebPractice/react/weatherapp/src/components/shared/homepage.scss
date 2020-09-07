@@ -67,8 +67,24 @@ section.container-home{
     
                 img{
                     width: 100%;
-                    max-height: 300px;
-                  
+                    height: 300px;
+                //Replace with animated gif for specefic project
+                  &:hover{
+                      &.FacebookUIPic{
+                        content: url("./images/facebookuiGif.gif");
+                      }
+                      &.WeatherPic{
+                        content: url("./images/weatherGif.gif");
+                      }
+                      &.Tic-Tac-ToePic{
+                        content: url("./images/tictacGif.gif");
+                      }
+                   
+                  }
+                }
+                video{
+                    width: 100%;
+                    display: none;
                 }
             }
     
