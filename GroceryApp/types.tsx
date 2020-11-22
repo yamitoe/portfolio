@@ -10,6 +10,8 @@ export type BottomTabParamList = {
 
 export type TabOneParamList = {
   ListsScreen: undefined;
+  List1: undefined;
+  any: undefined;
 };
 
 export type TabTwoParamList = {
