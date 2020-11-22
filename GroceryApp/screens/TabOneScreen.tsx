@@ -11,12 +11,16 @@ export default function TabOneScreen({navigation}) {
           data={[
           // {key: 'List4'},
           // {key: 'List6'},
-          {key: 'List1'},
+          {key: 'List1', data: "hello"},
+          {key: 'List2', data: "h2"},
           ]}
           renderItem={({item}) =>(
             <TouchableHighlight
             underlayColor="hsla(187, 100%, 94%, 0.5)"
-            onPress={() => navigation.navigate(item.key)}
+            onPress={() =>{
+                // navigation.push(item.key,{ owner: 'Michaś' });
+                navigation.navigate("ListPage", {a:[1,2,3,4]});
+            }}
             >
               <View style={styles.view}>
                   <Text style={styles.item}>{item.key}</Text>

@@ -8,7 +8,7 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
-import Test1 from '../screens/Test1';
+import ListPage from '../screens/ListPage';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -62,8 +62,8 @@ function TabOneNavigator() {
         options={{ headerTitle: 'Grocery List' }}
       />
       <TabOneStack.Screen
-        name={"List1"}
-        component={Test1}
+        name={"ListPage"}
+        component={ListPage}
       />
     </TabOneStack.Navigator>
   );
