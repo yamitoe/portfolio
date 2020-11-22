@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { FlatList, StyleSheet, TouchableHighlight } from 'react-native';
+import { FlatList, StyleSheet, TouchableHighlight, Text, View } from 'react-native';
 
-import { Text, View } from '../components/Themed';
-import ListScreen from './ListScreen';
+
 
 export default function TabOneScreen({navigation}) {
   return (

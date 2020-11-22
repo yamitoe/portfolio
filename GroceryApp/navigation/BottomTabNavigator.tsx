@@ -53,9 +53,6 @@ function TabOneNavigator() {
     const [currentLists, setLists] = useState([
       {key: 'List1'},
       ]);
-    function creatList(){
-      //let t = <TabOneScreen navigation={navigation} lists={lists}/>
-    }
 
   return (
     <TabOneStack.Navigator>
@@ -65,16 +62,13 @@ function TabOneNavigator() {
         options={{ headerTitle: 'Grocery List' }}
       />
       <TabOneStack.Screen
-        name={currentLists[0].key}
+        name={"List1"}
         component={Test1}
       />
     </TabOneStack.Navigator>
   );
 }
 
-function TabOneListData({navigation, lists}){
-   // return <TabOneScreen navigation={navigation} lists={lists}/>;
-}
 
 const TabTwoStack = createStackNavigator();
 
