@@ -47,6 +47,7 @@ function TabBarIcon(props: { name: string; color: string }) {
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createStackNavigator();
+
 //For list view, add here
 function TabOneNavigator() {
     //Data for the currently made lists
@@ -64,6 +65,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name={"ListPage"}
         component={ListPage}
+        options={{ headerTitle: 'List' }}
       />
     </TabOneStack.Navigator>
   );

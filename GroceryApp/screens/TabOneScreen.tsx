@@ -9,17 +9,16 @@ export default function TabOneScreen({navigation}) {
     <View style={styles.container}>
       <FlatList
           data={[
-          // {key: 'List4'},
-          // {key: 'List6'},
-          {key: 'List1', data: "hello"},
-          {key: 'List2', data: "h2"},
+          {key: 'List1', data: ["Apples","Carrots","Milk"]},
+          {key: 'List2', data: ["Apples","Cheese","Eggs"]},
           ]}
+          //unloads the above array
           renderItem={({item}) =>(
             <TouchableHighlight
             underlayColor="hsla(187, 100%, 94%, 0.5)"
             onPress={() =>{
                 // navigation.push(item.key,{ owner: 'Michaś' });
-                navigation.navigate("ListPage", {a:[1,2,3,4]});
+                navigation.navigate("ListPage", {...item});
             }}
             >
               <View style={styles.view}>

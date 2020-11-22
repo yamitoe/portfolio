@@ -2,11 +2,11 @@ import React from 'react';
 import { Text,View } from '../components/Themed';
 
 export default function ListPage({route,navigation}){
-    const {a} = route.params;
+    const {data} = route.params;
     return(
         <View>
             {/* <Text>{a}</Text> */}
-            {a.map(v=><Text>{v}</Text>)}
+            {data.map(v=><Text>{v}</Text>)}
         </View>
     );
 }

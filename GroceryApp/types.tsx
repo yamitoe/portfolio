@@ -8,12 +8,12 @@ export type BottomTabParamList = {
   Notifications: undefined;
 };
 
-export type TabOneParamList = {
-  ListsScreen: undefined;
-  List1: undefined;
-  any: undefined;
-};
+// export type TabOneParamList = {
+//   ListsScreen: undefined;
+//   List1: undefined;
+//   any: undefined;
+// };
 
-export type TabTwoParamList = {
-  NotificationsScreen: undefined;
-};
+// export type TabTwoParamList = {
+//   NotificationsScreen: undefined;
+// };
