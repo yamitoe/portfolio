@@ -13,8 +13,14 @@ export default function TabOneScreen({navigation}) {
   ]);
 
 
-  function createList(){
+  function createList(newList){
+    let formatList = {key: newList, data: []};
+    setListData(prevList => [...prevList, formatList]);
+    resetForm();
+  }
 
+  function resetForm(){
+    setText('');
   }
   return (
 
@@ -69,7 +75,7 @@ export default function TabOneScreen({navigation}) {
                 }}
               >
               <Text style={styles.textStyle}
-                // onPress={()=>createList()}
+                onPress={()=>createList(text)}
                 >Confirm</Text>
 
             
