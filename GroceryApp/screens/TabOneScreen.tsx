@@ -7,13 +7,21 @@ import { TextInput,Modal,FlatList, StyleSheet, TouchableHighlight, Text, View } 
 export default function TabOneScreen({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
   const [text, setText] = useState('');
+  const [listdata, setListData] = useState([
+    {key: 'List1', data: ["Apples","Carrots","Milk"]},
+    {key: 'List2', data: ["Apples","Cheese","Eggs"]}
+  ]);
+
+
+  function createList(){
+
+  }
   return (
 
     <View style={styles.container}>
       <FlatList
           data={[
-          {key: 'List1', data: ["Apples","Carrots","Milk"]},
-          {key: 'List2', data: ["Apples","Cheese","Eggs"]},
+            ...listdata
           ]}
           //unloads the above array
           renderItem={({item}) =>(
@@ -44,15 +52,29 @@ export default function TabOneScreen({navigation}) {
             onChangeText={text => setText(text)}
             defaultValue={text}
           />
+            <View style={{ flex:0, flexDirection:"row" ,justifyContent:"space-between"}}>
+              <TouchableHighlight
+                style={{ ...styles.openButton, backgroundColor: "#2196F3", margin:2 }}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                }}
+              >
+              <Text style={styles.textStyle}>Cancel</Text>
+              </TouchableHighlight>
+              {/* Two so that if you hold tap in highlight seperately */}
+              <TouchableHighlight
+                style={{ ...styles.openButton, backgroundColor: "#2196F3",margin:2 }}
+                onPress={() => {
+                  setModalVisible(!modalVisible);
+                }}
+              >
+              <Text style={styles.textStyle}
+                // onPress={()=>createList()}
+                >Confirm</Text>
 
-            <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </TouchableHighlight>
+            
+              </TouchableHighlight>
+              </View>
           </View>
         </View>
       </Modal>
@@ -103,7 +125,7 @@ const styles = StyleSheet.create({
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",    
   },
   centeredView: {
     flex: 1,
