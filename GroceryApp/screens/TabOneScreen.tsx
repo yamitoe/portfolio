@@ -8,14 +8,15 @@ export default function TabOneScreen({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
   const [text, setText] = useState('');
   const [listdata, setListData] = useState([
-    {key: 'List1', data: ["Apples","Carrots","Milk"]},
-    {key: 'List2', data: ["Apples","Cheese","Eggs"]}
+    {key:"0as", title: 'List1', data: ["Apples","Carrots","Milk"]},
+    {key:"1qq",title: 'List2', data: ["Apples","Cheese","Eggs"]}
   ]);
 
 
   function createList(newList){
-    let formatList = {key: newList, data: []};
+    let formatList = {key: newList + listdata.length, title:newList, data: []};
     setListData(prevList => [...prevList, formatList]);
+    setModalVisible(!modalVisible);
     resetForm();
   }
 
@@ -34,12 +35,12 @@ export default function TabOneScreen({navigation}) {
             <TouchableHighlight
             underlayColor="hsla(187, 100%, 94%, 0.5)"
             onPress={() =>{
-                // navigation.push(item.key,{ owner: 'Michaś' });
+                // Passes data to page ListPage with props item
                 navigation.navigate("ListPage", {...item});
             }}
             >
               <View style={styles.view}>
-                  <Text style={styles.item}>{item.key}</Text>
+                  <Text style={styles.item}>{item.title}</Text>
               </View>
             </TouchableHighlight>
       
@@ -70,9 +71,9 @@ export default function TabOneScreen({navigation}) {
               {/* Two so that if you hold tap in highlight seperately */}
               <TouchableHighlight
                 style={{ ...styles.openButton, backgroundColor: "#2196F3",margin:2 }}
-                onPress={() => {
-                  setModalVisible(!modalVisible);
-                }}
+                // onPress={() => {
+                //   setModalVisible(!modalVisible);
+                // }}
               >
               <Text style={styles.textStyle}
                 onPress={()=>createList(text)}
