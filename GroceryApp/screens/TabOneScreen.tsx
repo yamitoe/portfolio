@@ -38,8 +38,8 @@ export default function TabOneScreen({navigation}) {
             <TouchableHighlight
             underlayColor="hsla(187, 100%, 94%, 0.5)"
             onPress={() =>{
-                // Passes data to page ListPage with props item
-                navigation.navigate("ListPage", {...item});
+                // Passes data to page ListPage with props item //refactor
+                navigation.navigate("ListPage", ...listdata);
             }}
             >
               <View style={styles.view}>

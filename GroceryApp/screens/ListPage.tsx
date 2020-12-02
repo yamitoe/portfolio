@@ -2,16 +2,20 @@ import React, {useState} from 'react';
 import {TextInput,Modal,FlatList, StyleSheet, TouchableHighlight, Text, View} from 'react-native';
 
 export default function ListPage({route,navigation}){
-    //It must be called "data"
-    const {data} = route.params;
+  //destruct my object {key:"" ,data: []}
+    const {data, key} = route.params;
+    // const data = route.params;
     const [modalVisible, setModalVisible] = useState(false);
     return(
         <View>
-            {/* <View>
-                {data.map(v=><Text key={data.key}>{v}</Text>)}  
+            <View>
+                {data.map(v=><Text key={key}>{v}</Text>)}  
+            </View>
+                 {/* <View>
+                <Text >{data.key}aa{data.title}</Text>  
             </View> */}
 
-            <FlatList
+            {/* <FlatList
           data={data}
           //unloads the above array
           renderItem={({item}) =>(
@@ -24,7 +28,7 @@ export default function ListPage({route,navigation}){
             </TouchableHighlight>
       
             )}
-         />
+         /> */}
 
         <Modal
         transparent={true}
