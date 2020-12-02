@@ -1,21 +1,24 @@
 import * as React from 'react';
-import {useState} from "react";
+import {useState, useContext} from "react";
 import { TextInput,Modal,FlatList, StyleSheet, TouchableHighlight, Text, View } from 'react-native';
 
-
+import {ListContext, ListUpdate} from "../context/ListContext"
 
 export default function TabOneScreen({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
   const [text, setText] = useState('');
-  const [listdata, setListData] = useState([
-    {key:"0as", title: 'List1', data: ["Apples","Carrots","Milk"]},
-    {key:"1qq",title: 'List2', data: ["Apples","Cheese","Eggs"]}
-  ]);
+  const listdata = useContext(ListContext);
+  const listUpdate = useContext(ListUpdate);
+
+  // const [listdata, setListData] = useState([
+  //   {key:"0as", title: 'List1', data: ["Apples","Carrots","Milk"]},
+  //   {key:"1qq",title: 'List2', data: ["Apples","Cheese","Eggs"]}
+  // ]);
 
 
   function createList(newList){
     let formatList = {key: newList + listdata.length, title:newList, data: []};
-    setListData(prevList => [...prevList, formatList]);
+    listUpdate(prevList => [...prevList, formatList]);
     setModalVisible(!modalVisible);
     resetForm();
   }

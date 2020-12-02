@@ -12,7 +12,7 @@ export default function ListPage({route,navigation}){
             </View> */}
 
             <FlatList
-          data={[...data]}
+          data={data}
           //unloads the above array
           renderItem={({item}) =>(
             <TouchableHighlight
