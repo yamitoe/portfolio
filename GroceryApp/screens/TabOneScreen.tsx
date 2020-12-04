@@ -58,7 +58,7 @@ export default function TabOneScreen({navigation}) {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
           <TextInput
-            style={{height: 40}}
+            style={{height: 40, backgroundColor:"hsla(0, 0%, 90%, 1)",alignSelf: "stretch",textAlign: 'center'}}
             placeholder="Enter Title"
             onChangeText={text => setText(text)}
             defaultValue={text}
@@ -96,7 +96,7 @@ export default function TabOneScreen({navigation}) {
           setModalVisible(true);
         }}
       >
-        <Text style={styles.textStyle}>Show Modal</Text>
+        <Text style={styles.textStyle}>Create List</Text>
       </TouchableHighlight>
 
   </View>

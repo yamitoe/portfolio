@@ -13,6 +13,11 @@ export default function ListPage({route,navigation}){
     const [modalVisible, setModalVisible] = useState(false);
     const listdata = useContext(ListContext);
     const listUpdate = useContext(ListUpdate);
+
+    //Data for text inputs
+    const [text, setText] = useState('');
+    const [timer, setTimer] = useState(0);
+
     //Filter the arrary and match it by key id
     let matchedData = listdata.filter(obj=> obj.key == currentKey);
     //Deconstruct Array of Objects
@@ -21,13 +26,6 @@ export default function ListPage({route,navigation}){
  
     return(
         <View>
-            {/* <View>
-                {data.map(index=><Text key={index.key}>{index.item}</Text>)}  
-            </View> */}
-                 {/* <View>
-                <Text >{data.key}aa{data.title}</Text>  
-            </View> */}
-
             <FlatList
           data={data}
           //unloads the above array
@@ -49,12 +47,18 @@ export default function ListPage({route,navigation}){
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-          {/* <TextInput
-            style={{height: 40}}
-            placeholder="Enter Title"
+          <TextInput
+            style={{height: 40, backgroundColor:"hsla(0, 0%, 90%, 1)",alignSelf: "stretch",textAlign: 'center' }}
+            placeholder="Item Name"
             onChangeText={text => setText(text)}
             defaultValue={text}
-          /> */}
+          />
+          <TextInput
+            style={{height: 40 , opacity:.7 ,alignSelf: "stretch",textAlign: 'center'}}
+            keyboardType = 'numeric'
+            placeholder="Reminder Timer"
+            onChangeText={text => setTimer(parseInt(text))}
+          />
             <View style={{ flex:0, flexDirection:"row" ,justifyContent:"space-between"}}>
               <TouchableHighlight
                 style={{ ...styles.openButton, backgroundColor: "#2196F3", margin:2 }}
@@ -98,62 +102,62 @@ export default function ListPage({route,navigation}){
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-    },
-    title: {
-      fontSize: 20,
-      fontWeight: 'bold',
-    },
-    separator: {
-      marginVertical: 30,
-      height: 1,
-      width: '80%',
-    },
-    item: {
-      fontSize: 18,
-    },
-    view: {
-        justifyContent: "center",
-        alignItems: "flex-start",
-        height: 42,
-        padding: 10,
-    },
-    openButton: {
-      backgroundColor: "#2196F3",
-      borderRadius: 20,
-      padding: 10,
-      elevation: 2
-    },
-    textStyle: {
-      color: "white",
-      fontWeight: "bold",
-      textAlign: "center",    
-    },
-    centeredView: {
-      flex: 1,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  separator: {
+    marginVertical: 30,
+    height: 1,
+    width: '80%',
+  },
+  item: {
+    fontSize: 18,
+  },
+  view: {
       justifyContent: "center",
-      alignItems: "center",
-      marginTop: 22
+      alignItems: "flex-start",
+      height: 42,
+      padding: 10,
+  },
+  openButton: {
+    backgroundColor: "#2196F3",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",    
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2
     },
-    modalView: {
-      margin: 20,
-      backgroundColor: "white",
-      borderRadius: 20,
-      padding: 35,
-      alignItems: "center",
-      shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 2
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 3.84,
-      elevation: 5
-    },
-    modalText: {
-      marginBottom: 15,
-      textAlign: "center"
-    }
-  });
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center"
+  }
+});
