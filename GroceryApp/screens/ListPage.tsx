@@ -21,14 +21,14 @@ export default function ListPage({route,navigation}){
  
     return(
         <View>
-            <View>
+            {/* <View>
                 {data.map(index=><Text key={index.key}>{index.item}</Text>)}  
-            </View>
+            </View> */}
                  {/* <View>
                 <Text >{data.key}aa{data.title}</Text>  
             </View> */}
 
-            {/* <FlatList
+            <FlatList
           data={data}
           //unloads the above array
           renderItem={({item}) =>(
@@ -36,12 +36,12 @@ export default function ListPage({route,navigation}){
             underlayColor="hsla(187, 100%, 94%, 0.5)"
             >
               <View style={styles.view}>
-                  <Text style={styles.item} key={item.key}>{item.key}</Text>
+                  <Text style={styles.item} key={item.key}>{item.item}</Text>
               </View>
             </TouchableHighlight>
       
             )}
-         /> */}
+         />
 
         <Modal
         transparent={true}
