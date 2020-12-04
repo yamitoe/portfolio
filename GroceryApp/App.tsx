@@ -14,8 +14,20 @@ export default function App() {
 
   //Some mock data
   const [listdata, setListData] = useState([
-    {key:"0as", title: 'List1', data: ["Apples","Carrots","Milk"]},
-    {key:"1qq",title: 'List2', data: ["Apples","Cheese","Eggs"]}
+    {
+      key:"0as",
+      title: 'List1', 
+      data: 
+        [{item:"Apples", key:"0as1",time:0},
+        {item:"Carrots", key:"0as2",time:0},
+        {item:"Milk", key:"0as3",time:0}]
+    },
+      {key:"1qq",
+      title: 'List2',
+      data: 
+        [{item:"Apples", key:"1qq1",time:0},
+        {item:"Cheese", key:"1qq2",time:0},
+        {item:"Eggs", key:"1qq3",time:0},]}
   ]);
 
   if (!isLoadingComplete) {

@@ -15,8 +15,9 @@ export default function TabOneScreen({navigation}) {
   //   {key:"1qq",title: 'List2', data: ["Apples","Cheese","Eggs"]}
   // ]);
 
-
+  //Function call to global state
   function createList(newList){
+    //key is some number
     let formatList = {key: newList + listdata.length, title:newList, data: []};
     listUpdate(prevList => [...prevList, formatList]);
     setModalVisible(!modalVisible);
@@ -39,7 +40,7 @@ export default function TabOneScreen({navigation}) {
             underlayColor="hsla(187, 100%, 94%, 0.5)"
             onPress={() =>{
                 // Passes data to page ListPage with props item //refactor
-                navigation.navigate("ListPage", ...listdata);
+                navigation.navigate("ListPage", item);
             }}
             >
               <View style={styles.view}>

@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {TextInput,Modal,FlatList, StyleSheet, TouchableHighlight, Text, View} from 'react-native';
 
+import {ListContext, ListUpdate} from '../context/ListContext'
+
 export default function ListPage({route,navigation}){
   //destruct my object {key:"" ,data: []}
     const {data, key} = route.params;
@@ -9,7 +11,7 @@ export default function ListPage({route,navigation}){
     return(
         <View>
             <View>
-                {data.map(v=><Text key={key}>{v}</Text>)}  
+                {data.map(index=><Text key={index.key}>{index.item}</Text>)}  
             </View>
                  {/* <View>
                 <Text >{data.key}aa{data.title}</Text>  
