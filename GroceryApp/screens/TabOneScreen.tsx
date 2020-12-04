@@ -40,7 +40,7 @@ export default function TabOneScreen({navigation}) {
             underlayColor="hsla(187, 100%, 94%, 0.5)"
             onPress={() =>{
                 // Passes data to page ListPage with props item //refactor
-                navigation.navigate("ListPage", item);
+                navigation.navigate("ListPage", item.key);
             }}
             >
               <View style={styles.view}>

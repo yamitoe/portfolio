@@ -3,6 +3,6 @@ import React from "react";
 export const ListContext = React.createContext([{
     key:"",
     title: "", 
-    data:[{item:"Apples", key:"1qq1",time:0}]
+    data:[{item:"", key:"",time:0}]
     }]);
 export const ListUpdate =  React.createContext((arr)=>{});

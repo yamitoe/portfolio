@@ -1,13 +1,24 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import {TextInput,Modal,FlatList, StyleSheet, TouchableHighlight, Text, View} from 'react-native';
 
 import {ListContext, ListUpdate} from '../context/ListContext'
 
 export default function ListPage({route,navigation}){
   //destruct my object {key:"" ,data: []}
-    const {data, key} = route.params;
+    // const {data, key} = route.params;
+
+    //Should be a key ID passed by navigation
+    const currentKey = route.params;
     // const data = route.params;
     const [modalVisible, setModalVisible] = useState(false);
+    const listdata = useContext(ListContext);
+    const listUpdate = useContext(ListUpdate);
+    //Filter the arrary and match it by key id
+    let matchedData = listdata.filter(obj=> obj.key == currentKey);
+    //Deconstruct Array of Objects
+    let [{data}] = matchedData; 
+
+ 
     return(
         <View>
             <View>
