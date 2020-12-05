@@ -23,6 +23,20 @@ export default function ListPage({route,navigation}){
     //Deconstruct Array of Objects
     let [{data}] = matchedData; 
 
+    //Function call to global state
+    function updateList(item,timer){
+    //key is some number
+    // let formatList = {key: listdata.length, title:data: []};
+    // listUpdate(prevList => [...prevList, formatList]);
+    setModalVisible(!modalVisible);
+    resetForm();
+  }
+
+  function resetForm(){
+    setText('');
+    setTimer(0);
+  }
+
  
     return(
         <View>
@@ -76,7 +90,7 @@ export default function ListPage({route,navigation}){
                 }}
               >
               <Text style={styles.textStyle}
-                // onPress={()=>createList(text)}
+                onPress={()=>updateList(text,timer)}
                 >Confirm</Text>
 
             
@@ -92,7 +106,7 @@ export default function ListPage({route,navigation}){
           setModalVisible(true);
         }}
       >
-        <Text style={styles.textStyle}>Show Modal</Text>
+        <Text style={styles.textStyle}>Add Item</Text>
       </TouchableHighlight>
 
         </View>

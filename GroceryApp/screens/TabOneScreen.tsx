@@ -2,13 +2,16 @@ import * as React from 'react';
 import {useState, useContext} from "react";
 import { TextInput,Modal,FlatList, StyleSheet, TouchableHighlight, Text, View } from 'react-native';
 
-import {ListContext, ListUpdate} from "../context/ListContext"
+import {ListContext, ListUpdate} from "../context/ListContext";
+
+import {DataTimePicker} from "../components/DataTimePicker";
 
 export default function TabOneScreen({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
   const [text, setText] = useState('');
   const listdata = useContext(ListContext);
   const listUpdate = useContext(ListUpdate);
+
 
   // const [listdata, setListData] = useState([
   //   {key:"0as", title: 'List1', data: ["Apples","Carrots","Milk"]},
@@ -90,6 +93,9 @@ export default function TabOneScreen({navigation}) {
         </View>
       </Modal>
 
+            {/* Testing around */}
+            {/* <DataTimePicker/> */}
+
       <TouchableHighlight
         style={styles.openButton}
         onPress={() => {
@@ -98,6 +104,7 @@ export default function TabOneScreen({navigation}) {
       >
         <Text style={styles.textStyle}>Create List</Text>
       </TouchableHighlight>
+
 
   </View>
 
