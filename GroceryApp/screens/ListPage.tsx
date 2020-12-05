@@ -39,7 +39,7 @@ export default function ListPage({route,navigation}){
 
  
     return(
-        <View>
+        <View style={styles.container}>
             <FlatList
           data={data}
           //unloads the above array
