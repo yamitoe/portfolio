@@ -1,5 +1,5 @@
 import React, {useState,useContext} from 'react';
-import {TextInput,Modal,FlatList, StyleSheet, TouchableHighlight, Text, View} from 'react-native';
+import {TextInput,Modal,FlatList, StyleSheet, TouchableHighlight, Text, View, Button} from 'react-native';
 
 import {ListContext, ListUpdate} from '../context/ListContext'
 
@@ -11,6 +11,7 @@ export default function ListPage({route,navigation}){
     const currentKey = route.params;
     // const data = route.params;
     const [modalVisible, setModalVisible] = useState(false);
+    const [deleteIcon, setdeleteIcon] = useState(false);
     const listdata = useContext(ListContext);
     const listUpdate = useContext(ListUpdate);
 
@@ -23,28 +24,23 @@ export default function ListPage({route,navigation}){
     //Deconstruct Array of Objects
     let [{data}] = matchedData; 
 
-    //Function call to global state //Add items to list
+
     function updateList(item,time){
-    const key = matchedData[0].key +"IT"+ data.length;
-    //Slice() to return a copy, we dont want to mutate the data
-    let changedData = data.slice();
-    changedData.push({item, key,time});
+      const key = matchedData[0].key +"IT"+ data.length;
+      //Slice() to return a copy, we dont want to mutate the data
+      let changedData = data.slice();
+      changedData.push({item, key,time});
 
-    //Fuse this with our current List (the root of it)
-    let fused = {...matchedData[0], data:changedData}
-   //alert(JSON.stringify(fused));
-    // alert(JSON.stringify(changedData));
-    listUpdate(prevList => {
-      let index = prevList.findIndex(el=>el.key == fused.key);
-      let t = [...prevList];
-      alert(JSON.stringify(t ));
-      t[index] = fused;
-      // alert(JSON.stringify(t ));
-
-      return t
-    });
-    //setModalVisible(!modalVisible);
-    resetForm();
+      //Fuse this with our current List (the root of it)
+      let fused = {...matchedData[0], data:changedData}
+      listUpdate(prevList => {
+        let index = prevList.findIndex(el=>el.key == fused.key);
+        let t = [...prevList];
+        t[index] = fused;
+        return t
+      });
+      setModalVisible(!modalVisible);
+      resetForm();
   }
 
   function resetForm(){
@@ -61,9 +57,13 @@ export default function ListPage({route,navigation}){
           renderItem={({item}) =>(
             <TouchableHighlight
             underlayColor="hsla(187, 100%, 94%, 0.5)"
+            onPress={() =>{
+              
+            }}
             >
-              <View style={styles.view}>
-                  <Text style={styles.item} key={item.key}>{item.item}</Text>
+              <View style={{...styles.view}} key={item.key}>
+                    <Text style={styles.item} >{item.item}</Text>
+   
               </View>
             </TouchableHighlight>
       

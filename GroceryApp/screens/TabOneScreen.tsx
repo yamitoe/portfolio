@@ -5,6 +5,7 @@ import { TextInput,Modal,FlatList, StyleSheet, TouchableHighlight, Text, View } 
 import {ListContext, ListUpdate} from "../context/ListContext";
 
 import {DataTimePicker} from "../components/DataTimePicker";
+import {Swipable} from "../components/Swipable";
 
 export default function TabOneScreen({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -33,7 +34,8 @@ export default function TabOneScreen({navigation}) {
   return (
 
     <View style={styles.container}>
-      <FlatList
+      <Swipable DATA={listdata}/>
+      {/* <FlatList
           data={[
             ...listdata
           ]}
@@ -52,7 +54,7 @@ export default function TabOneScreen({navigation}) {
             </TouchableHighlight>
       
           )}
-      />
+      /> */}
 
       <Modal
         transparent={true}
