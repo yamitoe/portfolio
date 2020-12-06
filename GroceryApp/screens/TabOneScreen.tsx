@@ -13,19 +13,26 @@ export default function TabOneScreen({navigation}) {
   const listdata = useContext(ListContext);
   const listUpdate = useContext(ListUpdate);
 
-
-  // const [listdata, setListData] = useState([
-  //   {key:"0as", title: 'List1', data: ["Apples","Carrots","Milk"]},
-  //   {key:"1qq",title: 'List2', data: ["Apples","Cheese","Eggs"]}
-  // ]);
-
   //Function call to global state
   function createList(newList){
     //key is some number
-    let formatList = {key: newList + listdata.length, title:newList, data: []};
+    let formatList = {key: newList + listdata.length, title:newList, when:getTime(), data: []};
     listUpdate(prevList => [...prevList, formatList]);
     setModalVisible(!modalVisible);
     resetForm();
+  }
+
+  function getTime(){
+    let date = new Date();
+    let hr = date.getHours();
+    let time;
+    if(hr > 12){
+      time = hr-12 +":"+ date.getMinutes() + " PM";
+    }else{
+      time = hr +":"+ date.getMinutes() + " AM";
+    }
+    alert(time);
+    return time;
   }
 
   function resetForm(){

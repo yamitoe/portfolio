@@ -16,10 +16,10 @@ export default function App() {
   const [listdata, setListData] = useState([
     {
       key:"0as",
-      title: 'List1', 
+      title: 'For dinner', 
       when: '3:11 PM',
       data: 
-        [{item:"Apples", key:"0as1",time:0},
+        [{item:"Steak", key:"0as1",time:0},
         {item:"Carrots", key:"0as2",time:0},
         {item:"Milk", key:"021",time:0},
         {item:"Soup", key:"161651",time:0},
@@ -28,7 +28,7 @@ export default function App() {
       ]
     },
       {key:"1qq",
-      title: 'List2',
+      title: 'Ingredients to buy',
       when: '8:11 PM',
       data: 
         [{item:"Apples", key:"1qq1",time:0},
