@@ -26,12 +26,12 @@ export default function TabOneScreen({navigation}) {
     let date = new Date();
     let hr = date.getHours();
     let time;
+    let min = date.getMinutes() > 9 ? date.getMinutes() : "0"+date.getMinutes();
     if(hr > 12){
       time = hr-12 +":"+ date.getMinutes() + " PM";
     }else{
       time = hr +":"+ date.getMinutes() + " AM";
     }
-    alert(time);
     return time;
   }
 
