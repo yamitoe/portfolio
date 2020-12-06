@@ -41,7 +41,7 @@ export default function TabOneScreen({navigation}) {
   return (
 
     <View style={styles.container}>
-      <Swipable DATA={listdata}/>
+      <Swipable DATA={listdata} nav={navigation}/>
       {/* <FlatList
           data={[
             ...listdata

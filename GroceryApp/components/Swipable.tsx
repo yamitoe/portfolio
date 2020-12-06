@@ -9,8 +9,8 @@ import { FlatList, RectButton } from 'react-native-gesture-handler';
 // import AppleStyleSwipeableRow from './AppleStyleSwipeableRow';
 import GmailStyleSwipeableRow from './GmailStyleSwipeableRow';
 
-const Row = ({ item }) => (
-  <RectButton style={styles.rectButton} onPress={() => alert(item.title)}>
+const Row = ({ item, nav}) => (
+  <RectButton style={styles.rectButton} onPress={() => nav ? nav.navigate("ListPage", item.key) : false}>
     <Text style={{...styles.fromText}}>{item.title}</Text>
         {item.data.map(x=><Text numberOfLines={2} key={x.key} style={styles.messageText}>{x.item}</Text>)}
 
@@ -20,21 +20,21 @@ const Row = ({ item }) => (
   </RectButton>
 );
 
-const SwipeableRow = ({ item, index }) => {
+const SwipeableRow = ({ item, index, nav}) => {
     return (
       <GmailStyleSwipeableRow>
-        <Row item={item} />
+        <Row item={item} nav={nav} />
       </GmailStyleSwipeableRow>
     );
 };
 
-export function Swipable ({DATA}){
+export function Swipable ({DATA, ...props}){
     return (
       <FlatList
         data={DATA}
         ItemSeparatorComponent={() => <View style={styles.separator} />}
         renderItem={({ item, index }) => (
-          <SwipeableRow item={item} index={index} />
+          <SwipeableRow item={item} index={index} nav={props.nav} />
         )}
         keyExtractor={(item, index) => `message ${index}`}
       />
