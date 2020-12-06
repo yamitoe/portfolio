@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import { StyleSheet, Text, View, I18nManager } from 'react-native';
 
 import { FlatList, RectButton } from 'react-native-gesture-handler';
@@ -8,6 +8,8 @@ import { FlatList, RectButton } from 'react-native-gesture-handler';
 
 // import AppleStyleSwipeableRow from './AppleStyleSwipeableRow';
 import GmailStyleSwipeableRow from './GmailStyleSwipeableRow';
+
+import {ListContext, ListUpdate} from '../context/ListContext'
 
 const Row = ({ item, nav}) => (
   <RectButton style={styles.rectButton} onPress={() => nav ? nav.navigate("ListPage", item.key) : false}>
@@ -20,15 +22,23 @@ const Row = ({ item, nav}) => (
   </RectButton>
 );
 
-const SwipeableRow = ({ item, index, nav}) => {
-    return (
-      <GmailStyleSwipeableRow>
-        <Row item={item} nav={nav} />
-      </GmailStyleSwipeableRow>
-    );
-};
+// const SwipeableRow = ({ item, index, nav}) => {
+//     return (
+//       <GmailStyleSwipeableRow index={index}>
+//         <Row item={item} nav={nav} />
+//       </GmailStyleSwipeableRow>
+//     );
+// };
 
 export function Swipable ({DATA, ...props}){
+  const listdata = useContext(ListContext);
+    const SwipeableRow = ({ item, index, nav}) => {
+      return (
+        <GmailStyleSwipeableRow index={index} listdata={listdata}>
+          <Row item={item} nav={nav}/>
+        </GmailStyleSwipeableRow>
+      );
+    };
     return (
       <FlatList
         data={DATA}

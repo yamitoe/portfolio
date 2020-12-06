@@ -33,7 +33,15 @@ export default function App() {
       data: 
         [{item:"Apples", key:"1qq1",time:0},
         {item:"Cheese", key:"1qq2",time:0},
-        {item:"Eggs", key:"1qq3",time:0},]}
+        {item:"Eggs", key:"1qq3",time:0},]},
+
+        {key:"11asaw",
+        title: 'Soup',
+        when: '2:11 AM',
+        data: 
+          [{item:"Chicken Broth", key:"1qqt1",time:0},
+          {item:"Pepper", key:"1qqt2",time:0},
+          {item:"Noodles", key:"1qqt3",time:0},]}
   ]);
 
   if (!isLoadingComplete) {

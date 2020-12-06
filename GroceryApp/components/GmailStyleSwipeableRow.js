@@ -6,9 +6,15 @@ import { RectButton } from 'react-native-gesture-handler';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import {ListContext, ListUpdate} from '../context/ListContext'
+
 const AnimatedIcon = Animated.createAnimatedComponent(Icon);
 
+
+
 export default class GmailStyleSwipeableRow extends Component {
+  static contextType = ListUpdate;
+
   renderLeftActions = (progress, dragX) => {
     const scale = dragX.interpolate({
       inputRange: [0, 80],
@@ -47,6 +53,13 @@ export default class GmailStyleSwipeableRow extends Component {
     this._swipeableRow = ref;
   };
   close = () => {
+    let currentData = [...this.props.listdata];
+    let e = currentData.splice(this.props.index,1);
+    //alert(this.props.index);
+    //alert(JSON.stringify(e));
+    //alert(JSON.stringify(currentData));
+    let context = this.context;
+    context(currentData);
     this._swipeableRow.close();
   };
   render() {
